@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/taxi-rzeszow-skoda-tel.jpg" media="(max-width:760px)">
+<link rel="preload" as="image" href="img/taxi-rzeszow-skoda.jpg">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {
@@ -106,10 +106,7 @@
 <!-- ================= HERO ================= -->
 <section class="hero" id="start">
   <div class="hero-foto">
-    <picture>
-      <source media="(max-width:760px)" srcset="img/taxi-rzeszow-skoda-tel.jpg">
-      <img src="img/taxi-rzeszow-skoda.jpg" alt="Taxi Rzeszów 24H - czarna Skoda z kogutem TAXI przed mostem w Rzeszowie" fetchpriority="high">
-    </picture>
+    <img src="img/taxi-rzeszow-skoda.jpg" alt="Taxi Rzeszów 24H - czarna Skoda z kogutem TAXI przed mostem w Rzeszowie" width="1024" height="900" fetchpriority="high">
   </div>
   <div class="hero-in">
     <div class="hero-txt">
@@ -146,7 +143,7 @@
 <section class="sek lot" id="lotnisko">
   <div class="wrap lot-grid">
     <div class="lot-foto">
-      <img src="img/lotnisko-jasionka.jpg" alt="Taxi przed terminalem lotniska Rzeszów-Jasionka" loading="lazy" width="1536" height="1024">
+      <img src="img/lotnisko-jasionka.jpg" srcset="img/lotnisko-jasionka-768.jpg 768w, img/lotnisko-jasionka.jpg 1536w" sizes="(max-width:960px) 100vw, 640px" alt="Taxi przed terminalem lotniska Rzeszów-Jasionka" loading="lazy" width="1536" height="1024">
     </div>
     <div class="lot-txt">
       <h2>Transfer na lotnisko Jasionka i odbiór z samolotu, o każdej porze</h2>
@@ -164,11 +161,11 @@
       <div>
         <h3>Lotniska, na które jeździmy</h3>
         <ul class="lotniska">
-        <li><button data-lotnisko="Lotnisko Rzeszów-Jasionka (RZE)"><span>Rzeszów-Jasionka (RZE)</span><em>zamów transfer</em></button></li>
-        <li><button data-lotnisko="Lotnisko Kraków (KRK)"><span>Kraków-Balice (KRK)</span><em>zamów transfer</em></button></li>
-        <li><button data-lotnisko="Lotnisko Katowice (KTW)"><span>Katowice-Pyrzowice (KTW)</span><em>zamów transfer</em></button></li>
-        <li><button data-lotnisko="Lotnisko Lublin (LUZ)"><span>Lublin (LUZ)</span><em>zamów transfer</em></button></li>
-        <li><button data-lotnisko="Lotnisko Warszawa"><span>Warszawa</span><em>zamów transfer</em></button></li>
+        <li><button data-lotnisko="Lotnisko Rzeszów-Jasionka (RZE)"><span>Rzeszów-Jasionka (RZE)</span><em>zamów transfer <svg class="ic"><use href="#i-arrow"/></svg></em></button></li>
+        <li><button data-lotnisko="Lotnisko Kraków (KRK)"><span>Kraków-Balice (KRK)</span><em>zamów transfer <svg class="ic"><use href="#i-arrow"/></svg></em></button></li>
+        <li><button data-lotnisko="Lotnisko Katowice (KTW)"><span>Katowice-Pyrzowice (KTW)</span><em>zamów transfer <svg class="ic"><use href="#i-arrow"/></svg></em></button></li>
+        <li><button data-lotnisko="Lotnisko Lublin (LUZ)"><span>Lublin (LUZ)</span><em>zamów transfer <svg class="ic"><use href="#i-arrow"/></svg></em></button></li>
+        <li><button data-lotnisko="Lotnisko Warszawa"><span>Warszawa</span><em>zamów transfer <svg class="ic"><use href="#i-arrow"/></svg></em></button></li>
         </ul>
       </div>
       <div>
@@ -188,9 +185,11 @@
   <div class="wrap taxi-grid">
     <div class="taxi-txt">
       <h2>Taxi w Rzeszowie i okolicy, przez całą dobę</h2>
-      <p>Jesteśmy lokalną firmą i znamy Rzeszów na pamięć. Jeździmy 24 godziny na dobę, również w weekendy i święta: krótkie kursy po mieście, nocne powroty, przejazdy do lekarza czy na dworzec. Samochody są klimatyzowane i regularnie serwisowane, a kierowcy mają licencje.</p>
-      <h3>Dzielnice i miejscowości, w których jeździmy</h3>
-      <p class="dzielnice">Śródmieście, Staromieście, Nowe Miasto, Baranówka, Drabinianka, Wilkowyja, Pobitno, Zalesie, Biała, Budziwój, Krakowska Południe, Załęże, Boguchwała, Tyczyn, Kielnarowa, Lubenia, Lutoryż, Czudec, Strzyżów, Niebylec, Malawa, Świlcza, Głogów, Chmielnik, Kraczkowa, Zaczernie, Rudna Mała, Łańcut, Trzciana.</p>
+      <p>Jesteśmy lokalną firmą i znamy Rzeszów na pamięć. Krótkie kursy po mieście, nocne powroty, przejazdy do lekarza czy na dworzec, także w weekendy i święta.</p>
+      <dl class="dzielnice">
+        <div><dt>Rzeszów</dt><dd>Śródmieście, Staromieście, Nowe Miasto, Baranówka, Drabinianka, Wilkowyja, Pobitno, Zalesie, Biała, Budziwój, Krakowska Południe, Załęże</dd></div>
+        <div><dt>Okolice</dt><dd>Boguchwała, Tyczyn, Kielnarowa, Lubenia, Lutoryż, Czudec, Strzyżów, Niebylec, Malawa, Świlcza, Głogów, Chmielnik, Kraczkowa, Zaczernie, Rudna Mała, Łańcut, Trzciana</dd></div>
+      </dl>
       <a class="btn btn-y taxi-cta" href="#zamow" data-typ="miasto">Zamów taxi po Rzeszowie <svg class="ic"><use href="#i-arrow"/></svg></a>
     </div>
     <div class="taxi-foto">
@@ -208,21 +207,25 @@
     </div>
     <div class="usl-glowne">
       <article class="usl">
+        <svg class="ic usl-ic"><use href="#i-bag"/></svg>
         <h3>Zakupy na zlecenie</h3>
         <p>Dzwonisz z listą, my robimy zakupy i dowozimy je pod wskazany adres. Wygodne dla seniorów i osób, które nie mogą wyjść z domu.</p>
         <button class="usl-btn" data-usluga="Zakupy na zlecenie">Zleć zakupy <svg class="ic"><use href="#i-arrow"/></svg></button>
       </article>
       <article class="usl">
+        <svg class="ic usl-ic"><use href="#i-wrench"/></svg>
         <h3>Drobna pomoc drogowa</h3>
         <p>Rozruch akumulatora, dowóz paliwa i przewóz pasażerów z unieruchomionego auta.</p>
         <button class="usl-btn" data-usluga="Drobna pomoc drogowa">Wezwij pomoc <svg class="ic"><use href="#i-arrow"/></svg></button>
       </article>
       <article class="usl">
+        <svg class="ic usl-ic"><use href="#i-route"/></svg>
         <h3>Przejazdy na dłuższych trasach</h3>
         <p>Kraków, Katowice, Lublin, Warszawa i inne miasta. Wygodnie, bez przesiadek, z odbiorem spod drzwi.</p>
         <button class="usl-btn" data-typ="trasa">Wyceń trasę <svg class="ic"><use href="#i-arrow"/></svg></button>
       </article>
       <article class="usl">
+        <svg class="ic usl-ic"><use href="#i-doc"/></svg>
         <h3>Taxi kurierskie</h3>
         <p>Szybki przewóz dokumentów, przesyłek i paczek po Rzeszowie i nie tylko.</p>
         <button class="usl-btn" data-usluga="Taxi kurierskie (dokumenty, paczka)">Wyślij paczkę <svg class="ic"><use href="#i-arrow"/></svg></button>
@@ -299,7 +302,7 @@
           <label class="z-pole" id="poleDokad"><span class="z-lab" id="labDokad">Dokąd</span><input id="dokad" name="dokad" placeholder="np. Dworzec PKP Rzeszów"></label>
         </div>
 
-        <div class="z-rzad z-rzad3">
+        <div class="z-rzad z-rzad3 z-kiedy">
           <div class="z-pole">
             <span class="z-lab">Kiedy</span>
             <div class="seg seg2">
@@ -311,7 +314,7 @@
           <label class="z-pole tylko-termin"><span class="z-lab">Godzina</span><input type="time" id="godz" name="godz" step="300"></label>
         </div>
 
-        <div class="z-rzad z-rzad3">
+        <div class="z-rzad z-rzad3 z-osoby">
           <div class="z-pole">
             <span class="z-lab">Liczba osób</span>
             <div class="licznik">
@@ -365,7 +368,7 @@
 <!-- ================= STANDARD + OPINIE ================= -->
 <section class="sek standard" id="dlaczego">
   <div class="wrap std-grid">
-    <div class="std-foto"><img src="img/czyste-auto.jpg" alt="Sprzątanie wnętrza samochodu przed kursem" loading="lazy" width="960" height="640"></div>
+    <div class="std-foto"><img src="img/auto-lotnisko-noc.jpg" srcset="img/auto-lotnisko-noc-768.jpg 768w, img/auto-lotnisko-noc.jpg 1536w" sizes="(max-width:960px) 100vw, 560px" alt="Samochód Taxi Rzeszów 24H na płycie lotniska wieczorem" loading="lazy" width="1536" height="1024"></div>
     <div class="std-txt">
       <h2>Samochody, kierowcy i płatności</h2>
       <ul class="std-lista">
@@ -391,7 +394,7 @@
 <section class="sek faq" id="faq">
   <div class="wrap faq-grid">
     <div class="sek-head">
-      <h2>Taxi Rzeszów i transfer na lotnisko Jasionka: najczęstsze pytania</h2>
+      <h2>Pytania o taxi i transfer na Jasionkę</h2>
     </div>
     <div class="faq-lista">
       <details open><summary>Czy Taxi Rzeszów 24H działa całą dobę?</summary><p>Tak, jeździmy po Rzeszowie i okolicy 24 godziny na dobę, również w weekendy i święta.</p></details>
