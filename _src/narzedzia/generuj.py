@@ -35,7 +35,8 @@ LOT_EN = 'en/taxi-rzeszow-jasionka-airport/'
 CEN = {'pl': 'cennik/', 'en': 'en/cennik/', 'de': 'de/cennik/', 'uk': 'ua/cennik/'}
 # Link do wizytowki Google (Profil Firmy). Wpisac PEWNY adres od klienta, np. https://maps.app.goo.gl/... albo https://www.google.com/maps?cid=...
 # Pusty = link "Opinie w Google" i wpis w sameAs (JSON-LD) nie sa wstawiane.
-GOOGLE_WIZYTOWKA = ''
+GOOGLE_WIZYTOWKA = 'https://maps.app.goo.gl/rkokLmM8mSPbVqgc9'   # link od klienta (05.11)
+GOOGLE_WIZYTOWKA_PELNY = 'https://www.google.com/maps?cid=8261589772277388605'   # ten sam profil (CID 0x72a710204898153d) - do sameAs
 
 # klucze tekstow potrzebne skryptowi app.js (prefiksy)
 T_PREF = ('lab.', 'ph.', 'opc.', 'k.', 'v.', 'brak', 'msg.', 'err.', 'miss.', 'qp.', 'qps.', 'ok.', 'wysyl', 'typ.', 'ck.',
@@ -290,7 +291,7 @@ def firma(lang):
         "sameAs": ["https://www.facebook.com/TaxiRzeszow24H", "https://www.instagram.com/taxirzeszow24h",
                    "https://www.tiktok.com/@taxi.rzeszow.24h", "https://www.youtube.com/@TaxiRzeszow24H-24H",
                    "https://www.tripadvisor.com/Attraction_Review-g274785-d33097322-Reviews-Taxi_Rzeszow_24h-Rzeszow_Subcarpathian_Province_Southern_Poland.html",
-                   "https://t.me/taxi_rzeszow_24h"] + ([GOOGLE_WIZYTOWKA] if GOOGLE_WIZYTOWKA else []),
+                   "https://t.me/taxi_rzeszow_24h"] + ([GOOGLE_WIZYTOWKA_PELNY or GOOGLE_WIZYTOWKA] if GOOGLE_WIZYTOWKA else []),
         "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Usługi Taxi Rzeszów 24H", "itemListElement": [
             {"@type": "Offer", "itemOffered": {"@type": "TaxiService", "name": "Taxi Rzeszów 24h", "description": "Kursy po Rzeszowie i okolicy całą dobę, także w weekendy i święta."}},
             {"@type": "Offer", "itemOffered": {"@type": "TaxiService", "name": "Transfer Rzeszów - lotnisko Jasionka", "description": "Przejazdy na Port Lotniczy Rzeszów-Jasionka i odbiór z samolotu, także przy opóźnieniu lotu; lotniska Kraków, Katowice, Lublin, Warszawa."}},

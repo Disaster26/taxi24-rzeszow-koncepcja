@@ -53,9 +53,14 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { zamknijLang(); zamknijMenu(); } });
 
   /* ---------- naglowek i plywajace przyciski: dopiero po minieciu duzych przyciskow w hero ---------- */
-  var plyw = $('#plyw'), heroCta = $('#heroCta'), wForm = false, wCta = !!heroCta;
-  function plywStan() {
-    if (plyw) plyw.classList.toggle('widac', !wForm && !wCta && !(menu && menu.classList.contains('otwarte')));
+  var plyw = $('#plyw'), heroCta = $('#heroCta'), wForm = false, wCta = !!heroCta, wCen = false;
+  var plywRaf = 0;
+  function plywStan() {   // odlozone do klatki animacji: najpierw wszystkie obserwatory, potem jeden stan (bez mrugniecia)
+    if (!plywRaf) plywRaf = requestAnimationFrame(plywTeraz);
+  }
+  function plywTeraz() {
+    plywRaf = 0;
+    if (plyw) plyw.classList.toggle('widac', !wForm && !wCen && !wCta && !(menu && menu.classList.contains('otwarte')));
     if (top) top.classList.toggle('hero-cta-widac', wCta);
     if (!wCta) pokazBanerZgod();
   }
@@ -63,6 +68,9 @@
     var formy = $('#zamow') || $('#szybki');
     if (formy) new IntersectionObserver(function (e) { wForm = e[0].isIntersecting; plywStan(); }, { rootMargin: '-15% 0px -15% 0px' }).observe(formy);
     if (heroCta) new IntersectionObserver(function (e) { wCta = e[0].isIntersecting; plywStan(); }).observe(heroCta);
+    // tabela cennika: plywajace przyciski nie zaslaniaja kolumny z cenami
+    var cenTab = $$('.cennik'), cenWidac = [];
+    cenTab.forEach(function (el, i) { new IntersectionObserver(function (e) { cenWidac[i] = e[0].isIntersecting; wCen = cenWidac.some(Boolean); plywStan(); }).observe(el); });
     var stopkaEl = $('#kontakt');   // koniec strony (np. krotka 404): baner tez wtedy
     if (stopkaEl) new IntersectionObserver(function (e) { if (e[0].isIntersecting && window.scrollY > 0) pokazBanerZgod(); }, { threshold: [0, .25, .5] }).observe(stopkaEl);
   } else { wCta = false; }
