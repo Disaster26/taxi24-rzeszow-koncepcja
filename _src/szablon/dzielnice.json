@@ -1,88 +1,375 @@
 [
- {"slug": "srodmiescie", "nazwa": "Śródmieście", "loc": "w Śródmieściu", "gen": "ze Śródmieścia",
+ {
+  "slug": "srodmiescie",
+  "nazwa": "Śródmieście",
+  "loc": "w Śródmieściu",
+  "gen": "ze Śródmieścia",
   "opis": "Śródmieście to centrum Rzeszowa: okolice Rynku, galerii handlowych, urzędów i restauracji. Trudno tu o miejsce do parkowania, dlatego taxi bywa najwygodniejszym sposobem, żeby dojechać i wrócić.",
-  "ulice": ["3 Maja", "Targowa", "Słowackiego", "Mickiewicza", "Matejki", "Grunwaldzka"],
+  "ulice": [
+   "3 Maja",
+   "Targowa",
+   "Słowackiego",
+   "Mickiewicza",
+   "Matejki",
+   "Grunwaldzka"
+  ],
   "kursy": "Zapewniamy szybki dojazd na terenie całego centrum. Ze Śródmieścia wozimy do innych dzielnic, na dworzec PKP i PKS, na lotnisko Rzeszów-Jasionka i w dłuższe trasy.",
-  "cele": ["dojazd do urzędu, lekarza albo na zakupy w galerii", "powrót do domu po wieczornym wyjściu na Rynek", "przejazd na dworzec z bagażem", "transfer na lotnisko Jasionka"],
-  "zalety": ["Dostępność 24 godziny na dobę", "Szybki dojazd w centrum", "Płatność kartą i gotówką", "Możliwość wcześniejszej rezerwacji", "Komfortowe i czyste auto"],
-  "extra": [{"h": "Ile kosztuje taxi w Śródmieściu?", "p": "Cena zależy od długości trasy i taryfy. W dni powszednie w godzinach 6:00-22:00 obowiązuje najkorzystniejsza taryfa miejska. Dokładną cenę kursu podajemy przy potwierdzeniu zamówienia."}]},
-
- {"slug": "staromiescie", "nazwa": "Staromieście", "loc": "na Staromieściu", "gen": "ze Staromieścia",
+  "cele": [
+   "dojazd do urzędu, lekarza albo na zakupy w galerii",
+   "powrót do domu po wieczornym wyjściu na Rynek",
+   "przejazd na dworzec z bagażem",
+   "transfer na lotnisko Jasionka"
+  ],
+  "zalety": [
+   "Dostępność 24 godziny na dobę",
+   "Szybki dojazd w centrum",
+   "Płatność kartą i gotówką",
+   "Możliwość wcześniejszej rezerwacji",
+   "Komfortowe i czyste auto"
+  ],
+  "extra": [
+   {
+    "h": "Ile kosztuje taxi w Śródmieściu?",
+    "p": "Cena zależy od długości trasy i taryfy. Opłata początkowa wynosi 10 zł. W dni powszednie w godzinach 6:00-22:00 obowiązuje taryfa 1 (4 zł/km), w nocy oraz w niedziele i święta taryfa 2 (6 zł/km). Wszystkie stawki: <a href=\"../../cennik/\">cennik taxi Rzeszów</a>."
+   }
+  ]
+ },
+ {
+  "slug": "staromiescie",
+  "nazwa": "Staromieście",
+  "loc": "na Staromieściu",
+  "gen": "ze Staromieścia",
   "opis": "Staromieście to jedna z historycznych dzielnic Rzeszowa, w której szybki transport taxi jest bardzo wygodnym rozwiązaniem.",
-  "ulice": ["Lubelska", "Staromiejska", "Warszawska", "Marszałkowska"],
+  "ulice": [
+   "Lubelska",
+   "Staromiejska",
+   "Warszawska",
+   "Marszałkowska"
+  ],
   "kursy": "Dowozimy klientów ze Staromieścia do centrum miasta, urzędów, galerii handlowych i innych dzielnic Rzeszowa, a także na dworzec i na lotnisko.",
-  "cele": ["dojazd do pracy", "powrót z centrum Rzeszowa", "transport na dworzec lub lotnisko", "wieczorne wyjścia", "przejazd z bagażem lub z dzieckiem"],
-  "zalety": ["Szybki czas dojazdu", "Dostępność 24 godziny na dobę", "Komfortowe i klimatyzowane auta", "Płatność kartą lub gotówką", "Doświadczeni kierowcy"]},
-
- {"slug": "nowe-miasto", "nazwa": "Nowe Miasto", "loc": "w Nowym Mieście", "gen": "z Nowego Miasta",
+  "cele": [
+   "dojazd do pracy",
+   "powrót z centrum Rzeszowa",
+   "transport na dworzec lub lotnisko",
+   "wieczorne wyjścia",
+   "przejazd z bagażem lub z dzieckiem"
+  ],
+  "zalety": [
+   "Szybki czas dojazdu",
+   "Dostępność 24 godziny na dobę",
+   "Komfortowe i klimatyzowane auta",
+   "Płatność kartą lub gotówką",
+   "Doświadczeni kierowcy"
+  ]
+ },
+ {
+  "slug": "nowe-miasto",
+  "nazwa": "Nowe Miasto",
+  "loc": "w Nowym Mieście",
+  "gen": "z Nowego Miasta",
   "opis": "Nowe Miasto to jedna z najbardziej ruchliwych dzielnic Rzeszowa. Podjeżdżamy szybko i wozimy wygodnie, bez szukania miejsca do parkowania.",
-  "ulice": ["Podwisłocze", "Rejtana", "Kopisto", "Popiełuszki", "Witolda Świadka", "Pelczara"],
+  "ulice": [
+   "Podwisłocze",
+   "Rejtana",
+   "Kopisto",
+   "Popiełuszki",
+   "Witolda Świadka",
+   "Pelczara"
+  ],
   "kursy": "Obsługujemy przejazdy z Nowego Miasta do centrum, na dworzec, do innych dzielnic Rzeszowa i na lotnisko Jasionka.",
-  "cele": ["dojazd do pracy", "podróż na lotnisko", "powrót z centrum miasta", "wieczorne wyjścia", "transport z bagażem lub z dzieckiem"],
-  "zalety": ["Szybki dojazd do klienta", "Dostępność 24 godziny na dobę", "Komfortowe samochody", "Płatność kartą lub gotówką", "Profesjonalni kierowcy"]},
-
- {"slug": "baranowka", "nazwa": "Baranówka", "loc": "na Baranówce", "gen": "z Baranówki",
+  "cele": [
+   "dojazd do pracy",
+   "podróż na lotnisko",
+   "powrót z centrum miasta",
+   "wieczorne wyjścia",
+   "transport z bagażem lub z dzieckiem"
+  ],
+  "zalety": [
+   "Szybki dojazd do klienta",
+   "Dostępność 24 godziny na dobę",
+   "Komfortowe samochody",
+   "Płatność kartą lub gotówką",
+   "Profesjonalni kierowcy"
+  ]
+ },
+ {
+  "slug": "baranowka",
+  "nazwa": "Baranówka",
+  "loc": "na Baranówce",
+  "gen": "z Baranówki",
   "opis": "Baranówka to jedna z większych dzielnic Rzeszowa, w której taxi często jest najwygodniejszym sposobem podróży.",
-  "ulice": ["al. Wyzwolenia", "Ofiar Katynia", "Osmeckiego", "Mikołajczyka"],
+  "ulice": [
+   "al. Wyzwolenia",
+   "Ofiar Katynia",
+   "Osmeckiego",
+   "Mikołajczyka"
+  ],
   "kursy": "Realizujemy przejazdy z Baranówki do centrum miasta, na dworzec, do innych dzielnic Rzeszowa i na lotnisko.",
-  "cele": ["dojazd do pracy", "powrót z centrum miasta", "transport na dworzec", "wieczorne wyjście", "podróż z dzieckiem lub bagażem"],
-  "zalety": ["Dostępność 24 godziny na dobę", "Szybki dojazd na Baranówkę", "Płatność kartą lub gotówką", "Możliwość wcześniejszej rezerwacji", "Komfortowe i bezpieczne przejazdy"],
-  "extra": [{"h": "Jak jeździć taxi z Baranówki taniej?", "li": ["podróżuj w godzinach 6:00-22:00 (pierwsza taryfa)", "zamów kurs z wyprzedzeniem", "wybierz najkrótszą trasę przejazdu", "jeśli to możliwe, jedź w kilka osób"]}]},
-
- {"slug": "drabinianka", "nazwa": "Drabinianka", "loc": "na Drabiniance", "gen": "z Drabinianki",
+  "cele": [
+   "dojazd do pracy",
+   "powrót z centrum miasta",
+   "transport na dworzec",
+   "wieczorne wyjście",
+   "podróż z dzieckiem lub bagażem"
+  ],
+  "zalety": [
+   "Dostępność 24 godziny na dobę",
+   "Szybki dojazd na Baranówkę",
+   "Płatność kartą lub gotówką",
+   "Możliwość wcześniejszej rezerwacji",
+   "Komfortowe i bezpieczne przejazdy"
+  ],
+  "extra": [
+   {
+    "h": "Jak jeździć taxi z Baranówki taniej?",
+    "li": [
+     "podróżuj w dni powszednie w godzinach 6:00-22:00 (taryfa 1, 4 zł/km)",
+     "zamów kurs z wyprzedzeniem",
+     "wybierz najkrótszą trasę przejazdu",
+     "jeśli to możliwe, jedź w kilka osób",
+     "zapytaj o indywidualną wycenę dłuższego przejazdu - ceny można negocjować"
+    ],
+    "p": "Pełne stawki: <a href=\"../../cennik/\">cennik taxi Rzeszów</a>."
+   }
+  ]
+ },
+ {
+  "slug": "drabinianka",
+  "nazwa": "Drabinianka",
+  "loc": "na Drabiniance",
+  "gen": "z Drabinianki",
   "opis": "Drabinianka to dynamicznie rozwijająca się dzielnica Rzeszowa. Zapewniamy szybki dojazd do klienta i wygodny transport po mieście.",
-  "ulice": ["Kwiatkowskiego", "Strażacka", "Graniczna", "Urocza", "Miła"],
+  "ulice": [
+   "Kwiatkowskiego",
+   "Strażacka",
+   "Graniczna",
+   "Urocza",
+   "Miła"
+  ],
   "kursy": "Realizujemy kursy z Drabinianki do centrum Rzeszowa, na dworzec, do innych dzielnic miasta i na lotnisko Jasionka.",
-  "cele": ["dojazd do pracy", "podróż na lotnisko", "powrót z centrum miasta", "wieczorne wyjścia", "transport z bagażem lub z dzieckiem"],
-  "zalety": ["Punktualny i szybki dojazd", "Dostępność 24 godziny na dobę", "Komfortowe i klimatyzowane samochody", "Płatność kartą lub gotówką", "Doświadczeni kierowcy"]},
-
- {"slug": "wilkowyja-2", "nazwa": "Wilkowyja", "loc": "na Wilkowyi", "gen": "z Wilkowyi",
+  "cele": [
+   "dojazd do pracy",
+   "podróż na lotnisko",
+   "powrót z centrum miasta",
+   "wieczorne wyjścia",
+   "transport z bagażem lub z dzieckiem"
+  ],
+  "zalety": [
+   "Punktualny i szybki dojazd",
+   "Dostępność 24 godziny na dobę",
+   "Komfortowe i klimatyzowane samochody",
+   "Płatność kartą lub gotówką",
+   "Doświadczeni kierowcy"
+  ]
+ },
+ {
+  "slug": "wilkowyja-2",
+  "nazwa": "Wilkowyja",
+  "loc": "na Wilkowyi",
+  "gen": "z Wilkowyi",
   "opis": "Wilkowyja to spokojna dzielnica Rzeszowa, w której taxi jest wygodnym sposobem dojazdu do centrum i na dworzec.",
-  "ulice": ["Lwowska", "Leszka Czarnego", "Olbrachta", "Witolda", "Litewska"],
+  "ulice": [
+   "Lwowska",
+   "Leszka Czarnego",
+   "Olbrachta",
+   "Witolda",
+   "Litewska"
+  ],
   "kursy": "Realizujemy kursy z Wilkowyi do centrum Rzeszowa, na dworzec, do innych dzielnic miasta i na lotnisko.",
-  "cele": ["dojazd do pracy", "powrót z centrum miasta", "podróż na lotnisko", "transport z bagażem", "wieczorne wyjścia"],
-  "zalety": ["Szybki czas reakcji i dojazdu", "Dostępność 24 godziny na dobę", "Komfortowe i zadbane samochody", "Płatność kartą lub gotówką", "Doświadczeni kierowcy"]},
-
- {"slug": "pobitno", "nazwa": "Pobitno", "loc": "na Pobitnie", "gen": "z Pobitna",
+  "cele": [
+   "dojazd do pracy",
+   "powrót z centrum miasta",
+   "podróż na lotnisko",
+   "transport z bagażem",
+   "wieczorne wyjścia"
+  ],
+  "zalety": [
+   "Szybki czas reakcji i dojazdu",
+   "Dostępność 24 godziny na dobę",
+   "Komfortowe i zadbane samochody",
+   "Płatność kartą lub gotówką",
+   "Doświadczeni kierowcy"
+  ]
+ },
+ {
+  "slug": "pobitno",
+  "nazwa": "Pobitno",
+  "loc": "na Pobitnie",
+  "gen": "z Pobitna",
   "opis": "Pobitno leży blisko centrum Rzeszowa, dlatego wielu mieszkańców korzysta z taxi jako wygodnego środka transportu.",
-  "ulice": ["Lwowska", "Morgowa", "Romualda Traugutta", "Armii Wojska Polskiego", "Bałtycka"],
+  "ulice": [
+   "Lwowska",
+   "Morgowa",
+   "Romualda Traugutta",
+   "Armii Wojska Polskiego",
+   "Bałtycka"
+  ],
   "kursy": "Realizujemy kursy z Pobitna do centrum Rzeszowa, na dworzec, do innych dzielnic miasta i na lotnisko Rzeszów-Jasionka.",
-  "cele": ["dojazd do pracy", "podróż do centrum miasta", "transport na lotnisko Rzeszów-Jasionka", "wieczorne wyjazdy", "przejazd z bagażem lub z dzieckiem"],
-  "zalety": ["Dostępność 24 godziny na dobę", "Szybki dojazd do klienta", "Komfortowe i zadbane samochody", "Terminal płatniczy w aucie", "Doświadczeni kierowcy"]},
-
- {"slug": "zalesie", "nazwa": "Zalesie", "loc": "na Zalesiu", "gen": "z Zalesia",
+  "cele": [
+   "dojazd do pracy",
+   "podróż do centrum miasta",
+   "transport na lotnisko Rzeszów-Jasionka",
+   "wieczorne wyjazdy",
+   "przejazd z bagażem lub z dzieckiem"
+  ],
+  "zalety": [
+   "Dostępność 24 godziny na dobę",
+   "Szybki dojazd do klienta",
+   "Komfortowe i zadbane samochody",
+   "Terminal płatniczy w aucie",
+   "Doświadczeni kierowcy"
+  ]
+ },
+ {
+  "slug": "zalesie",
+  "nazwa": "Zalesie",
+  "loc": "na Zalesiu",
+  "gen": "z Zalesia",
   "opis": "Zalesie to jedna z najbardziej zielonych i spokojnych dzielnic Rzeszowa. Mieszkańcy często wybierają taxi jako szybki sposób dojazdu do centrum miasta.",
-  "ulice": ["Łukasiewicza", "Robotnicza", "Wieniawskiego", "Kiepury"],
+  "ulice": [
+   "Łukasiewicza",
+   "Robotnicza",
+   "Wieniawskiego",
+   "Kiepury"
+  ],
   "kursy": "Realizujemy przejazdy z Zalesia do centrum Rzeszowa, na dworzec, do innych dzielnic miasta i na lotnisko.",
-  "cele": ["dojazd do pracy", "podróż do centrum miasta", "transport na dworzec lub lotnisko", "wieczorne wyjścia", "przejazd z bagażem lub z dzieckiem"],
-  "zalety": ["Szybkie podstawienie auta", "Dostępność 24 godziny na dobę", "Klimatyzowane i czyste samochody", "Płatność kartą lub gotówką", "Doświadczeni kierowcy"]},
-
- {"slug": "biala", "nazwa": "Biała", "loc": "w Białej", "gen": "z Białej",
+  "cele": [
+   "dojazd do pracy",
+   "podróż do centrum miasta",
+   "transport na dworzec lub lotnisko",
+   "wieczorne wyjścia",
+   "przejazd z bagażem lub z dzieckiem"
+  ],
+  "zalety": [
+   "Szybkie podstawienie auta",
+   "Dostępność 24 godziny na dobę",
+   "Klimatyzowane i czyste samochody",
+   "Płatność kartą lub gotówką",
+   "Doświadczeni kierowcy"
+  ]
+ },
+ {
+  "slug": "biala",
+  "nazwa": "Biała",
+  "loc": "w Białej",
+  "gen": "z Białej",
   "opis": "Biała to spokojna, rozwijająca się dzielnica Rzeszowa, w której taxi jest wygodnym sposobem podróżowania.",
-  "ulice": ["Wojtyły", "Rodzinna", "Sikorskiego", "Źródlana"],
+  "ulice": [
+   "Wojtyły",
+   "Rodzinna",
+   "Sikorskiego",
+   "Źródlana"
+  ],
   "kursy": "Realizujemy kursy z Białej do centrum Rzeszowa, na dworzec PKP i PKS oraz na lotnisko Rzeszów-Jasionka.",
-  "cele": ["dojazd do pracy i szkoły", "przejazd do centrum miasta", "transport na dworzec", "wieczorne wyjścia", "podróż z bagażem lub z dzieckiem"],
-  "zalety": ["Szybkie podstawienie auta", "Dostępność 24 godziny na dobę", "Komfortowe i klimatyzowane samochody", "Płatność kartą lub BLIK", "Profesjonalni kierowcy"],
-  "extra": [{"h": "Z Białej na lotnisko Rzeszów-Jasionka", "li": ["możliwość rezerwacji kursu z wyprzedzeniem", "pomoc przy bagażu", "kursy nocne i weekendowe"]}]},
-
- {"slug": "budziwoj", "nazwa": "Budziwój", "loc": "w Budziwoju", "gen": "z Budziwoja",
+  "cele": [
+   "dojazd do pracy i szkoły",
+   "przejazd do centrum miasta",
+   "transport na dworzec",
+   "wieczorne wyjścia",
+   "podróż z bagażem lub z dzieckiem"
+  ],
+  "zalety": [
+   "Szybkie podstawienie auta",
+   "Dostępność 24 godziny na dobę",
+   "Komfortowe i klimatyzowane samochody",
+   "Płatność kartą lub BLIK",
+   "Profesjonalni kierowcy"
+  ],
+  "extra": [
+   {
+    "h": "Z Białej na lotnisko Rzeszów-Jasionka",
+    "li": [
+     "możliwość rezerwacji kursu z wyprzedzeniem",
+     "pomoc przy bagażu",
+     "kursy nocne i weekendowe"
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "budziwoj",
+  "nazwa": "Budziwój",
+  "loc": "w Budziwoju",
+  "gen": "z Budziwoja",
   "opis": "Budziwój to spokojna dzielnica Rzeszowa, z której mieszkańcy często jeżdżą taxi do centrum miasta.",
-  "ulice": ["Budziwojska", "Jana Pawła II", "Podleśna", "Herbowa", "Miejska"],
+  "ulice": [
+   "Budziwojska",
+   "Jana Pawła II",
+   "Podleśna",
+   "Herbowa",
+   "Miejska"
+  ],
   "kursy": "Realizujemy kursy z Budziwoja do centrum Rzeszowa, na dworzec i na lotnisko Rzeszów-Jasionka.",
-  "cele": ["dojazd do pracy", "podróż do centrum miasta", "transport na lotnisko Jasionka", "wieczorne wyjazdy", "przejazd z bagażem lub z dzieckiem"],
-  "zalety": ["Szybki dojazd do klienta", "Dostępność 24 godziny na dobę", "Komfortowe i klimatyzowane auta", "Terminal płatniczy w aucie", "Doświadczeni kierowcy"]},
-
- {"slug": "krakowska-poludnie", "nazwa": "Krakowska Południe", "loc": "na Krakowskiej Południe", "gen": "z Krakowskiej Południe",
+  "cele": [
+   "dojazd do pracy",
+   "podróż do centrum miasta",
+   "transport na lotnisko Jasionka",
+   "wieczorne wyjazdy",
+   "przejazd z bagażem lub z dzieckiem"
+  ],
+  "zalety": [
+   "Szybki dojazd do klienta",
+   "Dostępność 24 godziny na dobę",
+   "Komfortowe i klimatyzowane auta",
+   "Terminal płatniczy w aucie",
+   "Doświadczeni kierowcy"
+  ]
+ },
+ {
+  "slug": "krakowska-poludnie",
+  "nazwa": "Krakowska Południe",
+  "loc": "na Krakowskiej Południe",
+  "gen": "z Krakowskiej Południe",
   "opis": "Krakowska Południe to ważna komunikacyjnie część Rzeszowa, dlatego wielu mieszkańców wybiera taxi jako wygodny sposób podróżowania po mieście.",
-  "ulice": ["Krakowska", "Rataja", "Solarza", "Lewakowskiego", "Zbyszewskiego"],
+  "ulice": [
+   "Krakowska",
+   "Rataja",
+   "Solarza",
+   "Lewakowskiego",
+   "Zbyszewskiego"
+  ],
   "kursy": "Realizujemy kursy z Krakowskiej Południe do centrum Rzeszowa, na dworzec i na lotnisko Jasionka.",
-  "cele": ["dojazd do pracy", "podróż do centrum miasta", "transport na lotnisko Rzeszów-Jasionka", "wieczorne wyjazdy", "przejazd z bagażem lub z dzieckiem"],
-  "zalety": ["Szybki dojazd do klienta", "Dostępność 24 godziny na dobę", "Klimatyzowane i zadbane auta", "Terminal płatniczy w aucie", "Doświadczeni kierowcy"]},
-
- {"slug": "zaleze", "nazwa": "Załęże", "loc": "na Załężu", "gen": "z Załęża",
+  "cele": [
+   "dojazd do pracy",
+   "podróż do centrum miasta",
+   "transport na lotnisko Rzeszów-Jasionka",
+   "wieczorne wyjazdy",
+   "przejazd z bagażem lub z dzieckiem"
+  ],
+  "zalety": [
+   "Szybki dojazd do klienta",
+   "Dostępność 24 godziny na dobę",
+   "Klimatyzowane i zadbane auta",
+   "Terminal płatniczy w aucie",
+   "Doświadczeni kierowcy"
+  ]
+ },
+ {
+  "slug": "zaleze",
+  "nazwa": "Załęże",
+  "loc": "na Załężu",
+  "gen": "z Załęża",
   "opis": "Załęże to spokojna dzielnica Rzeszowa, w której szybkie taxi jest wygodnym rozwiązaniem transportowym.",
-  "ulice": ["Załęska", "Hr. Alfreda Potockiego", "Rzecha", "ks. Jana Stączka"],
+  "ulice": [
+   "Załęska",
+   "Hr. Alfreda Potockiego",
+   "Rzecha",
+   "ks. Jana Stączka"
+  ],
   "kursy": "Realizujemy kursy z Załęża do centrum Rzeszowa, na dworzec, do innych dzielnic miasta i na lotnisko.",
-  "cele": ["dojazd do pracy", "podróż do centrum miasta", "transport na lotnisko", "wieczorne wyjazdy", "przejazd z bagażem lub z dzieckiem"],
-  "zalety": ["Szybki dojazd do klienta", "Dostępność 24 godziny na dobę", "Komfortowe i zadbane samochody", "Płatność kartą lub BLIK", "Profesjonalni kierowcy"]}
+  "cele": [
+   "dojazd do pracy",
+   "podróż do centrum miasta",
+   "transport na lotnisko",
+   "wieczorne wyjazdy",
+   "przejazd z bagażem lub z dzieckiem"
+  ],
+  "zalety": [
+   "Szybki dojazd do klienta",
+   "Dostępność 24 godziny na dobę",
+   "Komfortowe i zadbane samochody",
+   "Płatność kartą lub BLIK",
+   "Profesjonalni kierowcy"
+  ]
+ }
 ]

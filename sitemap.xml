@@ -32,6 +32,30 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://taxi24-rzeszow.pl/taxi-rzeszow-lotnisko-jasionka-24h/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://taxi24-rzeszow.pl/en/taxi-rzeszow-jasionka-airport/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://taxi24-rzeszow.pl/taxi-rzeszow-lotnisko-jasionka-24h/"/></url>
+  <url><loc>https://taxi24-rzeszow.pl/cennik/</loc><lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://taxi24-rzeszow.pl/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://taxi24-rzeszow.pl/en/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://taxi24-rzeszow.pl/de/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://taxi24-rzeszow.pl/ua/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://taxi24-rzeszow.pl/cennik/"/></url>
+  <url><loc>https://taxi24-rzeszow.pl/en/cennik/</loc><lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://taxi24-rzeszow.pl/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://taxi24-rzeszow.pl/en/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://taxi24-rzeszow.pl/de/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://taxi24-rzeszow.pl/ua/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://taxi24-rzeszow.pl/cennik/"/></url>
+  <url><loc>https://taxi24-rzeszow.pl/de/cennik/</loc><lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://taxi24-rzeszow.pl/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://taxi24-rzeszow.pl/en/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://taxi24-rzeszow.pl/de/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://taxi24-rzeszow.pl/ua/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://taxi24-rzeszow.pl/cennik/"/></url>
+  <url><loc>https://taxi24-rzeszow.pl/ua/cennik/</loc><lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://taxi24-rzeszow.pl/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://taxi24-rzeszow.pl/en/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://taxi24-rzeszow.pl/de/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://taxi24-rzeszow.pl/ua/cennik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://taxi24-rzeszow.pl/cennik/"/></url>
   <url><loc>https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-srodmiescie/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-staromiescie/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-nowe-miasto/</loc><lastmod>2026-11-05</lastmod></url>
