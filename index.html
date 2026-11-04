@@ -6,7 +6,7 @@
 <!-- KONCEPCJA: noindex tylko na czas prezentacji. Na produkcji: index, follow + canonical https://taxi24-rzeszow.pl/ -->
 <meta name="robots" content="noindex">
 <title>Taxi Rzeszów 24h - transfer na lotnisko Jasionka | Taxi Rzeszów 24H</title>
-<meta name="description" content="Taxi Rzeszów 24h: kursy po mieście i okolicy, transfer na lotnisko Rzeszów-Jasionka oraz do Krakowa, Katowic, Lublina i Warszawy. Zamów online formularzem, przez WhatsApp lub SMS, tel. +48 536 805 851.">
+<meta name="description" content="Taxi Rzeszów 24h: kursy po mieście i okolicy, transfer na lotnisko Rzeszów-Jasionka, przejazdy do Przemyśla i na przejście graniczne w Medyce oraz do Krakowa, Katowic, Lublina i Warszawy. Zamów online, przez WhatsApp lub SMS, tel. +48 536 805 851.">
 <!-- Wersje jezykowe. Na produkcji kazdy jezyk dostaje wlasny adres z gotowym tekstem w HTML (/en/, /de/, /uk/), tu w koncepcji przelacza je skrypt. -->
 <link rel="alternate" hreflang="pl" href="https://taxi24-rzeszow.pl/">
 <link rel="alternate" hreflang="en" href="https://taxi24-rzeszow.pl/en/">
@@ -21,12 +21,13 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="uk_UA">
 <meta property="og:title" content="Taxi Rzeszów 24h i transfery na lotnisko Jasionka">
-<meta property="og:description" content="Całodobowe taxi w Rzeszowie, transfery lotniskowe i usługi dodatkowe: zakupy na zlecenie, drobna pomoc drogowa, dłuższe trasy.">
-<meta property="og:image" content="img/taxi-audi-a7-rzeszow.jpg">
+<meta property="og:description" content="Całodobowe taxi w Rzeszowie, transfery lotniskowe, przejazdy do Przemyśla i na granicę w Medyce oraz usługi dodatkowe: zakupy na zlecenie, drobna pomoc drogowa, dłuższe trasy.">
+<meta property="og:image" content="img/taxi-rzeszow-mercedes-most.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/taxi-audi-a7-rzeszow.jpg" imagesrcset="img/taxi-audi-a7-rzeszow-640.jpg 640w, img/taxi-audi-a7-rzeszow.jpg 1024w" imagesizes="(max-width:900px) 100vw, 60vw">
+<link rel="preload" as="image" type="image/webp" media="(max-width:900px)" imagesrcset="img/taxi-rzeszow-mercedes-most-m-640.webp 640w, img/taxi-rzeszow-mercedes-most-m-1024.webp 1024w" imagesizes="100vw">
+<link rel="preload" as="image" type="image/webp" media="(min-width:901px)" imagesrcset="img/taxi-rzeszow-mercedes-most-768.webp 768w, img/taxi-rzeszow-mercedes-most-1024.webp 1024w" imagesizes="68vw">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {
@@ -34,12 +35,12 @@
   "@type": "TaxiService",
   "name": "Taxi Rzeszów 24H",
   "url": "https://taxi24-rzeszow.pl/",
-  "image": "https://taxi24-rzeszow.pl/img/taxi-audi-a7-rzeszow.jpg",
+  "image": "https://taxi24-rzeszow.pl/img/taxi-rzeszow-mercedes-most.jpg",
   "logo": "https://taxi24-rzeszow.pl/img/logo-kogut.png",
   "telephone": "+48 536 805 851",
   "email": "taxi@taxi24-rzeszow.pl",
   "availableLanguage": ["pl", "en", "de", "uk"],
-  "areaServed": ["Rzeszów", "Port Lotniczy Rzeszów-Jasionka", "Tyczyn", "Boguchwała", "Głogów Małopolski", "Łańcut", "Strzyżów"],
+  "areaServed": ["Rzeszów", "Port Lotniczy Rzeszów-Jasionka", "Tyczyn", "Boguchwała", "Głogów Małopolski", "Łańcut", "Strzyżów", "Przemyśl", "Medyka (przejście graniczne z Ukrainą)"],
   "provider": {
     "@type": "LocalBusiness",
     "name": "Taxi Rzeszów 24H",
@@ -59,6 +60,7 @@
   "mainEntity": [
     {"@type": "Question", "name": "Czy Taxi Rzeszów 24H działa całą dobę?", "acceptedAnswer": {"@type": "Answer", "text": "Tak, jeździmy po Rzeszowie i okolicy 24 godziny na dobę, również w weekendy i święta."}},
     {"@type": "Question", "name": "Czy można zamówić taxi na lotnisko Rzeszów-Jasionka?", "acceptedAnswer": {"@type": "Answer", "text": "Tak. Wozimy na Port Lotniczy Rzeszów-Jasionka i odbieramy z niego, a także jeździmy na lotniska w Krakowie, Katowicach, Lublinie i Warszawie. Kurs można zarezerwować wcześniej."}},
+    {"@type": "Question", "name": "Czy jeździcie do Przemyśla i na przejście graniczne w Medyce?", "acceptedAnswer": {"@type": "Answer", "text": "Tak. Przejazdy z Rzeszowa do Przemyśla i na przejście graniczne z Ukrainą w Medyce realizujemy na zamówienie, o każdej porze, także w nocy. Cenę podajemy przy potwierdzaniu zamówienia."}},
     {"@type": "Question", "name": "Co jeśli mój samolot się spóźni?", "acceptedAnswer": {"@type": "Answer", "text": "Kierowca monitoruje przyloty, dlatego odbiór z lotniska odbywa się o właściwej godzinie także przy opóźnieniu lotu. Wystarczy podać numer lotu w zamówieniu."}},
     {"@type": "Question", "name": "Jak zamówić taxi w Rzeszowie?", "acceptedAnswer": {"@type": "Answer", "text": "Telefonicznie pod numerem +48 536 805 851, przez WhatsApp albo formularzem zamówienia na stronie. Zamówienie potwierdzamy SMS-em lub telefonicznie."}},
     {"@type": "Question", "name": "Czy wystawiacie faktury dla firm?", "acceptedAnswer": {"@type": "Answer", "text": "Tak, realizujemy transport biznesowy i wystawiamy faktury klientom firmowym."}}
@@ -129,7 +131,11 @@
 <!-- ================= HERO ================= -->
 <section class="hero" id="start">
   <div class="hero-foto">
-    <img src="img/taxi-audi-a7-rzeszow.jpg" srcset="img/taxi-audi-a7-rzeszow-640.jpg 640w, img/taxi-audi-a7-rzeszow.jpg 1024w" sizes="(max-width:900px) 100vw, 60vw" alt="Białe Audi A7 Taxi Rzeszów 24H na moście w Rzeszowie" data-i18n-alt="alt.hero" width="1024" height="934" fetchpriority="high">
+    <picture>
+      <source media="(max-width:900px)" type="image/webp" srcset="img/taxi-rzeszow-mercedes-most-m-640.webp 640w, img/taxi-rzeszow-mercedes-most-m-1024.webp 1024w" sizes="100vw">
+      <source type="image/webp" srcset="img/taxi-rzeszow-mercedes-most-768.webp 768w, img/taxi-rzeszow-mercedes-most-1024.webp 1024w" sizes="68vw">
+      <img src="img/taxi-rzeszow-mercedes-most.jpg" alt="Taxi Rzeszów 24h - Mercedes klasy S przed mostem w Rzeszowie" data-i18n-alt="alt.hero" width="1024" height="930" fetchpriority="high">
+    </picture>
   </div>
   <div class="hero-srodek"><div class="hero-in wrap">
     <h1 data-i18n="h1">Taxi Rzeszów 24h i transfery na lotnisko Jasionka</h1>
@@ -149,6 +155,7 @@
         <label class="pole q-tel"><svg class="ic"><use href="#i-tel"/></svg><input id="qTel" name="telefon" type="tel" inputmode="tel" autocomplete="tel" maxlength="25" placeholder="Twój telefon" aria-label="Twój telefon (do potwierdzenia)" data-i18n-ph="q.telph" data-i18n-aria="q.tel"></label>
         <p class="q-info" data-i18n="q.info">Potwierdzimy SMS-em lub telefonicznie.</p>
         <button class="btn btn-y q-btn" type="submit"><span data-i18n="q.btn">Zamów taxi</span> <svg class="ic"><use href="#i-arrow"/></svg></button>
+        <p class="rodo q-rodo" data-i18n-html="rodo.txt">Administratorem danych jest Grzegorz Kędzierski (TAXI RZESZÓW 24H). Dane przetwarzamy wyłącznie w celu realizacji zamówienia. Szczegóły: <a href="polityka-prywatnosci.html">polityka prywatności</a>.</p>
         <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
       </div>
       <div class="q-ok" id="qOk" hidden tabindex="-1"></div>
@@ -171,6 +178,14 @@
     <option value="Lotnisko Lublin (LUZ)">
     <option value="Lotnisko Warszawa (WAW)">
   </datalist>
+  <datalist id="trasyLista">
+    <option value="Przemyśl">
+    <option value="Medyka - przejście graniczne z Ukrainą">
+    <option value="Kraków">
+    <option value="Katowice">
+    <option value="Lublin">
+    <option value="Warszawa">
+  </datalist>
 </section>
 
 <!-- ================= USLUGI ================= -->
@@ -178,7 +193,7 @@
   <div class="wrap">
     <div class="sek-head">
       <h2 data-i18n="usl.h2">Usługi taxi w Rzeszowie</h2>
-      <p data-i18n="usl.p">Poza kursami po mieście wozimy na lotniska, jeździmy na dłuższe trasy i załatwiamy sprawy za Ciebie: zakupy, paczki, pomoc przy aucie.</p>
+      <p data-i18n="usl.p">Poza kursami po mieście wozimy na lotniska, do Przemyśla i na granicę w Medyce, jeździmy na dłuższe trasy i załatwiamy sprawy za Ciebie: zakupy, paczki, pomoc przy aucie.</p>
     </div>
     <div class="karty">
       <article class="karta">
@@ -201,7 +216,7 @@
         <div class="karta-foto"><img src="img/trasa.jpg" alt="Białe auto na drodze ekspresowej wśród zielonych wzgórz" data-i18n-alt="alt.trasa" loading="lazy" width="768" height="480"><span class="karta-ic"><svg class="ic"><use href="#i-route"/></svg></span></div>
         <div class="karta-txt">
           <h3 data-i18n="k3.h">Przejazdy na dłuższych trasach</h3>
-          <p data-i18n="k3.p">Kraków, Katowice, Lublin, Warszawa i inne miasta. Bez przesiadek, z odbiorem spod drzwi.</p>
+          <p data-i18n="k3.p">Przemyśl, Medyka (granica z Ukrainą), Kraków, Katowice, Lublin, Warszawa i inne miasta. Bez przesiadek, z odbiorem spod drzwi.</p>
           <button class="karta-btn" data-typ="trasa"><span data-i18n="k3.b">Wyceń trasę</span> <svg class="ic"><use href="#i-arrow"/></svg></button>
         </div>
       </article>
@@ -225,6 +240,17 @@
       <li><button data-typ="miasto"><svg class="ic"><use href="#i-moon"/></svg><b data-i18n="m7.b">Kursy nocne</b><span data-i18n="m7.s">Powrót do domu o każdej godzinie</span></button></li>
       <li><button data-usluga="Przewóz drobnych rzeczy"><svg class="ic"><use href="#i-bag"/></svg><b data-i18n="m8.b">Przewóz drobnych rzeczy</b><span data-i18n="m8.s">Gdy coś trzeba szybko przewieźć</span></button></li>
     </ul>
+
+    <div class="trasy" id="przemysl-medyka">
+      <div class="trasy-txt">
+        <h3 data-i18n="tr.h3">Przejazdy do Przemyśla i na przejście graniczne w Medyce</h3>
+        <p data-i18n="tr.p">Nie tylko lotniska: wozimy z Rzeszowa do Przemyśla i na przejście graniczne z Ukrainą w Medyce. Kurs na zamówienie, o każdej porze, także w nocy, w obie strony. Cenę podamy przy potwierdzeniu zamówienia.</p>
+      </div>
+      <ul class="trasy-lista">
+        <li><button data-trasa="Przemyśl"><svg class="ic"><use href="#i-route"/></svg><span data-i18n="tr.b1">Rzeszów - Przemyśl</span><svg class="ic"><use href="#i-arrow"/></svg></button></li>
+        <li><button data-trasa="Medyka - przejście graniczne z Ukrainą"><svg class="ic"><use href="#i-route"/></svg><span data-i18n="tr.b2">Rzeszów - Medyka (granica z Ukrainą)</span><svg class="ic"><use href="#i-arrow"/></svg></button></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -404,6 +430,7 @@
           </div>
           <a class="ps-kopiuj" href="tel:+48536805851"><svg class="ic"><use href="#i-tel"/></svg><span data-i18n="ps.tel">Zadzwoń 536 805 851</span></a>
         </div>
+        <p class="rodo ps-rodo" data-i18n-html="rodo.txt">Administratorem danych jest Grzegorz Kędzierski (TAXI RZESZÓW 24H). Dane przetwarzamy wyłącznie w celu realizacji zamówienia. Szczegóły: <a href="polityka-prywatnosci.html">polityka prywatności</a>.</p>
         <ol class="ps-kroki">
           <li data-i18n="ps.k1">Wysyłasz zamówienie. Przy odbiorze z lotniska dopisz numer lotu.</li>
           <li data-i18n="ps.k2">Potwierdzamy je SMS-em lub telefonicznie i podajemy cenę.</li>
@@ -452,6 +479,7 @@
     <div class="faq-lista">
       <details open><summary data-i18n="q1">Czy Taxi Rzeszów 24H działa całą dobę?</summary><p data-i18n="a1">Tak, jeździmy po Rzeszowie i okolicy 24 godziny na dobę, również w weekendy i święta.</p></details>
       <details><summary data-i18n="q2">Czy można zamówić taxi na lotnisko Rzeszów-Jasionka?</summary><p data-i18n="a2">Tak. Wozimy na Port Lotniczy Rzeszów-Jasionka i odbieramy z niego, a także jeździmy na lotniska w Krakowie, Katowicach, Lublinie i Warszawie. Kurs można zarezerwować wcześniej.</p></details>
+      <details><summary data-i18n="q8">Czy jeździcie do Przemyśla i na przejście graniczne w Medyce?</summary><p data-i18n="a8">Tak. Przejazdy z Rzeszowa do Przemyśla i na przejście graniczne z Ukrainą w Medyce realizujemy na zamówienie, o każdej porze, także w nocy. Cenę podajemy przy potwierdzaniu zamówienia.</p></details>
       <details><summary data-i18n="q3">Co jeśli mój samolot się spóźni?</summary><p data-i18n="a3">Kierowca monitoruje przyloty, dlatego odbiór z lotniska odbywa się o właściwej godzinie także przy opóźnieniu lotu. Wystarczy podać numer lotu w zamówieniu.</p></details>
       <details><summary data-i18n="q4">Ile kosztuje taxi na lotnisko Jasionka?</summary><p data-i18n="a4">Cenę podajemy przy potwierdzaniu zamówienia, SMS-em lub telefonicznie. Złóż zamówienie formularzem albo zadzwoń: +48 536 805 851.</p></details>
       <details><summary data-i18n="q5">Jak zamówić taxi w Rzeszowie?</summary><p data-i18n="a5">Telefonicznie pod numerem +48 536 805 851, przez WhatsApp albo formularzem zamówienia na tej stronie. Zamówienie potwierdzamy SMS-em lub telefonicznie.</p></details>
@@ -482,6 +510,7 @@
       <a href="#uslugi" data-i18n="st.u3">Zakupy na zlecenie</a>
       <a href="#uslugi" data-i18n="st.u4">Drobna pomoc drogowa</a>
       <a href="#uslugi" data-i18n="st.u5">Przejazdy na dłuższych trasach</a>
+      <a href="#przemysl-medyka" data-i18n="st.u6">Przemyśl i granica w Medyce</a>
     </div>
     <div>
       <h3 data-i18n="st.social">Znajdziesz nas</h3>
@@ -492,7 +521,7 @@
       <a href="https://t.me/taxi_rzeszow_24h" target="_blank" rel="noopener">Telegram</a>
     </div>
   </div>
-  <div class="wrap st-dol"><span>© 2026 Taxi Rzeszów 24H</span><span data-i18n="st.wiz">Wizualizacja koncepcyjna nowej strony głównej</span></div>
+  <div class="wrap st-dol"><span>© 2026 Taxi Rzeszów 24H</span><a href="polityka-prywatnosci.html" data-i18n="st.pp">Polityka prywatności</a><span data-i18n="st.wiz">Wizualizacja koncepcyjna nowej strony głównej</span></div>
 </footer>
 
 <!-- Plywajace przyciski: widoczne od wejscia (prosba klienta), chowaja sie tylko przy formularzu zamowienia i przy otwartym menu -->

@@ -129,6 +129,7 @@
       pola.skad.placeholder = t('ph.adres');
       pola.dokad.placeholder = typ === 'trasa' ? t('ph.trasa') : t('ph.dworzec');
     }
+    if (typ === 'trasa') pola.dokad.setAttribute('list', 'trasyLista'); else pola.dokad.removeAttribute('list');
     podsumuj();
   }
 
@@ -367,7 +368,9 @@
     var q = $('input[name="qtyp"]:checked').value, s = waski.matches ? 'qps.' : 'qp.';
     qSkad.placeholder = q === 'inne' ? t(s + 'inneSkad') : t(s + 'skad');
     qDokad.placeholder = q === 'inne' ? t(s + 'inneDokad') : t(s + 'dokad');
-    if (q === 'lotnisko') qDokad.setAttribute('list', 'lotniskaLista'); else qDokad.removeAttribute('list');
+    if (q === 'lotnisko') qDokad.setAttribute('list', 'lotniskaLista');
+    else if (q === 'trasa') qDokad.setAttribute('list', 'trasyLista');
+    else qDokad.removeAttribute('list');
   }
   if (waski.addEventListener) waski.addEventListener('change', qPlaceholder);
   $$('input[name="qtyp"]').forEach(function (r) { r.addEventListener('change', qPlaceholder); });
@@ -436,6 +439,12 @@
   $$('[data-usluga]').forEach(function (b) {
     b.addEventListener('click', function () {
       ustawRadio('typ', 'inne'); pola.usluga.value = b.dataset.usluga;
+      doFormularza(pola.skad);
+    });
+  });
+  $$('[data-trasa]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      ustawRadio('typ', 'trasa'); pola.dokad.value = b.dataset.trasa;
       doFormularza(pola.skad);
     });
   });
