@@ -78,11 +78,14 @@
   $$('#menu a').forEach(function (a) { a.addEventListener('click', zamknijMenu); });
 
   /* ---------- plywajace przyciski: od wejscia; chowane przy formularzu (ma wlasne przyciski) i przy otwartym menu ---------- */
-  var plyw = $('#plyw'), wForm = false;
-  function plywStan() { if (plyw) plyw.classList.toggle('widac', !wForm && !(menu && menu.classList.contains('otwarte'))); }
+  // + chowane, dopoki widac duze przyciski Zadzwon / WhatsApp w hero (bez dublowania na pierwszym ekranie)
+  var plyw = $('#plyw'), wForm = false, wCta = true;
+  function plywStan() { if (plyw) plyw.classList.toggle('widac', !wForm && !wCta && !(menu && menu.classList.contains('otwarte'))); }
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (e) { wForm = e[0].isIntersecting; plywStan(); }, { rootMargin: '-15% 0px -15% 0px' }).observe($('#zamow'));
-  }
+    new IntersectionObserver(function (e) { wCta = e[0].isIntersecting; plywStan(); }).observe($('#heroCta'));
+  } else { wCta = false; }
+  plywStan();
 
   /* ---------- formularz zamowienia ---------- */
   var zam = $('#zam');
@@ -439,6 +442,7 @@
   $$('[data-usluga]').forEach(function (b) {
     b.addEventListener('click', function () {
       ustawRadio('typ', 'inne'); pola.usluga.value = b.dataset.usluga;
+      if (b.dataset.uwagi && !pola.uwagi.value.trim()) pola.uwagi.value = b.dataset.uwagi;
       doFormularza(pola.skad);
     });
   });
