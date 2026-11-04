@@ -157,7 +157,7 @@
   $$('[data-cookies]').forEach(function (b) { b.addEventListener('click', function () { banerPokazany = true; otworzBaner(true); }); });
   var zp = zgodyOdczyt();
   if (zp) zgodyStosuj(zp);
-  if (!heroCta) setTimeout(pokazBanerZgod, 400);
+  if (!heroCta || document.documentElement.scrollHeight < innerHeight * 1.4) setTimeout(pokazBanerZgod, heroCta ? 1500 : 400);   // krotka strona (np. 404): bez przewijania
   plywStan();
 
   // zdarzenia (wysylane tylko po zgodzie, gdy gtag jest wczytany)
