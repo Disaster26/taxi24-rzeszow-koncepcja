@@ -63,6 +63,8 @@
     var formy = $('#zamow') || $('#szybki');
     if (formy) new IntersectionObserver(function (e) { wForm = e[0].isIntersecting; plywStan(); }, { rootMargin: '-15% 0px -15% 0px' }).observe(formy);
     if (heroCta) new IntersectionObserver(function (e) { wCta = e[0].isIntersecting; plywStan(); }).observe(heroCta);
+    var stopkaEl = $('#kontakt');   // koniec strony (np. krotka 404): baner tez wtedy
+    if (stopkaEl) new IntersectionObserver(function (e) { if (e[0].isIntersecting && window.scrollY > 0) pokazBanerZgod(); }, { threshold: [0, .25, .5] }).observe(stopkaEl);
   } else { wCta = false; }
 
   /* ---------- zgody na cookies (Consent Mode v2, domyslnie odmowa) ---------- */

@@ -121,9 +121,11 @@
         </ul>
       </div>
       <ul class="ptaszki">
+        <li><svg class="ic"><use href="#i-check"/></svg><span data-i18n="lot.c5">Lot zawsze monitorujemy pod kątem opóźnień</span></li>
+        <li><svg class="ic"><use href="#i-check"/></svg><span data-i18n="lot.c6">Czas oczekiwania na Ciebie jest bezpłatny</span></li>
+        <li><svg class="ic"><use href="#i-check"/></svg><span data-i18n="lot.c7">Auto zaparkowane na wprost wyjścia z terminala</span></li>
+        <li><svg class="ic"><use href="#i-check"/></svg><span data-i18n="lot.c8">Na życzenie czekamy w terminalu z tabliczką z nazwiskiem</span></li>
         <li><svg class="ic"><use href="#i-check"/></svg><span data-i18n="lot.c1">Rezerwacja z wyprzedzeniem, także na nocne i poranne loty</span></li>
-        <li><svg class="ic"><use href="#i-check"/></svg><span data-i18n="lot.c2">Odbiór na czas, gdy podasz numer lotu</span></li>
-        <li><svg class="ic"><use href="#i-check"/></svg><span data-i18n="lot.c3">Pomoc przy bagażu</span></li>
         <li><svg class="ic"><use href="#i-check"/></svg><span data-i18n="lot.c4">Karta, gotówka lub BLIK, faktura VAT</span></li>
       </ul>
     </div>
@@ -149,6 +151,22 @@
       <p data-i18n="dz.p">Osobne strony dla dzielnic Rzeszowa: skąd odbieramy, dokąd najczęściej jeździmy.</p>
 {{DZIELNICE}}
     </nav>
+  </div>
+</section>
+
+<!-- ================= CENNIK (skrot) ================= -->
+<section class="sek cennik-sek" id="cennik">
+  <div class="wrap cen-grid">
+    <div class="cen-txt">
+      <h2 data-i18n="cen.h2">Cennik taxi w Rzeszowie</h2>
+      <p data-i18n="cen.p">Opłata początkowa i stawka za kilometr zależą od pory dnia i tego, czy jedziesz po mieście, czy poza nie.</p>
+      <p class="cen-ind" data-i18n="cen.ind">Transfery lotniskowe i dłuższe trasy wyceniamy indywidualnie, a cenę podajemy przy potwierdzeniu zamówienia.</p>
+      <div class="cen-akcje">
+        <a class="btn btn-y" href="tel:+48536805851"><svg class="ic"><use href="#i-tel"/></svg><span data-i18n="cen.tel">Zadzwoń 536 805 851</span></a>
+        <a class="cen-link" href="{{CEN}}"><span data-i18n="cen.wiecej">Pełny cennik</span> <svg class="ic"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+{{CENNIK_TABELA}}
   </div>
 </section>
 
@@ -324,7 +342,7 @@
         <figure><blockquote data-i18n="op.2">Nie posiadam własnego samochodu, z Taxi Rzeszów korzystam regularnie. Świetny kontakt.</blockquote><figcaption>Kacper</figcaption></figure>
         <figure><blockquote data-i18n="op.3">Wybieram taxi jako bezpieczną alternatywę dla kierowców, którzy nie mają licencji, a świadczą usługi transportowe.</blockquote><figcaption>Kasia</figcaption></figure>
       </div>
-      <p class="op-wiecej"><a href="https://www.tripadvisor.com/Attraction_Review-g274785-d33097322-Reviews-Taxi_Rzeszow_24h-Rzeszow_Subcarpathian_Province_Southern_Poland.html" target="_blank" rel="noopener"><span data-i18n="op.ta">Opinie o nas na Tripadvisor</span> <svg class="ic"><use href="#i-arrow"/></svg></a></p>
+      <p class="op-wiecej"><a href="https://www.tripadvisor.com/Attraction_Review-g274785-d33097322-Reviews-Taxi_Rzeszow_24h-Rzeszow_Subcarpathian_Province_Southern_Poland.html" target="_blank" rel="noopener"><span data-i18n="op.ta">Opinie o nas na Tripadvisor</span> <svg class="ic"><use href="#i-arrow"/></svg></a>{{GOOGLE_OPINIE}}</p>
     </div>
   </div>
 </section>
@@ -337,8 +355,9 @@
       <details open><summary data-i18n="q1">Czy Taxi Rzeszów 24H działa całą dobę?</summary><p data-i18n="a1">Tak, jeździmy po Rzeszowie i okolicy 24 godziny na dobę, również w weekendy i święta.</p></details>
       <details><summary data-i18n="q2">Czy można zamówić taxi na lotnisko Rzeszów-Jasionka?</summary><p data-i18n="a2">Tak. Wozimy na Port Lotniczy Rzeszów-Jasionka i odbieramy z niego, a także jeździmy na lotniska w Krakowie, Katowicach, Lublinie i Warszawie. Kurs można zarezerwować wcześniej.</p></details>
       <details><summary data-i18n="q8">Czy jeździcie do Przemyśla i na przejście graniczne w Medyce?</summary><p data-i18n="a8">Tak. Przejazdy z Rzeszowa do Przemyśla i na przejście graniczne z Ukrainą w Medyce realizujemy na zamówienie, o każdej porze, także w nocy. Cenę podajemy przy potwierdzaniu zamówienia.</p></details>
-      <details><summary data-i18n="q3">Co jeśli mój samolot się spóźni?</summary><p data-i18n="a3">Kierowca monitoruje przyloty, dlatego odbiór z lotniska odbywa się o właściwej godzinie także przy opóźnieniu lotu. Wystarczy podać numer lotu w zamówieniu.</p></details>
-      <details><summary data-i18n="q4">Ile kosztuje taxi na lotnisko Jasionka?</summary><p data-i18n="a4">Cenę podajemy przy potwierdzaniu zamówienia, SMS-em lub telefonicznie. Złóż zamówienie formularzem albo zadzwoń: +48 536 805 851.</p></details>
+      <details><summary data-i18n="q3">Co jeśli mój samolot się spóźni?</summary><p data-i18n="a3b">Lot zawsze monitorujemy pod kątem opóźnień, więc kierowca przyjedzie na właściwą godzinę. Czas oczekiwania na Ciebie jest bezpłatny. Wystarczy podać numer lotu w zamówieniu.</p></details>
+      <details><summary data-i18n="q9">Gdzie czeka kierowca na lotnisku Jasionka?</summary><p data-i18n="a9">Samochód zawsze stoi zaparkowany na wprost wyjścia z terminala. Na życzenie kierowca czeka w terminalu z tabliczką z Twoim nazwiskiem - dopisz to w uwagach do zamówienia.</p></details>
+      <details><summary data-i18n="q4">Ile kosztuje taxi na lotnisko Jasionka?</summary><p data-i18n="a4b">Transfery lotniskowe wyceniamy indywidualnie: cenę podajemy przy potwierdzaniu zamówienia, SMS-em lub telefonicznie. Stawki za kilometr w czterech taryfach znajdziesz w cenniku.</p></details>
       <details><summary data-i18n="q5">Jak zamówić taxi w Rzeszowie?</summary><p data-i18n="a5">Telefonicznie pod numerem +48 536 805 851, przez WhatsApp albo formularzem zamówienia na tej stronie. Zamówienie potwierdzamy SMS-em lub telefonicznie.</p></details>
       <details><summary data-i18n="q6">Czy wystawiacie faktury dla firm?</summary><p data-i18n="a6">Tak, realizujemy transport biznesowy i wystawiamy faktury klientom firmowym.</p></details>
       <details><summary data-i18n="q7">W jakich językach można się z Wami porozumieć?</summary><p data-i18n="a7">Zamówienie przyjmiemy po polsku, angielsku, niemiecku i ukraińsku. Najprościej napisać na WhatsApp.</p></details>
