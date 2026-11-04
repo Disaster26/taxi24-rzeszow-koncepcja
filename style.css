@@ -476,7 +476,7 @@ ul,ol{margin:0;padding:0}
 .op-lista figure{margin:0}
 .op-lista blockquote{margin:0;font-size:16.5px;line-height:1.6;color:var(--ink)}
 .op-lista figcaption{margin-top:10px;font-weight:700;color:var(--mut);font-size:14.5px}
-.op-wiecej{margin-top:24px}
+.op-wiecej{margin-top:24px;display:flex;flex-wrap:wrap;gap:4px 28px}
 .op-wiecej a{display:inline-flex;align-items:center;gap:6px;min-height:40px;font-weight:700;color:var(--navy);text-underline-offset:4px}
 .op-wiecej .ic{width:18px;height:18px;color:var(--yd)}
 
