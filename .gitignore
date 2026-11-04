@@ -1,4 +1,8 @@
-_src/
+_src/*
+!_src/szablon/
+!_src/narzedzia/
+!_src/i18n.js
 *.log
 _produkcja/
 _dane/
+__pycache__/
