@@ -6,7 +6,7 @@
 <!-- KONCEPCJA: noindex tylko na czas prezentacji. Na produkcji: index, follow + canonical https://taxi24-rzeszow.pl/ -->
 <meta name="robots" content="noindex">
 <title>Taxi Rzeszów 24h - transfer na lotnisko Jasionka | Taxi Rzeszów 24H</title>
-<meta name="description" content="Taxi Rzeszów 24h: kursy po mieście i okolicy, transfer na lotnisko Rzeszów-Jasionka oraz do Krakowa, Katowic, Lublina i Warszawy. Zamów online przez WhatsApp lub SMS, tel. +48 536 805 851.">
+<meta name="description" content="Taxi Rzeszów 24h: kursy po mieście i okolicy, transfer na lotnisko Rzeszów-Jasionka oraz do Krakowa, Katowic, Lublina i Warszawy. Zamów online formularzem, przez WhatsApp lub SMS, tel. +48 536 805 851.">
 <!-- Wersje jezykowe. Na produkcji kazdy jezyk dostaje wlasny adres z gotowym tekstem w HTML (/en/, /de/, /uk/), tu w koncepcji przelacza je skrypt. -->
 <link rel="alternate" hreflang="pl" href="https://taxi24-rzeszow.pl/">
 <link rel="alternate" hreflang="en" href="https://taxi24-rzeszow.pl/en/">
@@ -60,7 +60,7 @@
     {"@type": "Question", "name": "Czy Taxi Rzeszów 24H działa całą dobę?", "acceptedAnswer": {"@type": "Answer", "text": "Tak, jeździmy po Rzeszowie i okolicy 24 godziny na dobę, również w weekendy i święta."}},
     {"@type": "Question", "name": "Czy można zamówić taxi na lotnisko Rzeszów-Jasionka?", "acceptedAnswer": {"@type": "Answer", "text": "Tak. Wozimy na Port Lotniczy Rzeszów-Jasionka i odbieramy z niego, a także jeździmy na lotniska w Krakowie, Katowicach, Lublinie i Warszawie. Kurs można zarezerwować wcześniej."}},
     {"@type": "Question", "name": "Co jeśli mój samolot się spóźni?", "acceptedAnswer": {"@type": "Answer", "text": "Kierowca monitoruje przyloty, dlatego odbiór z lotniska odbywa się o właściwej godzinie także przy opóźnieniu lotu. Wystarczy podać numer lotu w zamówieniu."}},
-    {"@type": "Question", "name": "Jak zamówić taxi w Rzeszowie?", "acceptedAnswer": {"@type": "Answer", "text": "Telefonicznie pod numerem +48 536 805 851, przez WhatsApp albo formularzem na stronie, który wysyła gotowe zamówienie WhatsAppem lub SMS-em."}},
+    {"@type": "Question", "name": "Jak zamówić taxi w Rzeszowie?", "acceptedAnswer": {"@type": "Answer", "text": "Telefonicznie pod numerem +48 536 805 851, przez WhatsApp albo formularzem zamówienia na stronie. Zamówienie potwierdzamy SMS-em lub telefonicznie."}},
     {"@type": "Question", "name": "Czy wystawiacie faktury dla firm?", "acceptedAnswer": {"@type": "Answer", "text": "Tak, realizujemy transport biznesowy i wystawiamy faktury klientom firmowym."}}
   ]
 }
@@ -133,9 +133,9 @@
   </div>
   <div class="hero-srodek"><div class="hero-in wrap">
     <h1 data-i18n="h1">Taxi Rzeszów 24h i transfery na lotnisko Jasionka</h1>
-    <p class="lead" data-i18n="hero.lead">Kursy po mieście, odbiór z samolotu i dłuższe trasy. Zamówisz w minutę, a cenę podamy od razu.</p>
+    <p class="lead" data-i18n="hero.lead">Kursy po mieście, odbiór z samolotu i dłuższe trasy. Zamówisz w minutę, potwierdzimy SMS-em lub telefonicznie.</p>
 
-    <form class="szybki" id="szybki" autocomplete="off">
+    <form class="szybki" id="szybki" action="wyslij.php" method="post" novalidate aria-label="Zamówienie taxi" data-i18n-aria="a.szybki">
       <div class="tabs" role="radiogroup" aria-label="Rodzaj przejazdu" data-i18n-aria="a.rodzaj">
         <label><input type="radio" name="qtyp" value="lotnisko" checked><span><svg class="ic"><use href="#i-plane"/></svg><b class="dl" data-i18n="typ.lotnisko">Transfer lotniskowy</b><b class="ds" data-i18n="typs.lotnisko">Lotnisko</b></span></label>
         <label><input type="radio" name="qtyp" value="miasto"><span><svg class="ic"><use href="#i-car"/></svg><b class="dl" data-i18n="typ.miasto">Taxi w mieście</b><b class="ds" data-i18n="typs.miasto">Miasto</b></span></label>
@@ -145,9 +145,13 @@
       <div class="q-pola">
         <label class="pole"><svg class="ic"><use href="#i-pin"/></svg><input id="qSkad" name="skad" placeholder="Skąd jedziemy?" aria-label="Skąd jedziemy?" data-i18n-aria="q.skad"></label>
         <label class="pole"><svg class="ic"><use href="#i-pin"/></svg><input id="qDokad" name="dokad" placeholder="Dokąd?" aria-label="Dokąd?" data-i18n-aria="q.dokad" list="lotniskaLista"></label>
-        <label class="pole q-kiedy"><svg class="ic"><use href="#i-cal"/></svg><input id="qKiedy" name="kiedy" type="datetime-local" step="300" aria-label="Data i godzina" data-i18n-aria="q.kiedy"></label>
-        <button class="btn btn-y q-btn" type="submit"><span data-i18n="q.btn">Zamów przejazd</span> <svg class="ic"><use href="#i-arrow"/></svg></button>
+        <label class="pole q-kiedy pusty"><svg class="ic"><use href="#i-cal"/></svg><input id="qKiedy" name="kiedy" type="datetime-local" step="300" aria-label="Kiedy? Puste pole: jak najszybciej" data-i18n-aria="q.kiedy"><span class="q-teraz" aria-hidden="true"><span class="dl" data-i18n="q.teraz">Teraz lub wybierz termin</span><span class="ds" data-i18n="qs.teraz">Teraz / termin</span></span></label>
+        <label class="pole q-tel"><svg class="ic"><use href="#i-tel"/></svg><input id="qTel" name="telefon" type="tel" inputmode="tel" autocomplete="tel" maxlength="25" placeholder="Twój telefon" aria-label="Twój telefon (do potwierdzenia)" data-i18n-ph="q.telph" data-i18n-aria="q.tel"></label>
+        <p class="q-info" data-i18n="q.info">Potwierdzimy SMS-em lub telefonicznie.</p>
+        <button class="btn btn-y q-btn" type="submit"><span data-i18n="q.btn">Zamów taxi</span> <svg class="ic"><use href="#i-arrow"/></svg></button>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
       </div>
+      <div class="q-ok" id="qOk" hidden tabindex="-1"></div>
     </form>
 
     <p class="fakty-tel" data-i18n="hero.fakty">Całą dobę, także w święta. Karta, gotówka lub BLIK.</p>
@@ -282,10 +286,10 @@
   <div class="wrap">
     <div class="sek-head">
       <h2 data-i18n="zam.h2">Zamówienie kursu lub transferu</h2>
-      <p data-i18n="zam.p">Wypełnij, co wiesz, a gotowe zamówienie wyślesz jednym kliknięciem przez WhatsApp lub SMS. Odpiszemy z potwierdzeniem i ceną.</p>
+      <p data-i18n="zam.p">Podaj adres, termin i telefon, a zamówienie trafi prosto do nas. Potwierdzimy je SMS-em lub telefonicznie. Możesz też wysłać je przez WhatsApp lub SMS.</p>
     </div>
     <div class="zam-grid">
-      <form class="zam" id="zam" novalidate autocomplete="off">
+      <form class="zam" id="zam" action="wyslij.php" method="post" novalidate>
         <fieldset class="z-typ">
           <legend data-i18n="zam.co">Co zamawiasz?</legend>
           <div class="seg seg4">
@@ -371,29 +375,38 @@
         </div>
 
         <div class="z-rzad">
-          <label class="z-pole"><span class="z-lab" data-i18n="zam.imie">Imię</span><input id="imie" name="imie" placeholder="Jak się do Ciebie zwracać?" data-i18n-ph="ph.imie" autocomplete="given-name"></label>
-          <label class="z-pole"><span class="z-lab" data-i18n="zam.uwagi">Uwagi</span><input id="uwagi" name="uwagi" placeholder="np. fotelik dla dziecka, faktura"></label>
+          <label class="z-pole"><span class="z-lab"><span data-i18n="zam.tel">Telefon</span> <em data-i18n="zam.telo">(do potwierdzenia)</em></span><input id="tel" name="telefon" type="tel" inputmode="tel" autocomplete="tel" maxlength="25" required placeholder="np. 600 100 200" data-i18n-ph="ph.tel"></label>
+          <label class="z-pole"><span class="z-lab" data-i18n="zam.imie">Imię</span><input id="imie" name="imie" maxlength="80" placeholder="Jak się do Ciebie zwracać?" data-i18n-ph="ph.imie" autocomplete="given-name"></label>
         </div>
+        <div class="z-rzad">
+          <label class="z-pole"><span class="z-lab"><span data-i18n="zam.email">E-mail</span> <em data-i18n="opc.opc">(opcjonalnie)</em></span><input id="email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="120" placeholder="na potwierdzenie przyjęcia" data-i18n-ph="ph.email"></label>
+          <label class="z-pole"><span class="z-lab" data-i18n="zam.uwagi">Uwagi</span><input id="uwagi" name="uwagi" maxlength="1000" placeholder="np. fotelik dla dziecka, faktura"></label>
+        </div>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
       </form>
 
-      <aside class="podsum" id="podsum" aria-live="polite">
+      <aside class="podsum" id="podsum">
         <div class="ps-head"><b data-i18n="ps.h">Twoje zamówienie</b><small id="psTyp">Transfer lotniskowy</small></div>
+        <div class="ps-ok" id="psOk" hidden tabindex="-1"></div>
         <dl class="ps-lista" id="psLista"></dl>
         <div class="ps-cena">
           <span data-i18n="ps.cena">Cena</span>
-          <b data-i18n="ps.wycena">Wycena od razu</b>
-          <small data-i18n="ps.cenas">Odpiszemy z ceną za ten kurs, zanim go potwierdzisz.</small>
+          <b data-i18n="ps.wycena">Podamy przy potwierdzeniu</b>
+          <small data-i18n="ps.cenas">Cenę za ten kurs podamy, gdy będziemy potwierdzać zamówienie.</small>
         </div>
         <p class="ps-blad" id="psBlad" hidden></p>
         <div class="ps-akcje">
-          <a class="btn btn-wa" id="wyslijWa" href="https://wa.me/48536805851" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg><span data-i18n="ps.wa">Wyślij przez WhatsApp</span></a>
-          <a class="btn btn-ghost" id="wyslijSms" href="sms:+48536805851"><svg class="ic"><use href="#i-msg"/></svg><span data-i18n="ps.sms">Wyślij SMS</span></a>
-          <a class="btn btn-ghost" href="tel:+48536805851"><svg class="ic"><use href="#i-tel"/></svg><span data-i18n="ps.tel">Zadzwoń 536 805 851</span></a>
-          <button class="ps-kopiuj" id="kopiuj" type="button"><svg class="ic"><use href="#i-copy"/></svg><span data-i18n="ps.kopiuj">Kopiuj treść zamówienia</span></button>
+          <button class="btn btn-y ps-zamow" id="wyslijMail" type="submit" form="zam"><span data-i18n="ps.zamow">Zamów taxi</span> <svg class="ic"><use href="#i-arrow"/></svg></button>
+          <p class="ps-lub" data-i18n="ps.lub">albo wyślij to samo zamówienie:</p>
+          <div class="ps-dwa">
+            <a class="btn btn-wa" id="wyslijWa" href="https://wa.me/48536805851" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
+            <a class="btn btn-ghost" id="wyslijSms" href="sms:+48536805851"><svg class="ic"><use href="#i-msg"/></svg><span>SMS</span></a>
+          </div>
+          <a class="ps-kopiuj" href="tel:+48536805851"><svg class="ic"><use href="#i-tel"/></svg><span data-i18n="ps.tel">Zadzwoń 536 805 851</span></a>
         </div>
         <ol class="ps-kroki">
           <li data-i18n="ps.k1">Wysyłasz zamówienie. Przy odbiorze z lotniska dopisz numer lotu.</li>
-          <li data-i18n="ps.k2">Pracownik potwierdza kurs i podaje cenę.</li>
+          <li data-i18n="ps.k2">Potwierdzamy je SMS-em lub telefonicznie i podajemy cenę.</li>
           <li data-i18n="ps.k3">Kierowca jest na czas pod domem albo na lotnisku, także przy opóźnieniu.</li>
         </ol>
       </aside>
@@ -440,8 +453,8 @@
       <details open><summary data-i18n="q1">Czy Taxi Rzeszów 24H działa całą dobę?</summary><p data-i18n="a1">Tak, jeździmy po Rzeszowie i okolicy 24 godziny na dobę, również w weekendy i święta.</p></details>
       <details><summary data-i18n="q2">Czy można zamówić taxi na lotnisko Rzeszów-Jasionka?</summary><p data-i18n="a2">Tak. Wozimy na Port Lotniczy Rzeszów-Jasionka i odbieramy z niego, a także jeździmy na lotniska w Krakowie, Katowicach, Lublinie i Warszawie. Kurs można zarezerwować wcześniej.</p></details>
       <details><summary data-i18n="q3">Co jeśli mój samolot się spóźni?</summary><p data-i18n="a3">Kierowca monitoruje przyloty, dlatego odbiór z lotniska odbywa się o właściwej godzinie także przy opóźnieniu lotu. Wystarczy podać numer lotu w zamówieniu.</p></details>
-      <details><summary data-i18n="q4">Ile kosztuje taxi na lotnisko Jasionka?</summary><p data-i18n="a4">Cenę podajemy od razu po zapytaniu, zanim potwierdzisz kurs. Wyślij zamówienie formularzem albo zadzwoń: +48 536 805 851.</p></details>
-      <details><summary data-i18n="q5">Jak zamówić taxi w Rzeszowie?</summary><p data-i18n="a5">Telefonicznie pod numerem +48 536 805 851, przez WhatsApp albo formularzem na tej stronie, który wysyła gotowe zamówienie WhatsAppem lub SMS-em.</p></details>
+      <details><summary data-i18n="q4">Ile kosztuje taxi na lotnisko Jasionka?</summary><p data-i18n="a4">Cenę podajemy przy potwierdzaniu zamówienia, SMS-em lub telefonicznie. Złóż zamówienie formularzem albo zadzwoń: +48 536 805 851.</p></details>
+      <details><summary data-i18n="q5">Jak zamówić taxi w Rzeszowie?</summary><p data-i18n="a5">Telefonicznie pod numerem +48 536 805 851, przez WhatsApp albo formularzem zamówienia na tej stronie. Zamówienie potwierdzamy SMS-em lub telefonicznie.</p></details>
       <details><summary data-i18n="q6">Czy wystawiacie faktury dla firm?</summary><p data-i18n="a6">Tak, realizujemy transport biznesowy i wystawiamy faktury klientom firmowym.</p></details>
       <details><summary data-i18n="q7">W jakich językach można się z Wami porozumieć?</summary><p data-i18n="a7">Zamówienie przyjmiemy po polsku, angielsku, niemiecku i ukraińsku. Najprościej napisać na WhatsApp.</p></details>
     </div>
