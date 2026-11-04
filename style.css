@@ -122,7 +122,35 @@ ul,ol{margin:0;padding:0}
 .tabs label:hover span{color:var(--ink)}
 .tabs input:checked+span{background:var(--y);color:var(--navy)}
 .tabs input:focus-visible+span{outline:2px solid var(--navy);outline-offset:-4px}
-.q-pola{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,.95fr) auto;gap:10px;padding:14px}
+.q-pola{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:14px}
+.q-info{align-self:center;font-size:13.5px;line-height:1.35;color:var(--mut);padding:0 4px}
+.q-teraz{position:absolute;left:40px;right:8px;top:50%;transform:translateY(-50%);font-size:14.5px;color:#8a93a3;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.q-teraz .ds{display:none}
+.q-kiedy:not(.pusty) .q-teraz{display:none}
+.q-kiedy.pusty input{color:transparent}
+.q-kiedy.pusty input::-webkit-datetime-edit{color:transparent}
+.pole.blad input,.pole.blad input:focus{border-color:#d33a2c;box-shadow:0 0 0 3px rgba(211,58,44,.14)}
+.q-blad{grid-column:1/-1;margin:0;padding:9px 12px;border-radius:10px;background:#fdecea;color:#a3271b;font-size:14px;line-height:1.4}
+.q-blad a{color:#a3271b;font-weight:800}
+.hp{position:absolute!important;left:-10000px!important;width:1px;height:1px;opacity:0;pointer-events:none}
+.btn.wysyla{opacity:.75;cursor:progress}
+/* panel "zamowienie przyjete" */
+.szybki.wyslane .tabs,.szybki.wyslane .q-pola{display:none}
+.q-ok{padding:20px 22px 16px;outline:0}
+.ok-gora{display:flex;align-items:center;gap:12px}
+.ok-ikona{flex:0 0 auto;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--y);color:var(--navy)}
+.ok-ikona .ic{width:22px;height:22px;stroke-width:2.6}
+.ok-h{font-size:19px;line-height:1.25}
+.ok-p{margin-top:10px;color:var(--txt);font-size:15.5px;line-height:1.5}
+.ok-p a{font-weight:800;color:var(--ink);white-space:nowrap}
+.ok-spam,.ok-demo{margin-top:8px;font-size:14px;line-height:1.45;color:var(--mut)}
+.ok-demo{padding:8px 10px;border-radius:8px;background:var(--bg2)}
+.ok-alt{margin-top:12px;font-size:13.5px;color:var(--mut)}
+.ok-dwa{margin-top:6px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-width:420px}
+.ok-dwa .btn{min-height:44px;padding:0 14px}
+.q-ok .btn-ghost{color:var(--navy);border-color:var(--linia)}
+.q-ok .btn-ghost:hover{border-color:var(--navy)}
+.ok-nowe{margin-top:10px;padding:6px 0;border:0;background:none;font-weight:700;font-size:14px;color:var(--navy);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .pole{position:relative;display:block;min-width:0}
 .pole .ic{position:absolute;left:13px;top:50%;margin-top:-9px;width:18px;height:18px;color:var(--mut);pointer-events:none}
 .pole input{width:100%;height:50px;padding:0 12px 0 40px;border:1px solid var(--linia);border-radius:10px;background:#fff;font-size:15px;color:var(--ink);transition:border-color .15s,box-shadow .15s}
@@ -150,8 +178,6 @@ ul,ol{margin:0;padding:0}
 @media (max-width:1180px) and (min-width:901px){
   .fakty{gap:12px 18px}
   .fakty .ic{width:28px;height:28px}
-  .q-pola{grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto}
-  .q-kiedy{display:none}
 }
 
 /* hero na telefonie i tablecie: zdjecie auta jako blok nad tekstem */
@@ -168,7 +194,12 @@ ul,ol{margin:0;padding:0}
   .tabs span{flex-direction:column;gap:3px;height:clamp(48px,7.6svh,58px);font-size:12.5px;padding:0 4px}
   .tabs .dl{display:none}.tabs .ds{display:inline}
   .q-pola{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;padding:10px}
-  .q-kiedy{display:none}
+  .q-info{display:none}
+  .q-teraz{left:36px;font-size:15px}
+  .q-teraz .dl{display:none}.q-teraz .ds{display:inline}
+  .q-ok{padding:16px 14px 12px}
+  .ok-h{font-size:17.5px}
+  .ok-p{font-size:15px}
   .pole input{height:46px;font-size:16px;padding-left:36px}
   .pole .ic{left:11px}
   .q-btn{grid-column:1/-1;height:48px}
@@ -298,6 +329,19 @@ ul,ol{margin:0;padding:0}
 .ps-blad{margin-top:14px;padding:10px 12px;border-radius:10px;background:rgba(211,58,44,.16);color:#ffb4ab;font-size:14px}
 .ps-akcje{margin-top:18px;display:flex;flex-direction:column;gap:10px}
 .ps-akcje .btn{width:100%}
+.ps-lub{margin-top:4px;font-size:13px;color:#9fabbd;text-align:center}
+.ps-dwa{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.ps-dwa .btn{padding:0 12px}
+a.ps-kopiuj{text-decoration:none}
+.podsum.wyslane>:not(.ps-ok){display:none}
+.ps-ok{outline:0}
+.ps-ok .ok-h{color:#fff}
+.ps-ok .ok-p{color:#d6dde8}
+.ps-ok .ok-p a{color:#fff}
+.ps-ok .ok-spam,.ps-ok .ok-alt{color:#b9c3d2}
+.ps-ok .ok-demo{background:rgba(255,255,255,.08);color:#d6dde8}
+.ps-ok .ok-dwa{max-width:none}
+.ps-ok .ok-nowe{color:var(--y)}
 .ps-kopiuj{display:flex;align-items:center;justify-content:center;gap:8px;padding:8px;border:0;background:none;color:#b9c3d2;font-size:14px;font-weight:600;cursor:pointer}
 .ps-kopiuj:hover{color:#fff}
 .ps-kopiuj .ic{width:17px;height:17px}
