@@ -149,7 +149,7 @@
   }
   function wysokoscBanera() {
     if (!baner || baner.hidden) return;
-    document.documentElement.style.setProperty('--zg-h', baner.offsetHeight + 'px');
+    requestAnimationFrame(function () { document.documentElement.style.setProperty('--zg-h', baner.offsetHeight + 'px'); });
   }
   function otworzBaner(zUstawieniami) {
     zbudujBaner();
@@ -167,7 +167,9 @@
   $$('[data-cookies]').forEach(function (b) { b.addEventListener('click', function () { banerPokazany = true; otworzBaner(true); }); });
   var zp = zgodyOdczyt();
   if (zp) zgodyStosuj(zp);
-  if (!heroCta || document.documentElement.scrollHeight < innerHeight * 1.4) setTimeout(pokazBanerZgod, heroCta ? 1500 : 400);   // krotka strona (np. 404): bez przewijania
+  // krotka strona (np. 404): baner bez przewijania; pomiar wysokosci dopiero w timerze (bez wymuszonego przeliczenia ukladu przy starcie)
+  if (!heroCta) setTimeout(pokazBanerZgod, 400);
+  else setTimeout(function () { if (document.documentElement.scrollHeight < innerHeight * 1.4) pokazBanerZgod(); }, 1500);
   plywStan();
 
   // zdarzenia (wysylane tylko po zgodzie, gdy gtag jest wczytany)
