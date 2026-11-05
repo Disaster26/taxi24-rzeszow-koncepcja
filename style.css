@@ -859,3 +859,51 @@ ol.kroki li::marker{font-weight:800;color:var(--yd)}
 .por-dalej .ic{width:18px;height:18px;color:var(--yd)}
 @media (max-width:760px){.por-lista{grid-template-columns:minmax(0,1fr)}.art-head{padding:24px 0 30px}.art-txt p,.art-txt li{font-size:16.5px}}
 @media (min-width:1061px) and (max-width:1180px){.menu a[href="#kontakt"]{display:none}}
+/* opinie wyzej na stronie (05.11 popr.) */
+.trasy-sek{padding-top:56px}
+.trasy-sek .trasy{margin-top:0}
+.op-sek .opinie{margin-top:0;padding-top:0;border-top:0}
+.op-przesun{display:none}
+.hero-ocena{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:14.5px;font-weight:700;color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:3px}
+.hero-gw{color:var(--y);font-size:16px;text-decoration:none}
+@media (max-width:760px){
+  .op-przesun{display:flex;align-items:center;gap:6px;margin-top:2px;font-size:13.5px;font-weight:700;color:var(--mut)}
+  .op-przesun .ic{width:16px;height:16px;color:var(--yd)}
+  .hero-ocena{display:flex;justify-content:center;margin-top:10px;font-size:13.5px}
+}
+/* naglowek: przelacznik jezyka jako lista rozwijana, telefon jako ikona - nic nie wystaje przy pokazanym CTA (05.11) */
+@media (min-width:1061px){
+  .top-in{width:min(1320px,100% - 48px);gap:16px}
+  .lang-btn{display:flex;align-items:center;gap:4px;height:40px;padding:0 9px 0 11px;border:1px solid var(--linia);border-radius:10px;background:#fff;font-weight:800;font-size:13.5px;color:var(--ink);cursor:pointer}
+  .lang-btn .ic{width:15px;height:15px;transition:transform .18s}
+  .lang-btn[aria-expanded="true"] .ic{transform:rotate(180deg)}
+  .lang-list{position:absolute;right:0;top:calc(100% + 8px);flex-direction:column;gap:2px;padding:6px;border-radius:12px;border:0;background:#fff;box-shadow:var(--cien);min-width:170px;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .16s,transform .16s,visibility 0s .16s;z-index:5}
+  .lang.otwarte .lang-list{opacity:1;visibility:visible;transform:none;transition:opacity .16s,transform .16s}
+  .lang-list a{justify-content:flex-start;height:40px;padding:0 12px;border-radius:8px;font-size:14px;color:var(--ink)}
+  .lang-list a::after{content:attr(title);margin-left:10px;font-weight:600;color:var(--mut)}
+  .lang-list a[aria-current="true"]::after{color:#c9d3e3}
+  .top-tel span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .top-tel{gap:0}
+  .top.hero-cta-widac .top-tel,.top.hero-cta-widac .top-cta{margin-left:-16px}
+}
+@media (min-width:1061px) and (max-width:1330px){
+  .top-in{gap:12px}
+  .top-cta{padding:0 16px;font-size:14px}
+  .top.hero-cta-widac .top-tel,.top.hero-cta-widac .top-cta{margin-left:-12px}
+}
+/* ocena Google w hero (zastepuje linijke zaufania) */
+.hero .hero-ocena{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin-top:16px;padding:6px 14px 6px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);font-size:14.5px;font-weight:600;color:#d6dde8;text-decoration:none;transition:background-color .15s}
+.hero .hero-ocena:hover{background:rgba(255,255,255,.14)}
+.hero-ocena .hero-gw{color:var(--y);font-size:14px;letter-spacing:1px;line-height:1}
+.hero-ocena b{color:#fff;font-weight:800;font-size:15px}
+.hero-oc-n{color:#b9c3d2;text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);text-underline-offset:3px}
+@media (max-width:900px){
+  .hero .hero-ocena{display:flex;justify-content:center;margin:10px auto 0;width:max-content;max-width:100%;padding:4px 12px;font-size:13px;gap:2px 8px}
+  .hero-ocena b{font-size:13.5px}
+  .hero-ocena .hero-gw{font-size:12px}
+}
+.op-akcje .btn{max-width:100%;white-space:normal;text-align:center;line-height:1.3}
+@media (max-width:900px) and (max-height:700px){
+  .hero .hero-ocena{margin-top:6px;padding:2px 10px}
+  html[lang=de] .hero .lead{font-size:14px;line-height:1.4}
+}
