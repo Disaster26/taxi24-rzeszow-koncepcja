@@ -19,7 +19,7 @@ window.I18N = {
     'qps.skad': 'Skąd?', 'qps.inneSkad': 'Adres', 'qps.dokad': 'Dokąd?', 'qps.inneDokad': 'Co załatwić?',
     'k.tel': 'Telefon', 'k.email': 'E-mail',
     'miss.tel': 'numer telefonu', 'miss.email': 'poprawny e-mail',
-    'ok.h': 'Dziękujemy, zamówienie dotarło.', 'ok.p': 'Potwierdzimy je SMS-em lub telefonicznie - zwykle w ciągu kilku minut.',
+    'ok.h': 'Dziękujemy, zamówienie dotarło.', 'ok.p': "Potwierdzimy je SMS-em lub telefonicznie w ciągu 5 minut.",
     'ok.pilne': 'Jeśli to pilne, zadzwoń:', 'ok.spam': "Na podany e-mail wysłaliśmy potwierdzenie przyjęcia. Jeśli go nie widzisz, sprawdź też folder SPAM.",
     'ok.demo': "Podgląd: na stronie docelowej to zamówienie trafi mailem na taxi@taxi24-rzeszow.pl.", 'ok.alt': 'To samo zamówienie możesz też wysłać:',
     'ok.nowe': 'Złóż kolejne zamówienie', 'wysyl': 'Wysyłanie...',
@@ -29,7 +29,7 @@ window.I18N = {
     'og.title': "Taxi Rzeszów 24h i transfery na lotnisko Jasionka",
     'og.desc': "Całodobowe taxi w Rzeszowie, transfery na lotnisko Rzeszów-Jasionka, Przemyśl i granica w Medyce. Tel. 536 805 851, WhatsApp, zamówienie online.",
     'og.alt': "Taxi Rzeszów 24H - samochód przed mostem w Rzeszowie",
-    'ok.p2': "Oddzwonimy lub wyślemy SMS z potwierdzeniem, zwykle w 5-15 minut. Trzymaj telefon pod ręką. Pilne? Zadzwoń:",
+    'ok.p2': "Oddzwonimy albo wyślemy SMS z potwierdzeniem w ciągu 5 minut. Trzymaj telefon pod ręką. Pilne? Zadzwoń:",
     'ok.sum': "Twoje zamówienie:",
     'err.qoba': "Podaj adres odbioru i numer telefonu (9 cyfr).",
     'err.qskad': "Podaj adres odbioru.",
@@ -58,8 +58,8 @@ window.I18N = {
     'a.okruszki': "Ścieżka",
     'ok.h3': "Zamówienie przyjęte - dyspozytor już je widzi",
     'ok.disp': "Dyspozytor online",
-    'ok.p3': "Oddzwonimy albo wyślemy SMS z potwierdzeniem, zwykle w ciągu 5-15 minut. Trzymaj telefon pod ręką.",
-    'ok.pilne3': "Jedziesz za mniej niż godzinę albo nikt się nie odezwał po 15 minutach? Zadzwoń:"
+    'ok.p3': "Oddzwonimy albo wyślemy SMS z potwierdzeniem w ciągu 5 minut. Trzymaj telefon pod ręką.",
+    'ok.pilne3': "Jedziesz za mniej niż godzinę albo nikt nie odezwał się w ciągu 10 minut? Zadzwoń:"
   },
 
   en: {
@@ -164,7 +164,7 @@ window.I18N = {
     'ps.zamow': 'Book a taxi', 'ps.lub': 'or send the same booking via:',
     'k.tel': 'Phone', 'k.email': 'E-mail',
     'miss.tel': 'phone number', 'miss.email': 'a valid e-mail',
-    'ok.h': 'Thank you, your booking has arrived.', 'ok.p': 'We will confirm it by SMS or phone - usually within a few minutes.',
+    'ok.h': 'Thank you, your booking has arrived.', 'ok.p': "We will confirm it by SMS or phone within 5 minutes.",
     'ok.pilne': 'If it is urgent, call:', 'ok.spam': "We have sent a confirmation to your e-mail. If you cannot see it, please check your SPAM folder too.",
     'ok.demo': "Preview: on the live site this booking goes by e-mail to taxi@taxi24-rzeszow.pl.", 'ok.alt': 'You can also send the same booking:',
     'ok.nowe': 'Make another booking', 'wysyl': 'Sending...',
@@ -203,7 +203,7 @@ window.I18N = {
     'zam.p2': "Enter the address, time and your phone number and the booking comes straight to us. We confirm it by SMS or phone.",
     'zam.wiecej': "More details (optional)",
     'zam.wiecejs': "name, e-mail, notes",
-    'ok.p2': "We will call you back or send a text to confirm, usually within 5-15 minutes. Keep your phone at hand. Urgent? Call:",
+    'ok.p2': "We will call you back or send a text to confirm within 5 minutes. Keep your phone at hand. Urgent? Call:",
     'ok.sum': "Your booking:",
     'err.qoba': "Enter the pick-up address and your phone number.",
     'err.qskad': "Enter the pick-up address.",
@@ -302,8 +302,8 @@ window.I18N = {
     'ca8': "It depends on the time and traffic: app prices often change and go up when demand is high, while we charge fixed rates from our price list, also at night and on holidays. Longer routes are quoted in advance, so you know the price before the ride.",
     'ok.h3': "Booking received - our dispatcher can already see it",
     'ok.disp': "Dispatcher online",
-    'ok.p3': "We will call you back or send a text to confirm, usually within 5-15 minutes. Keep your phone at hand.",
-    'ok.pilne3': "Leaving in less than an hour, or no reply after 15 minutes? Call:"
+    'ok.p3': "We will call you back or send a text to confirm within 5 minutes. Keep your phone at hand.",
+    'ok.pilne3': "Leaving in less than an hour, or no reply within 10 minutes? Call:"
   },
 
   de: {
@@ -408,7 +408,7 @@ window.I18N = {
     'ps.zamow': 'Taxi bestellen', 'ps.lub': 'oder dieselbe Bestellung senden per:',
     'k.tel': 'Telefon', 'k.email': 'E-Mail',
     'miss.tel': 'Telefonnummer', 'miss.email': 'gültige E-Mail',
-    'ok.h': 'Vielen Dank, Ihre Bestellung ist angekommen.', 'ok.p': 'Wir bestätigen sie per SMS oder telefonisch - meist innerhalb weniger Minuten.',
+    'ok.h': 'Vielen Dank, Ihre Bestellung ist angekommen.', 'ok.p': "Wir bestätigen sie per SMS oder telefonisch innerhalb von 5 Minuten.",
     'ok.pilne': 'Wenn es eilt, rufen Sie an:', 'ok.spam': "Wir haben eine Eingangsbestätigung an Ihre E-Mail gesendet. Falls Sie sie nicht sehen, prüfen Sie bitte auch den SPAM-Ordner.",
     'ok.demo': "Vorschau: Auf der fertigen Seite geht diese Bestellung per E-Mail an taxi@taxi24-rzeszow.pl.", 'ok.alt': 'Dieselbe Bestellung können Sie auch senden:',
     'ok.nowe': 'Weitere Bestellung aufgeben', 'wysyl': 'Wird gesendet...',
@@ -447,7 +447,7 @@ window.I18N = {
     'zam.p2': "Adresse, Termin und Telefonnummer angeben - die Bestellung kommt direkt bei uns an. Wir bestätigen sie per SMS oder telefonisch.",
     'zam.wiecej': "Weitere Angaben (optional)",
     'zam.wiecejs': "Name, E-Mail, Hinweise",
-    'ok.p2': "Wir rufen zurück oder senden eine SMS zur Bestätigung, meist innerhalb von 5-15 Minuten. Halten Sie Ihr Telefon bereit. Eilig? Rufen Sie an:",
+    'ok.p2': "Wir rufen zurück oder senden eine SMS zur Bestätigung innerhalb von 5 Minuten. Halten Sie Ihr Telefon bereit. Eilig? Rufen Sie an:",
     'ok.sum': "Ihre Bestellung:",
     'err.qoba': "Bitte Abholadresse und Telefonnummer angeben.",
     'err.qskad': "Bitte Abholadresse angeben.",
@@ -543,8 +543,8 @@ window.I18N = {
     'ca8': "Das hängt von Uhrzeit und Verkehr ab: In Apps schwankt der Preis und steigt bei hoher Nachfrage, bei uns gelten feste Tarife aus der Preisliste, auch nachts und an Feiertagen. Längere Strecken kalkulieren wir vorab, Sie kennen den Preis also vor der Fahrt.",
     'ok.h3': "Bestellung angenommen - die Zentrale sieht sie bereits",
     'ok.disp': "Zentrale online",
-    'ok.p3': "Wir rufen zurück oder senden eine SMS zur Bestätigung, meist innerhalb von 5-15 Minuten. Halten Sie Ihr Telefon bereit.",
-    'ok.pilne3': "Abfahrt in weniger als einer Stunde oder nach 15 Minuten keine Antwort? Rufen Sie an:"
+    'ok.p3': "Wir rufen zurück oder senden eine SMS zur Bestätigung innerhalb von 5 Minuten. Halten Sie Ihr Telefon bereit.",
+    'ok.pilne3': "Abfahrt in weniger als einer Stunde oder innerhalb von 10 Minuten keine Antwort? Rufen Sie an:"
   },
 
   uk: {
@@ -649,7 +649,7 @@ window.I18N = {
     'ps.zamow': 'Замовити таксі', 'ps.lub': 'або надішліть те саме замовлення:',
     'k.tel': 'Телефон', 'k.email': 'E-mail',
     'miss.tel': 'номер телефону', 'miss.email': 'правильний e-mail',
-    'ok.h': 'Дякуємо, замовлення надійшло.', 'ok.p': 'Ми підтвердимо його SMS або телефоном - зазвичай протягом кількох хвилин.',
+    'ok.h': 'Дякуємо, замовлення надійшло.', 'ok.p': "Ми підтвердимо його SMS або телефоном протягом 5 хвилин.",
     'ok.pilne': 'Якщо терміново, телефонуйте:', 'ok.spam': "Ми надіслали підтвердження отримання на ваш e-mail. Якщо його не видно, перевірте також папку СПАМ.",
     'ok.demo': "Попередній перегляд: на робочому сайті це замовлення надійде на taxi@taxi24-rzeszow.pl.", 'ok.alt': 'Те саме замовлення можна також надіслати:',
     'ok.nowe': 'Зробити ще одне замовлення', 'wysyl': 'Надсилання...',
@@ -688,7 +688,7 @@ window.I18N = {
     'zam.p2': "Вкажіть адресу, час і телефон, і замовлення надійде прямо до нас. Ми підтвердимо його SMS або телефоном.",
     'zam.wiecej': "Більше деталей (необов'язково)",
     'zam.wiecejs': "ім'я, e-mail, примітки",
-    'ok.p2': "Ми передзвонимо або надішлемо SMS з підтвердженням, зазвичай протягом 5-15 хвилин. Тримайте телефон під рукою. Терміново? Телефонуйте:",
+    'ok.p2': "Ми передзвонимо або надішлемо SMS з підтвердженням протягом 5 хвилин. Тримайте телефон під рукою. Терміново? Телефонуйте:",
     'ok.sum': "Ваше замовлення:",
     'err.qoba': "Вкажіть адресу посадки і номер телефону.",
     'err.qskad': "Вкажіть адресу посадки.",
@@ -785,7 +785,7 @@ window.I18N = {
     'ca8': "Залежить від часу і завантаженості: у застосунках ціна змінюється і зростає при великому попиті, а в нас діють фіксовані тарифи з прайсу, також уночі та у свята. Довші маршрути розраховуємо заздалегідь, тож ви знаєте ціну до поїздки.",
     'ok.h3': "Замовлення прийнято - диспетчер уже його бачить",
     'ok.disp': "Диспетчер онлайн",
-    'ok.p3': "Ми передзвонимо або надішлемо SMS з підтвердженням, зазвичай протягом 5-15 хвилин. Тримайте телефон під рукою.",
-    'ok.pilne3': "Їдете менш ніж за годину або ніхто не відповів за 15 хвилин? Телефонуйте:"
+    'ok.p3': "Ми передзвонимо або надішлемо SMS з підтвердженням протягом 5 хвилин. Тримайте телефон під рукою.",
+    'ok.pilne3': "Їдете менш ніж за годину або ніхто не відповів протягом 10 хвилин? Телефонуйте:"
   }
 };
