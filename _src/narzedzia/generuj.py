@@ -479,13 +479,13 @@ OPINIE = [
 ]
 OP_TXT = {
     'pl': {'h': 'Opinie klientów w Google', 'ocena': 'ponad {n} opinii w Google', 'podpis': 'opinia w Google', 'orig': '',
-           'wszystkie': 'Zobacz wszystkie opinie w Google', 'wystaw': 'Wystaw opinię', 'ta': 'Opinie na Tripadvisor', 'lot_h': 'Co piszą pasażerowie po kursie na lotnisko'},
+           'wszystkie': 'Zobacz wszystkie opinie w Google', 'wystaw': 'Wystaw opinię', 'przesun': 'Przesuń w bok, żeby zobaczyć kolejne opinie', 'hero': '{o} - ponad {n} opinii w Google', 'ta': 'Opinie na Tripadvisor', 'lot_h': 'Co piszą pasażerowie po kursie na lotnisko'},
     'en': {'h': 'Customer reviews on Google', 'ocena': 'over {n} Google reviews', 'podpis': 'Google review', 'orig': 'Reviews quoted in the original Polish.',
-           'wszystkie': 'See all reviews on Google', 'wystaw': 'Write a review', 'ta': 'Reviews on Tripadvisor', 'lot_h': 'What passengers say about our airport rides'},
+           'wszystkie': 'See all reviews on Google', 'wystaw': 'Write a review', 'przesun': 'Swipe to see more reviews', 'hero': '{o} - over {n} Google reviews', 'ta': 'Reviews on Tripadvisor', 'lot_h': 'What passengers say about our airport rides'},
     'de': {'h': 'Kundenbewertungen bei Google', 'ocena': 'über {n} Bewertungen bei Google', 'podpis': 'Bewertung bei Google', 'orig': 'Bewertungen im polnischen Original.',
-           'wszystkie': 'Alle Bewertungen bei Google ansehen', 'wystaw': 'Bewertung schreiben', 'ta': 'Bewertungen bei Tripadvisor', 'lot_h': 'Was Fahrgäste über Flughafenfahrten schreiben'},
+           'wszystkie': 'Alle Bewertungen bei Google ansehen', 'wystaw': 'Bewertung schreiben', 'przesun': 'Zur Seite wischen für weitere Bewertungen', 'hero': '{o} - über {n} Bewertungen bei Google', 'ta': 'Bewertungen bei Tripadvisor', 'lot_h': 'Was Fahrgäste über Flughafenfahrten schreiben'},
     'uk': {'h': 'Відгуки клієнтів у Google', 'ocena': 'понад {n} відгуків у Google', 'podpis': 'відгук у Google', 'orig': 'Відгуки наведено мовою оригіналу (польською).',
-           'wszystkie': 'Усі відгуки в Google', 'wystaw': 'Залишити відгук', 'ta': 'Відгуки на Tripadvisor', 'lot_h': 'Що пишуть пасажири після поїздки в аеропорт'},
+           'wszystkie': 'Усі відгуки в Google', 'wystaw': 'Залишити відгук', 'przesun': 'Гортайте вбік, щоб побачити інші відгуки', 'hero': '{o} - понад {n} відгуків у Google', 'ta': 'Відгуки на Tripadvisor', 'lot_h': 'Що пишуть пасажири після поїздки в аеропорт'},
 }
 TRIPADVISOR = 'https://www.tripadvisor.com/Attraction_Review-g274785-d33097322-Reviews-Taxi_Rzeszow_24h-Rzeszow_Subcarpathian_Province_Southern_Poland.html'
 
@@ -498,16 +498,23 @@ def opinie_html(lang, lotnisko=False):
     karty = ''.join(f'<figure class="op-karta"><span class="op-gw" aria-hidden="true">★★★★★</span><blockquote lang="pl">„{q}”</blockquote>'
                     f'<figcaption><b>{n}</b><small>{t["podpis"]}</small></figcaption></figure>' for n, _, q in wybor)
     orig = f'<p class="op-orig">{t["orig"]}</p>' if t['orig'] else ''
-    glowa = (f'<div class="op-glowa"><h{"2" if lotnisko else "3"} class="op-h">{t["lot_h"] if lotnisko else t["h"]}</h{"2" if lotnisko else "3"}>'
+    glowa = (f'<div class="op-glowa"><h2 class="op-h">{t["lot_h"] if lotnisko else t["h"]}</h2>'
              f'<p class="op-wynik"><span class="op-liczba">{ocena}<small> / 5</small></span><span class="op-gw" aria-hidden="true">★★★★★</span>'
              f'<a href="{g}" target="_blank" rel="noopener">{t["ocena"].format(n=G_PONAD)}</a></p></div>')
     przyciski = (f'<div class="op-akcje"><a class="btn btn-y" href="{g}" target="_blank" rel="noopener">{t["wszystkie"]} <svg class="ic"><use href="#i-arrow"/></svg></a>'
                  f'<a class="op-wystaw" href="{g}" target="_blank" rel="noopener">{t["wystaw"]}</a>'
                  + ('' if lotnisko else f'<a class="op-wystaw" href="{TRIPADVISOR}" target="_blank" rel="noopener">{t["ta"]}</a>') + '</div>')
-    blok = f'<div class="opinie{" opinie-lot" if lotnisko else ""}">{glowa}<div class="op-karty">{karty}</div>{orig}{przyciski}</div>'
-    if lotnisko:
-        return f'<section class="sek op-sek"><div class="wrap">{blok}</div></section>'
-    return blok
+    blok = (f'<div class="opinie{" opinie-lot" if lotnisko else ""}">{glowa}<div class="op-karty">{karty}</div>'
+            f'<p class="op-przesun" aria-hidden="true">{t["przesun"]} <svg class="ic"><use href="#i-arrow"/></svg></p>{orig}{przyciski}</div>')
+    return f'<section class="sek op-sek" id="opinie"><div class="wrap">{blok}</div></section>'
+
+
+def hero_ocena(lang):
+    t = OP_TXT[lang]
+    o = G_OCENA_EN if lang == 'en' else G_OCENA
+    n = t['hero'].split(' - ', 1)[1].format(n=G_PONAD)
+    return (f'<a class="hero-ocena" href="#opinie"><span class="hero-gw" aria-hidden="true">★★★★★</span>'
+            f'<b>{o}&nbsp;/&nbsp;5</b><span class="hero-oc-n">{n}</span></a>')
 
 
 def glowna():
@@ -535,7 +542,7 @@ def glowna():
         brak = set()
         sz = szybki('lotnisko', R)
         main = src.replace('{{SZYBKI}}', sz).replace('{{DZIELNICE}}', dzielnice_linki(R))
-        tpl = {'{{LOT}}': R + (LOT_PL if lang == 'pl' else LOT_EN), '{{OPINIE}}': opinie_html(lang)}
+        tpl = {'{{LOT}}': R + (LOT_PL if lang == 'pl' else LOT_EN), '{{OPINIE}}': opinie_html(lang), '{{HERO_OCENA}}': hero_ocena(lang)}
         strona(lang=lang, rel=rel, R=R, H='', title=d['meta.title2'], desc=d['meta.desc2'], main=main, alt=alt,
                hreflang=hreflang, typ='glowna', cta='#zamow', jsonld=ld(graf), brak=brak, tpl=tpl,
                og_title=d.get('og.title', None), og_desc=d.get('og.desc', None),
