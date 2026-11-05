@@ -236,14 +236,14 @@ def naglowek(lang, R, H, alt, cta_href):
         cur = ' aria-current="true"' if l == lang else ''
         return f'<a href="{alt[l]}" hreflang="{"uk" if l == "uk" else l}" lang="{l}" title="{NAZWA[l]}"{cur}>{KOD[l]}</a>'
     lista = ''.join(lnk(l) for l in LANGS)
-    logo = '#start' if H == '' else H
+    logo = './' if H == '' else H
     m_lot = url_g('lotnisko', lang, R) if lang in GRUPY['lotnisko'] else H + '#lotnisko'
     m_pm = url_g('przemysl', lang, R) if lang in GRUPY['przemysl'] else H + '#przemysl-medyka'
     m_ok = url_g('okolice', lang, R) if lang in GRUPY['okolice'] else H + '#taxi'
     return f'''<a class="skip" href="#tresc" data-i18n="a.skip">Przejdź do treści</a>
 <header class="top" id="top">
   <div class="top-in">
-    <a class="logo" href="{logo}"><img src="{R}img/logo-kogut.webp" alt="" width="240" height="103"><span class="logo-txt"><b>TAXI RZESZÓW</b><i>24H</i></span></a>
+    <a class="logo" href="{logo}"><img src="{R}img/logo-kogut-160.webp" srcset="{R}img/logo-kogut-160.webp 160w, {R}img/logo-kogut.webp 240w" sizes="80px" alt="" width="240" height="103"><span class="logo-txt"><b>TAXI RZESZÓW</b><i>24H</i></span></a>
     <nav class="menu" id="menu" aria-label="Menu" data-i18n-aria="a.menu">
       <a href="{H}#uslugi" data-i18n="nav.uslugi">Usługi</a>
       <a href="{m_lot}" data-i18n="nav.lotnisko">Lotnisko</a>
@@ -292,7 +292,7 @@ def stopka(lang, R, H, lot_url):
     return f'''<footer class="stopka" id="kontakt">
   <div class="wrap stopka-grid">
     <div class="st-firma">
-      <a class="logo logo-st" href="{H or '#start'}"><img src="{R}img/logo-kogut.webp" alt="" width="240" height="103" loading="lazy"><span class="logo-txt"><b>TAXI RZESZÓW</b><i>24H</i></span></a>
+      <a class="logo logo-st" href="{H or './'}"><img src="{R}img/logo-kogut-160.webp" srcset="{R}img/logo-kogut-160.webp 160w, {R}img/logo-kogut.webp 240w" sizes="80px" alt="" width="240" height="103" loading="lazy" decoding="async"><span class="logo-txt"><b>TAXI RZESZÓW</b><i>24H</i></span></a>
       <p class="st-opis" data-i18n="st.opis">Całodobowe taxi w Rzeszowie i okolicy, transfery na lotnisko Rzeszów-Jasionka i dalsze lotniska.</p>
     </div>
     <div class="st-kontakt">
@@ -321,6 +321,80 @@ def stopka(lang, R, H, lot_url):
   <a class="plyw-wa" href="https://wa.me/48536805851" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic"><use href="#i-wa"/></svg></a>
   <a class="plyw-tel" href="tel:+48536805851" aria-label="+48 536 805 851"><svg class="ic"><use href="#i-tel"/></svg></a>
 </div>'''
+
+
+# ------------------------------------------------------------------ obrazy: warianty rozmiarow + AVIF (PageSpeed 05.11)
+IMG = os.path.join(ROOT, 'img')
+WARIANTY = {   # plik zrodlowy -> szerokosci do wygenerowania (nazwa: baza-<szer>.webp)
+    'transfer-lotnisko-jasionka-terminal.webp': (400, 640), 'taxi-rzeszow-centrum.webp': (400, 640),
+    'taxi-rzeszow-przemysl-trasa.webp': (400, 640), 'zakupy-na-zlecenie-rzeszow.webp': (400, 640),
+    'taxi-rzeszow-24h-most-1600.webp': (480,), 'taxi-toyota-camry-jasionka-1196.webp': (768,), 'logo-kogut.webp': (160,),
+}
+
+
+def _baza(nazwa):
+    b = nazwa[:-5]
+    return re.sub(r'-\d{3,4}$', '', b) if nazwa in ('taxi-rzeszow-24h-most-1600.webp', 'taxi-toyota-camry-jasionka-1196.webp') else b
+
+
+def obrazy_warianty():
+    from PIL import Image
+    for src, szer in WARIANTY.items():
+        p = os.path.join(IMG, src)
+        for w in szer:
+            cel = os.path.join(IMG, f'{_baza(src)}-{w}.webp')
+            if os.path.exists(cel) and os.path.getmtime(cel) >= os.path.getmtime(p):
+                continue
+            im = Image.open(p)
+            h = round(im.height * w / im.width)
+            im.resize((w, h), Image.LANCZOS).save(cel, 'WEBP', quality=80, method=6)
+    for f in sorted(os.listdir(IMG)):
+        if not f.endswith('.webp'):
+            continue
+        p, cel = os.path.join(IMG, f), os.path.join(IMG, f[:-5] + '.avif')
+        if os.path.exists(cel) and os.path.getmtime(cel) >= os.path.getmtime(p):
+            continue
+        im = Image.open(p)
+        im.save(cel, 'AVIF', quality=50, speed=4)
+
+
+def _img_plik(url):
+    return os.path.join(IMG, url.split('img/', 1)[1]) if 'img/' in url else None
+
+
+def avif_jest(srcset):
+    for kawalek in srcset.split(','):
+        u = kawalek.strip().split(' ')[0]
+        p = _img_plik(u)
+        if not p or not u.endswith('.webp') or not os.path.exists(p[:-5] + '.avif'):
+            return False
+    return True
+
+
+def avif_html(doc):
+    """Dodaje <source type="image/avif"> do <picture> i owija pojedyncze <img> z WebP w <picture> (gdy sa wszystkie pliki AVIF)."""
+    def src_pic(m):
+        tag = m.group(0)
+        ss = re.search(r'srcset="([^"]+)"', tag).group(1)
+        if not avif_jest(ss):
+            return tag
+        return tag.replace('type="image/webp"', 'type="image/avif"').replace(ss, ss.replace('.webp', '.avif')) + tag
+    doc = re.sub(r'<source[^>]*type="image/webp"[^>]*>', src_pic, doc)
+    out, poz = [], 0
+    for m in re.finditer(r'<img [^>]*>', doc):
+        tag = m.group(0)
+        przed = doc[:m.start()]
+        w_pic = przed.rfind('<picture') > przed.rfind('</picture>')
+        ss = re.search(r' srcset="([^"]+)"', tag)
+        src = re.search(r' src="([^"]+)"', tag)
+        zrodlo = ss.group(1) if ss else (src.group(1) if src else '')
+        if w_pic or not zrodlo or not avif_jest(zrodlo):
+            continue
+        sz = re.search(r' sizes="([^"]+)"', tag)
+        nowy = (f'<picture><source type="image/avif" srcset="{zrodlo.replace(".webp", ".avif")}"' + (f' sizes="{sz.group(1)}"' if sz else '') + f'>{tag}</picture>')
+        out.append(doc[poz:m.start()]); out.append(nowy); poz = m.end()
+    out.append(doc[poz:])
+    return ''.join(out)
 
 
 # ------------------------------------------------------------------ JSON-LD
@@ -404,7 +478,10 @@ def strona(*, lang, rel, R, H, title, desc, main, alt=None, hreflang=None, typ='
     og_desc = og_desc or desc
     pre = ''
     if preload_img:
-        pre = f'<link rel="preload" as="image" type="image/webp" imagesrcset="{preload_img[0]}" imagesizes="{preload_img[1]}" fetchpriority="high">'
+        srcset, typ = preload_img[0], 'image/webp'
+        if avif_jest(srcset):
+            srcset, typ = srcset.replace('.webp', '.avif'), 'image/avif'
+        pre = f'<link rel="preload" as="image" type="{typ}" imagesrcset="{srcset}" imagesizes="{preload_img[1]}" fetchpriority="high">'
     font_pre = (f'<link rel="preload" href="{R}fonts/montserrat-{"cyrillic" if lang == "uk" else "latin"}.woff2" as="font" type="font/woff2" crossorigin>'
                 f'<link rel="preload" href="{R}fonts/manrope-{"cyrillic" if lang == "uk" else "latin"}.woff2" as="font" type="font/woff2" crossorigin>')
     zgody = ("<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}"
@@ -443,6 +520,7 @@ def strona(*, lang, rel, R, H, title, desc, main, alt=None, hreflang=None, typ='
 </html>
 '''
     doc = re.sub(r'\n{2,}', '\n', doc)
+    doc = avif_html(doc)
     zapisz(rel, doc)
     return url
 
@@ -546,7 +624,7 @@ def glowna():
         strona(lang=lang, rel=rel, R=R, H='', title=d['meta.title2'], desc=d['meta.desc2'], main=main, alt=alt,
                hreflang=hreflang, typ='glowna', cta='#zamow', jsonld=ld(graf), brak=brak, tpl=tpl,
                og_title=d.get('og.title', None), og_desc=d.get('og.desc', None),
-               preload_img=(f'{R}img/taxi-rzeszow-24h-most-640.webp 640w, {R}img/taxi-rzeszow-24h-most-768.webp 768w, {R}img/taxi-rzeszow-24h-most-960.webp 960w, {R}img/taxi-rzeszow-24h-most-1280.webp 1280w, {R}img/taxi-rzeszow-24h-most-1600.webp 1600w',
+               preload_img=(f'{R}img/taxi-rzeszow-24h-most-480.webp 480w, {R}img/taxi-rzeszow-24h-most-640.webp 640w, {R}img/taxi-rzeszow-24h-most-768.webp 768w, {R}img/taxi-rzeszow-24h-most-960.webp 960w, {R}img/taxi-rzeszow-24h-most-1280.webp 1280w, {R}img/taxi-rzeszow-24h-most-1600.webp 1600w',
                             '(max-width:900px) 100vw, 68vw'))
         if brak:
             brak_all[lang] = sorted(brak)
@@ -558,7 +636,7 @@ def hero_pod(R, foto, alt_txt, h1, lead, typ):
   <div class="hero-ekran">
   <div class="hero-foto">
     <picture>
-      <source type="image/webp" srcset="{R}img/{foto}-640.webp 640w, {R}img/{foto}-960.webp 960w, {R}img/{foto}-1196.webp 1196w" sizes="(max-width:900px) 100vw, 60vw">
+      <source type="image/webp" srcset="{R}img/{foto}-640.webp 640w, {R}img/{foto}-768.webp 768w, {R}img/{foto}-960.webp 960w, {R}img/{foto}-1196.webp 1196w" sizes="(max-width:900px) 100vw, 60vw">
       <img src="{R}img/{foto}-960.webp" alt="{alt_txt}" width="1196" height="862" fetchpriority="high" decoding="async">
     </picture>
   </div>
@@ -608,7 +686,7 @@ def lotnisko():
         strona(lang=lang, rel=rel + 'index.html', R=R, H=H, title=meta['title'], desc=meta['desc'], main=main, alt=alt,
                hreflang=hreflang, typ='lotnisko', cta='#szybki', jsonld=ld(graf), brak=brak, lot_url='#start',
                tpl={'{{DZIELNICE}}': dzielnice_linki(R, klasa='dz-lista dz-lista-jasna'), '{{OPINIE_LOT}}': opinie_html(lang, True)},
-               preload_img=(f'{R}img/taxi-toyota-camry-jasionka-640.webp 640w, {R}img/taxi-toyota-camry-jasionka-960.webp 960w, {R}img/taxi-toyota-camry-jasionka-1196.webp 1196w', '(max-width:900px) 100vw, 60vw'))
+               preload_img=(f'{R}img/taxi-toyota-camry-jasionka-640.webp 640w, {R}img/taxi-toyota-camry-jasionka-768.webp 768w, {R}img/taxi-toyota-camry-jasionka-960.webp 960w, {R}img/taxi-toyota-camry-jasionka-1196.webp 1196w', '(max-width:900px) 100vw, 60vw'))
         if brak:
             print('BRAK tlumaczen', lang, sorted(brak))
 
@@ -661,7 +739,7 @@ def dzielnice():
         brak = set()
         strona(lang='pl', rel=rel + 'index.html', R=R, H=R, title=title, desc=desc, main=main, alt=alt, typ='dzielnica',
                cta='#szybki', jsonld=ld(graf), brak=brak,
-               preload_img=(f'{R}img/taxi-toyota-camry-jasionka-640.webp 640w, {R}img/taxi-toyota-camry-jasionka-960.webp 960w, {R}img/taxi-toyota-camry-jasionka-1196.webp 1196w', '(max-width:900px) 100vw, 60vw'))
+               preload_img=(f'{R}img/taxi-toyota-camry-jasionka-640.webp 640w, {R}img/taxi-toyota-camry-jasionka-768.webp 768w, {R}img/taxi-toyota-camry-jasionka-960.webp 960w, {R}img/taxi-toyota-camry-jasionka-1196.webp 1196w', '(max-width:900px) 100vw, 60vw'))
         urls.append(url)
         if len(desc) > 160 or len(title) > 62:
             print('UWAGA dlugosc', d['slug'], len(title), len(desc))
@@ -669,7 +747,7 @@ def dzielnice():
 
 
 FOTO_POD = 'taxi-toyota-camry-jasionka'
-PRELOAD_POD = lambda R: (f'{R}img/{FOTO_POD}-640.webp 640w, {R}img/{FOTO_POD}-960.webp 960w, {R}img/{FOTO_POD}-1196.webp 1196w', '(max-width:900px) 100vw, 60vw')
+PRELOAD_POD = lambda R: (f'{R}img/{FOTO_POD}-640.webp 640w, {R}img/{FOTO_POD}-768.webp 768w, {R}img/{FOTO_POD}-960.webp 960w, {R}img/{FOTO_POD}-1196.webp 1196w', '(max-width:900px) 100vw, 60vw')
 
 
 def czytaj_meta(plik):
@@ -861,7 +939,7 @@ def cennik():
         brak = set()
         strona(lang=lang, rel=CEN[lang] + 'index.html', R=R, H=H, title=d['cen.title'], desc=d['cen.desc'], main=main, alt=alt,
                hreflang=hreflang, typ='cennik', cta='#szybki', jsonld=ld(graf), brak=brak,
-               preload_img=(f'{R}img/taxi-toyota-camry-jasionka-640.webp 640w, {R}img/taxi-toyota-camry-jasionka-960.webp 960w, {R}img/taxi-toyota-camry-jasionka-1196.webp 1196w', '(max-width:900px) 100vw, 60vw'))
+               preload_img=(f'{R}img/taxi-toyota-camry-jasionka-640.webp 640w, {R}img/taxi-toyota-camry-jasionka-768.webp 768w, {R}img/taxi-toyota-camry-jasionka-960.webp 960w, {R}img/taxi-toyota-camry-jasionka-1196.webp 1196w', '(max-width:900px) 100vw, 60vw'))
         if brak:
             print('BRAK tlumaczen cennik', lang, sorted(brak))
 
@@ -922,6 +1000,7 @@ def znak_css():
 def main():
     global STYLE_V, APP_V
     znak_css()
+    obrazy_warianty()
     STYLE_V, APP_V = skrot('style.css'), skrot('app.js')
     przygotuj_slowniki()
     brak = glowna()
