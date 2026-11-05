@@ -405,7 +405,7 @@ def firma(lang):
     d = I18N[lang] if lang != 'pl' else {}
     return {
         "@type": ["LocalBusiness", "AutomotiveBusiness"], "@id": FIRMA_ID,
-        "name": "Taxi Rzeszów 24H", "legalName": "Grzegorz Kędzierski TAXI RZESZÓW 24H", "taxID": "7952315648",
+        "name": "Taxi Rzeszów 24H", "legalName": "Grzegorz Kędzierski TAXI RZESZÓW 24H", "taxID": "7952315648", "foundingDate": "2010",
         "url": DOM + "/", "logo": DOM + "/img/logo-kogut.png", "image": DOM + "/img/og-taxi-rzeszow-24h.jpg",
         "telephone": "+48536805851", "email": "taxi@taxi24-rzeszow.pl", "priceRange": "$$", "currenciesAccepted": "PLN",
         "paymentAccepted": "Gotówka, karta płatnicza, BLIK, przelew (faktura)",
@@ -427,8 +427,9 @@ def firma(lang):
                    "https://t.me/taxi_rzeszow_24h"] + ([GOOGLE_WIZYTOWKA_PELNY or GOOGLE_WIZYTOWKA] if GOOGLE_WIZYTOWKA else []),
         "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Usługi Taxi Rzeszów 24H", "itemListElement": [
             {"@type": "Offer", "itemOffered": {"@type": "TaxiService", "name": "Taxi Rzeszów 24h", "description": "Kursy po Rzeszowie i okolicy całą dobę, także w weekendy i święta."}},
-            {"@type": "Offer", "itemOffered": {"@type": "TaxiService", "name": "Transfer Rzeszów - lotnisko Jasionka", "description": "Przejazdy na Port Lotniczy Rzeszów-Jasionka i odbiór z samolotu, także przy opóźnieniu lotu; lotniska Kraków, Katowice, Lublin, Warszawa."}},
-            {"@type": "Offer", "itemOffered": {"@type": "TaxiService", "name": "Taxi Rzeszów - Przemyśl i granica w Medyce", "description": "Kursy do Przemyśla i na przejście graniczne z Ukrainą w Medyce, o każdej porze."}},
+            {"@type": "Offer", "itemOffered": {"@type": "TaxiService", "name": "Transfer Rzeszów - lotnisko Jasionka", "description": "Przejazdy na Port Lotniczy Rzeszów-Jasionka i odbiór z samolotu, także przy opóźnieniu lotu; lotniska Kraków, Katowice, Lublin, Warszawa. Kurs z Rzeszowa na lotnisko Jasionka od 80 zł."},
+             "priceSpecification": {"@type": "PriceSpecification", "minPrice": 80, "priceCurrency": "PLN"}},
+            {"@type": "Offer", "itemOffered": {"@type": "TaxiService", "name": "Taxi Rzeszów - Przemyśl i granica w Medyce", "description": "Kursy do Przemyśla i do przejścia granicznego w Medyce (tylko po polskiej stronie), o każdej porze."}},
             {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Obsługa hoteli i firm (faktura)"}},
             {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Zakupy na zlecenie, taxi kurierskie, drobna pomoc drogowa, odprowadzenie pojazdu"}}]},
     }
@@ -601,7 +602,7 @@ def glowna():
     zbierz_pl(src, pl)
     hreflang = [('pl', DOM + '/'), ('en', DOM + '/en/'), ('de', DOM + '/de/'), ('uk', DOM + '/ua/'), ('x-default', DOM + '/')]
     faq_kol = [('q1', 'a1'), ('q2', 'a2'), ('q8', 'a8'), ('q3', 'a3b'), ('q9', 'a9'), ('q4', 'a4b'), ('q10', 'a10'), ('q5', 'a5'), ('q11', 'a11'),
-               ('q12', 'a12'), ('q6', 'a6'), ('q13', 'a13'), ('q7', 'a7')]
+               ('q12', 'a12'), ('q6', 'a6'), ('q13', 'a13'), ('q14', 'a14'), ('q15', 'a15'), ('q7', 'a7')]
     brak_all = {}
     for lang in LANGS:
         R = '' if lang == 'pl' else '../'
@@ -631,7 +632,7 @@ def glowna():
     return brak_all
 
 
-def hero_pod(R, foto, alt_txt, h1, lead, typ):
+def hero_pod(R, foto, alt_txt, h1, lead, typ, zam='#zamow'):
     return f'''<section class="hero hero-pod" id="start">
   <div class="hero-ekran">
   <div class="hero-foto">
@@ -645,13 +646,11 @@ def hero_pod(R, foto, alt_txt, h1, lead, typ):
     <p class="lead">{lead}</p>
     <div class="hero-cta" id="heroCta">
       <a class="cta-tel" href="tel:+48536805851"><span class="cta-kolo"><svg class="ic"><use href="#i-tel"/></svg></span><span class="cta-txt"><small data-i18n="cta.tel">Zadzwoń teraz</small><b>536&nbsp;805&nbsp;851</b></span></a>
-      <a class="cta-wa" href="https://wa.me/48536805851" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg><span data-i18n="cta.wa">Zamów przez WhatsApp</span></a>
+      <a class="cta-wa" href="https://wa.me/48536805851" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg><span class="dl" data-i18n="cta.wa">Zamów przez WhatsApp</span><span class="ds">WhatsApp</span></a>
+      <a class="cta-zam" href="{zam}"><svg class="ic"><use href="#i-cal"/></svg><span class="cta-zam-t"><b data-i18n="cta.zam">Zamów z wyprzedzeniem</b><small data-i18n="cta.zams">lotnisko, dłuższe trasy, terminy</small></span><svg class="ic"><use href="#i-arrow"/></svg></a>
     </div>
     <p class="fakty-tel" data-i18n="hero.fakty">Całą dobę, także w święta. Karta, gotówka lub BLIK.</p>
   </div></div>
-  </div>
-  <div class="hero-form wrap">
-{szybki(typ, R)}
   </div>
 </section>'''
 
@@ -669,13 +668,13 @@ def lotnisko():
         R = '../../' if lang == 'en' else '../'
         H = '../' if lang == 'en' else '../'
         url = DOM + '/' + url_rel
-        hero = hero_pod(R, 'taxi-toyota-camry-jasionka', meta['alt'], meta['h1'], meta['lead'], 'lotnisko')
+        hero = hero_pod(R, 'taxi-toyota-camry-jasionka', meta['alt'], meta['h1'], meta['lead'], 'lotnisko', zam=H + '#zamow')
         main = src.replace('{{HERO}}', hero)
         faq = re.findall(r'<details[^>]*><summary>(.*?)</summary>\s*<p>(.*?)</p></details>', main, re.S)
         faq = [(BeautifulSoup(q, 'html.parser').get_text(), BeautifulSoup(a, 'html.parser').get_text()) for q, a in faq]
         graf = [{"@type": "WebPage", "@id": url + "#strona", "url": url, "name": meta['title'], "inLanguage": lang,
                  "isPartOf": {"@id": DOM + "/#www"}, "about": {"@id": FIRMA_ID}, "breadcrumb": {"@id": url + "#okruszki"}},
-                {"@type": "TaxiService", "@id": url + "#usluga", "name": meta['usluga'], "provider": {"@type": "LocalBusiness", "@id": FIRMA_ID, "name": "Taxi Rzeszów 24H", "telephone": "+48536805851", "url": DOM + "/"},
+                {"@type": "TaxiService", "@id": url + "#usluga", "name": meta['usluga'], "description": meta['desc'], "offers": {"@type": "Offer", "priceCurrency": "PLN", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 80, "priceCurrency": "PLN"}}, "provider": {"@type": "LocalBusiness", "@id": FIRMA_ID, "name": "Taxi Rzeszów 24H", "telephone": "+48536805851", "url": DOM + "/"},
                  "areaServed": [{"@type": "City", "name": "Rzeszów"}, {"@type": "Airport", "name": "Port Lotniczy Rzeszów-Jasionka", "iataCode": "RZE"}],
                  "availableChannel": {"@type": "ServiceChannel", "servicePhone": {"@type": "ContactPoint", "telephone": "+48536805851", "contactType": "reservations"}}},
                 dict(okruszki_ld([(meta['crumb0'], DOM + '/' + ('en/' if lang == 'en' else '')), (meta['crumb1'], url)]), **{"@id": url + "#okruszki"}),
@@ -684,7 +683,7 @@ def lotnisko():
         hreflang = hreflang_g('lotnisko')
         brak = set()
         strona(lang=lang, rel=rel + 'index.html', R=R, H=H, title=meta['title'], desc=meta['desc'], main=main, alt=alt,
-               hreflang=hreflang, typ='lotnisko', cta='#szybki', jsonld=ld(graf), brak=brak, lot_url='#start',
+               hreflang=hreflang, typ='lotnisko', cta=H + '#zamow', jsonld=ld(graf), brak=brak, lot_url='#start',
                tpl={'{{DZIELNICE}}': dzielnice_linki(R, klasa='dz-lista dz-lista-jasna'), '{{OPINIE_LOT}}': opinie_html(lang, True)},
                preload_img=(f'{R}img/taxi-toyota-camry-jasionka-640.webp 640w, {R}img/taxi-toyota-camry-jasionka-768.webp 768w, {R}img/taxi-toyota-camry-jasionka-960.webp 960w, {R}img/taxi-toyota-camry-jasionka-1196.webp 1196w', '(max-width:900px) 100vw, 60vw'))
         if brak:
@@ -709,7 +708,7 @@ def dzielnice():
         h1 = d.get('h1', f'Taxi {d["nazwa"]} Rzeszów 24h').replace(' 24h', '&nbsp;24h')
         lead = d.get('lead') or (f'Odbierzemy Cię {d["loc"]} o każdej porze dnia i nocy: kursy po mieście, na dworzec i na lotnisko Jasionka. '
                                  f'Zadzwoń, napisz na WhatsApp albo zamów online.')
-        hero = hero_pod(R, 'taxi-toyota-camry-jasionka', f'Taxi Rzeszów 24H - kurs {d["gen"]}', h1, lead, 'miasto')
+        hero = hero_pod(R, 'taxi-toyota-camry-jasionka', f'Taxi Rzeszów 24H - kurs {d["gen"]}', h1, lead, 'miasto', zam=R + '#zamow')
         akapit = f'<h2>{d["akapit_h"]}</h2><p>{d["akapit"]}</p>' if d.get('akapit') else ''
         faq = [(x['q'], x['a']) for x in d.get('faq', [])]
         faq_html = ''
@@ -738,7 +737,7 @@ def dzielnice():
         alt = {'pl': './', 'en': R + 'en/', 'de': R + 'de/', 'uk': R + 'ua/'}
         brak = set()
         strona(lang='pl', rel=rel + 'index.html', R=R, H=R, title=title, desc=desc, main=main, alt=alt, typ='dzielnica',
-               cta='#szybki', jsonld=ld(graf), brak=brak,
+               cta=R + '#zamow', jsonld=ld(graf), brak=brak,
                preload_img=(f'{R}img/taxi-toyota-camry-jasionka-640.webp 640w, {R}img/taxi-toyota-camry-jasionka-768.webp 768w, {R}img/taxi-toyota-camry-jasionka-960.webp 960w, {R}img/taxi-toyota-camry-jasionka-1196.webp 1196w', '(max-width:900px) 100vw, 60vw'))
         urls.append(url)
         if len(desc) > 160 or len(title) > 62:
@@ -771,7 +770,7 @@ def podstrony():
         R = '../' * rel.count('/')
         H = R + LDIR[lang] or './'
         url = DOM + '/' + rel
-        hero = hero_pod(R, FOTO_POD, meta['alt'], meta['h1'], meta['lead'], meta.get('szybki', 'miasto'))
+        hero = hero_pod(R, FOTO_POD, meta['alt'], meta['h1'], meta['lead'], meta.get('szybki', 'miasto'), zam=H + '#zamow')
         hub = ''
         if '{{DZIELNICE_HUB}}' in src:
             hub = '<ul class="dz-lista dz-lista-hub">' + ''.join(
@@ -792,7 +791,7 @@ def podstrony():
         graf += extra
         brak = set()
         strona(lang=lang, rel=rel + 'index.html', R=R, H=H, title=meta['title'], desc=meta['desc'], main=main, alt=alt_g(g, R),
-               hreflang=hreflang_g(g), typ='podstrona', cta='#szybki', jsonld=ld(graf), brak=brak,
+               hreflang=hreflang_g(g), typ='podstrona', cta=H + '#zamow', jsonld=ld(graf), brak=brak,
                lot_url=url_g('lotnisko', lang, R) if lang in GRUPY['lotnisko'] else H + '#lotnisko',
                tpl={'{{DZIELNICE}}': dzielnice_linki(R), '{{OPINIE_LOT}}': opinie_html(lang, True)}, preload_img=PRELOAD_POD(R))
         if brak:
@@ -921,7 +920,7 @@ def cennik():
         R = '../' if lang == 'pl' else '../../'
         H = R + LDIR[lang]
         url = DOM + '/' + CEN[lang]
-        hero = hero_pod(R, 'taxi-toyota-camry-jasionka', d['cen.alt'], d['cen.h1'], d['cen.lead'], 'miasto')
+        hero = hero_pod(R, 'taxi-toyota-camry-jasionka', d['cen.alt'], d['cen.h1'], d['cen.lead'], 'miasto', zam=H + '#zamow')
         main = src.replace('{{HERO}}', hero)
         oferty = []
         for k, cena, jedn in ceny:
@@ -938,7 +937,7 @@ def cennik():
         alt = {l: R + CEN[l] for l in LANGS}
         brak = set()
         strona(lang=lang, rel=CEN[lang] + 'index.html', R=R, H=H, title=d['cen.title'], desc=d['cen.desc'], main=main, alt=alt,
-               hreflang=hreflang, typ='cennik', cta='#szybki', jsonld=ld(graf), brak=brak,
+               hreflang=hreflang, typ='cennik', cta=H + '#zamow', jsonld=ld(graf), brak=brak,
                preload_img=(f'{R}img/taxi-toyota-camry-jasionka-640.webp 640w, {R}img/taxi-toyota-camry-jasionka-768.webp 768w, {R}img/taxi-toyota-camry-jasionka-960.webp 960w, {R}img/taxi-toyota-camry-jasionka-1196.webp 1196w', '(max-width:900px) 100vw, 60vw'))
         if brak:
             print('BRAK tlumaczen cennik', lang, sorted(brak))

@@ -208,7 +208,9 @@
     return s;
   }
   function waHref(tx) { return 'https://wa.me/' + TEL + '?text=' + encodeURIComponent(tx); }
-  function smsHref(tx) { return 'sms:+' + TEL + '?&body=' + encodeURIComponent(tx); }
+  /* SMS z trescia: iOS wymaga "&body=", Android "?body=" (zwykly link sms:+48... dziala wszedzie jako zapas) */
+  var IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  function smsHref(tx) { return 'sms:+' + TEL + (IOS ? '&body=' : '?body=') + encodeURIComponent(tx); }
   function czekaj(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
 
   /* ---------- wysylka (wyslij.php); na podgladzie GitHub Pages tryb pokazowy ---------- */
