@@ -212,6 +212,13 @@
   /* ---------- wysylka (wyslij.php); na podgladzie GitHub Pages tryb pokazowy ---------- */
   var ENDPOINT = body.getAttribute('data-zamowienia') || 'wyslij.php';
   var znak = null, znakT = 0, znakP = null;
+  /* slad interakcji czlowieka: pierwsze pointerdown/keydown/touchstart (pole _ruch dla wyslij.php) */
+  var ruchT = 0, ruchR = '';
+  ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) {
+    document.addEventListener(ev, function () {
+      if (!ruchT) { ruchT = Date.now(); ruchR = ev === 'keydown' ? 'k' : ev === 'touchstart' ? 't' : 'p'; }
+    }, { capture: true, passive: true });
+  });
   function pobierzZnacznik() {
     if (PODGLAD) return Promise.resolve(null);
     if (znak) return Promise.resolve(znak);
@@ -244,6 +251,7 @@
     var fd = new FormData();
     Object.keys(dane).forEach(function (k) { fd.append(k, dane[k]); });
     fd.append('jezyk', lang);
+    if (ruchT) fd.append('_ruch', ruchR + '.' + (Date.now() - ruchT));
     var hp = cel.form.querySelector('.hp'); fd.append('_honey', hp ? hp.value : '');
     var btn = cel.btn, lab = btn.querySelector('span'), stary = lab.textContent;
     btn.disabled = true; btn.classList.add('wysyla'); lab.textContent = t('wysyl');
