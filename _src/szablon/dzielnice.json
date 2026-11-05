@@ -32,6 +32,26 @@
     "h": "Ile kosztuje taxi w Śródmieściu?",
     "p": "Cena zależy od długości trasy i taryfy. Opłata początkowa wynosi 10 zł. W dni powszednie w godzinach 6:00-22:00 obowiązuje taryfa 1 (4 zł/km), w nocy oraz w niedziele i święta taryfa 2 (6 zł/km). Wszystkie stawki: <a href=\"../../cennik/\">cennik taxi Rzeszów</a>."
    }
+  ],
+  "title": "Taxi Śródmieście Rzeszów 24h - centrum i dworzec PKP",
+  "desc": "Taxi w Śródmieściu Rzeszowa całą dobę: odbiór spod Rynku, galerii, hotelu i dworca PKP. Kursy po mieście i na lotnisko Jasionka. Tel. 536 805 851.",
+  "h1": "Taxi Śródmieście Rzeszów 24h - centrum i dworzec",
+  "lead": "Odbierzemy Cię spod Rynku, galerii, hotelu, urzędu albo dworca PKP - o każdej porze dnia i nocy. Zadzwoń, napisz na WhatsApp albo zamów online.",
+  "akapit_h": "Taxi z dworca PKP i Dworca Lokalnego w Rzeszowie",
+  "akapit": "Przyjeżdżasz pociągiem albo autobusem i nie chcesz czekać na postoju? Zamów kurs telefonicznie lub przez WhatsApp jeszcze w drodze - podaj godzinę przyjazdu, a kierowca podjedzie pod dworzec i pomoże z bagażem. Z centrum wozimy też <a href=\"../../taxi-dla-firm-rzeszow/\">gości hoteli</a> na lotnisko Rzeszów-Jasionka i w dłuższe trasy, a firmom wystawiamy fakturę VAT. Wieczorem po wyjściu na Rynek najprościej zadzwonić pod 536 805 851 - jeździmy całą dobę, także w weekendy i święta.",
+  "faq": [
+   {
+    "q": "Czy odbierzecie mnie z dworca PKP w Rzeszowie?",
+    "a": "Tak. Podaj godzinę przyjazdu pociągu lub autobusu, a kierowca podjedzie pod dworzec. Kursy z dworca realizujemy całą dobę."
+   },
+   {
+    "q": "Ile kosztuje krótki kurs po centrum Rzeszowa?",
+    "a": "Płacisz opłatę początkową 10 zł i stawkę za kilometr: w dni powszednie 6:00-22:00 4 zł/km, w nocy, w niedziele i święta 6 zł/km. Na przykład 3 km w dzień to według taksometru 10 + 3 x 4 = 22 zł."
+   },
+   {
+    "q": "Czy mogę zapłacić kartą lub BLIK-iem?",
+    "a": "Tak, przyjmujemy kartę, BLIK i gotówkę. Firmom wystawiamy fakturę VAT."
+   }
   ]
  },
  {
@@ -60,6 +80,26 @@
    "Komfortowe i klimatyzowane auta",
    "Płatność kartą lub gotówką",
    "Doświadczeni kierowcy"
+  ],
+  "title": "Taxi Staromieście Rzeszów 24h | Lubelska, Warszawska",
+  "desc": "Taxi na Staromieściu w Rzeszowie o każdej porze. Odbiór z Lubelskiej, Staromiejskiej, Warszawskiej. Kursy do centrum, na dworzec i lotnisko. 536 805 851.",
+  "h1": "Taxi Staromieście Rzeszów 24h",
+  "lead": "Odbieramy z Lubelskiej, Staromiejskiej, Warszawskiej i okolic - w dzień, w nocy i w święta. Zadzwoń, napisz na WhatsApp albo zamów online.",
+  "akapit_h": "Ze Staromieścia na lotnisko Jasionka",
+  "akapit": "Staromieście leży w północnej części Rzeszowa, po drodze w stronę lotniska, dlatego wielu mieszkańców zamawia u nas transfer na Port Lotniczy Rzeszów-Jasionka. Przy wylocie podajesz adres i godzinę odbioru, przy przylocie numer lotu - lot monitorujemy, a czas oczekiwania na Ciebie jest bezpłatny. Na co dzień wozimy ze Staromieścia do centrum, na dworzec i do innych dzielnic, także z dzieckiem lub większym bagażem (na życzenie przyjedzie Ford Mondeo kombi lub Toyota RAV4).",
+  "faq": [
+   {
+    "q": "Czy mogę zamówić taxi ze Staromieścia na nocny lot?",
+    "a": "Tak, jeździmy 24 godziny na dobę. Najlepiej zarezerwuj kurs wcześniej, podając adres i godzinę odbioru."
+   },
+   {
+    "q": "Czy zmieści się duży bagaż albo wózek?",
+    "a": "Tak. Napisz o tym w zamówieniu - przyjedziemy autem z większym bagażnikiem, np. Fordem Mondeo kombi lub Toyotą RAV4."
+   },
+   {
+    "q": "Jak zamówić taxi na Staromieście?",
+    "a": "Zadzwoń pod +48 536 805 851, napisz na WhatsApp albo wypełnij formularz. Zamówienie potwierdzamy SMS-em lub telefonicznie."
+   }
   ]
  },
  {
@@ -90,6 +130,26 @@
    "Komfortowe samochody",
    "Płatność kartą lub gotówką",
    "Profesjonalni kierowcy"
+  ],
+  "title": "Taxi Nowe Miasto Rzeszów 24h | Podwisłocze, Rejtana",
+  "desc": "Taxi w Nowym Mieście w Rzeszowie całą dobę: Podwisłocze, Rejtana, Kopisto, Pelczara. Do centrum, na dworzec i lotnisko Jasionka. Tel. 536 805 851.",
+  "h1": "Taxi Nowe Miasto Rzeszów 24h",
+  "lead": "Podjeżdżamy na Podwisłocze, Rejtana, Kopisto, Pelczara i okoliczne ulice o każdej porze. Zadzwoń, napisz na WhatsApp albo zamów online.",
+  "akapit_h": "Taxi z Nowego Miasta - do pracy, na uczelnię, na lotnisko",
+  "akapit": "Nowe Miasto to duże osiedle z ruchliwymi ulicami, gdzie trudno o szybkie parkowanie - dlatego taxi pod klatkę bywa wygodniejsze niż własne auto. Kurs zamówisz na teraz albo na konkretną godzinę, np. na poranny wylot z Jasionki. Płacisz kartą, BLIK-iem lub gotówką, a jeśli jeździsz służbowo - poproś o fakturę VAT.",
+  "faq": [
+   {
+    "q": "Ile kosztuje taxi z Nowego Miasta do centrum?",
+    "a": "Według taksometru: opłata początkowa 10 zł plus 4 zł za kilometr w dni powszednie 6:00-22:00 albo 6 zł/km w nocy, w niedziele i święta. Pełne stawki są w cenniku."
+   },
+   {
+    "q": "Czy mogę zamówić kurs na konkretną godzinę?",
+    "a": "Tak. W zamówieniu podaj datę i godzinę - potwierdzimy kurs SMS-em lub telefonicznie."
+   },
+   {
+    "q": "Czy jeździcie z Nowego Miasta w nocy?",
+    "a": "Tak, całą dobę, także w weekendy i święta."
+   }
   ]
  },
  {
@@ -131,6 +191,26 @@
     ],
     "p": "Pełne stawki: <a href=\"../../cennik/\">cennik taxi Rzeszów</a>."
    }
+  ],
+  "title": "Taxi Baranówka Rzeszów 24h | al. Wyzwolenia, Osmeckiego",
+  "desc": "Taxi na Baranówce całą dobę: odbiór z al. Wyzwolenia, Ofiar Katynia, Osmeckiego. Kursy do centrum, na dworzec i na lotnisko Jasionka. Tel. 536 805 851.",
+  "h1": "Taxi Baranówka Rzeszów 24h",
+  "lead": "Odbieramy z al. Wyzwolenia, Ofiar Katynia, Osmeckiego, Mikołajczyka i okolic - całą dobę. Zadzwoń, napisz na WhatsApp albo zamów online.",
+  "akapit_h": "Z Baranówki na dworzec, do centrum i na lotnisko",
+  "akapit": "Baranówka to jedno z większych osiedli Rzeszowa, więc kursów stąd mamy dużo: do pracy, do centrum, na dworzec i na lotnisko Jasionka. Jeśli chcesz zapłacić mniej, wybierz kurs w dzień powszedni między 6:00 a 22:00 (taryfa 1, 4 zł/km) i zamów go z wyprzedzeniem. Przy dłuższych trasach zapytaj o indywidualną wycenę - cenę można negocjować.",
+  "faq": [
+   {
+    "q": "Jak jeździć taxi z Baranówki taniej?",
+    "a": "Wybierz kurs w dzień powszedni 6:00-22:00 (4 zł/km zamiast 6 zł/km w nocy i w święta), zamów z wyprzedzeniem, a przy dłuższej trasie poproś o indywidualną wycenę."
+   },
+   {
+    "q": "Czy podjedziecie pod sam blok?",
+    "a": "Tak, kierowca podjeżdża pod wskazany adres. W uwagach do zamówienia możesz podać numer klatki lub charakterystyczny punkt."
+   },
+   {
+    "q": "Czy jeździcie z Baranówki na lotnisko Jasionka?",
+    "a": "Tak, całą dobę. Przy przylocie monitorujemy lot, a czas oczekiwania na Ciebie jest bezpłatny."
+   }
   ]
  },
  {
@@ -160,6 +240,26 @@
    "Komfortowe i klimatyzowane samochody",
    "Płatność kartą lub gotówką",
    "Doświadczeni kierowcy"
+  ],
+  "title": "Taxi Drabinianka Rzeszów 24h | Kwiatkowskiego, Miła",
+  "desc": "Taxi na Drabiniance o każdej porze: Kwiatkowskiego, Strażacka, Graniczna, Miła. Kursy do centrum, na dworzec i lotnisko. Karta, BLIK. Tel. 536 805 851.",
+  "h1": "Taxi Drabinianka Rzeszów 24h",
+  "lead": "Podjeżdżamy na Kwiatkowskiego, Strażacką, Graniczną, Uroczą i Miłą - o każdej porze. Zadzwoń, napisz na WhatsApp albo zamów online.",
+  "akapit_h": "Taxi na Drabiniance - nowe osiedla i domy jednorodzinne",
+  "akapit": "Na Drabiniance jest dużo nowych ulic i domów jednorodzinnych, dlatego przy zamówieniu warto podać dokładny adres lub punkt orientacyjny - kierowca trafi od razu. Wozimy stąd do centrum, na dworzec, do szkół i na lotnisko Jasionka. Po wieczornym wyjściu w mieście odwieziemy Cię pod same drzwi, także w nocy i w święta.",
+  "faq": [
+   {
+    "q": "Czy dojedziecie na nowe ulice Drabinianki?",
+    "a": "Tak. Podaj dokładny adres, a jeśli ulica jest nowa - punkt orientacyjny w uwagach do zamówienia."
+   },
+   {
+    "q": "Ile kosztuje taxi z Drabinianki w nocy?",
+    "a": "W nocy 22:00-6:00 oraz w niedziele i święta obowiązuje taryfa 2: opłata początkowa 10 zł i 6 zł za kilometr."
+   },
+   {
+    "q": "Czy można zamówić taxi przez WhatsApp?",
+    "a": "Tak, napisz na WhatsApp +48 536 805 851 adres, cel i godzinę - potwierdzimy kurs."
+   }
   ]
  },
  {
@@ -189,6 +289,26 @@
    "Komfortowe i zadbane samochody",
    "Płatność kartą lub gotówką",
    "Doświadczeni kierowcy"
+  ],
+  "title": "Taxi Wilkowyja Rzeszów 24h | Lwowska, Litewska",
+  "desc": "Taxi na Wilkowyi w Rzeszowie całą dobę: odbiór z Lwowskiej, Olbrachta, Litewskiej. Kursy do centrum, na dworzec i lotnisko Jasionka. Tel. 536 805 851.",
+  "h1": "Taxi Wilkowyja Rzeszów 24h",
+  "lead": "Odbieramy z Lwowskiej, Leszka Czarnego, Olbrachta, Witolda i Litewskiej - całą dobę. Zadzwoń, napisz na WhatsApp albo zamów online.",
+  "akapit_h": "Z Wilkowyi do centrum i w stronę Przemyśla",
+  "akapit": "Wilkowyja leży przy ulicy Lwowskiej, czyli przy wylocie z Rzeszowa w kierunku wschodnim. Poza kursami po mieście, na dworzec i na lotnisko wozimy stąd także dalej: do Łańcuta, <a href=\"../../taxi-rzeszow-przemysl-medyka/\">Przemyśla i do przejścia granicznego w Medyce</a>. Dłuższe trasy wyceniamy indywidualnie, a cenę podajemy przy potwierdzeniu zamówienia.",
+  "faq": [
+   {
+    "q": "Czy z Wilkowyi pojedziecie do Przemyśla albo do Medyki?",
+    "a": "Tak, o każdej porze. Trasę wyceniamy indywidualnie i podajemy cenę przy potwierdzeniu zamówienia."
+   },
+   {
+    "q": "Ile kosztuje kurs po Rzeszowie z Wilkowyi?",
+    "a": "Opłata początkowa 10 zł plus 4 zł/km w dni powszednie 6:00-22:00 lub 6 zł/km w nocy, w niedziele i święta."
+   },
+   {
+    "q": "Czy kierowca pomoże z bagażem?",
+    "a": "Tak, kierowca pomaga przy bagażu - zwłaszcza przy kursach na lotnisko i dworzec."
+   }
   ]
  },
  {
@@ -218,6 +338,26 @@
    "Komfortowe i zadbane samochody",
    "Terminal płatniczy w aucie",
    "Doświadczeni kierowcy"
+  ],
+  "title": "Taxi Pobitno Rzeszów 24h | Lwowska, Traugutta",
+  "desc": "Taxi na Pobitnie całą dobę: Lwowska, Morgowa, Traugutta, Armii Wojska Polskiego. Szybko do centrum, na dworzec i na lotnisko Jasionka. Tel. 536 805 851.",
+  "h1": "Taxi Pobitno Rzeszów 24h",
+  "lead": "Podjeżdżamy na Lwowską, Morgową, Traugutta, Armii Wojska Polskiego i Bałtycką - o każdej porze. Zadzwoń, napisz na WhatsApp albo zamów online.",
+  "akapit_h": "Taxi z Pobitna - blisko centrum, szybko na lotnisko",
+  "akapit": "Z Pobitna jest blisko do centrum, dlatego kurs jest krótki i zwykle tani - liczy się opłata początkowa 10 zł i stawka za kilometr. Stąd często zamawiane są też transfery na Port Lotniczy Rzeszów-Jasionka: przy przylocie kierowca czeka zaparkowany na wprost wyjścia z terminala, a na życzenie z tabliczką z Twoim nazwiskiem.",
+  "faq": [
+   {
+    "q": "Ile kosztuje taxi z Pobitna do centrum Rzeszowa?",
+    "a": "Liczy taksometr: 10 zł opłaty początkowej i 4 zł za kilometr w dzień powszedni (6 zł/km w nocy, w niedziele i święta)."
+   },
+   {
+    "q": "Czy kierowca może czekać z tabliczką na lotnisku?",
+    "a": "Tak. Dopisz to w uwagach do zamówienia - kierowca będzie czekał w terminalu z tabliczką z Twoim nazwiskiem."
+   },
+   {
+    "q": "Czy w aucie jest terminal płatniczy?",
+    "a": "Tak, za kurs zapłacisz kartą, BLIK-iem lub gotówką."
+   }
   ]
  },
  {
@@ -246,6 +386,26 @@
    "Klimatyzowane i czyste samochody",
    "Płatność kartą lub gotówką",
    "Doświadczeni kierowcy"
+  ],
+  "title": "Taxi Zalesie Rzeszów 24h | Łukasiewicza, Kiepury",
+  "desc": "Taxi na Zalesiu w Rzeszowie o każdej porze: Łukasiewicza, Robotnicza, Wieniawskiego, Kiepury. Do centrum, na dworzec i lotnisko. Tel. 536 805 851.",
+  "h1": "Taxi Zalesie Rzeszów 24h",
+  "lead": "Odbieramy z Łukasiewicza, Robotniczej, Wieniawskiego, Kiepury i okolic - całą dobę. Zadzwoń, napisz na WhatsApp albo zamów online.",
+  "akapit_h": "Taxi z Zalesia - kurs na teraz albo z rezerwacją",
+  "akapit": "Zalesie to spokojna, zielona część Rzeszowa z dużą liczbą domów, gdzie autobusy nie zawsze jeżdżą wtedy, kiedy trzeba. Taxi zamówisz na teraz albo z wyprzedzeniem - np. na wczesny pociąg czy lot. Wozimy też dzieci i seniorów: napisz w uwagach, czego potrzebujesz, a dopasujemy auto.",
+  "faq": [
+   {
+    "q": "Czy mogę zarezerwować taxi z Zalesia na rano?",
+    "a": "Tak. Zamów kurs z wyprzedzeniem, podając adres i godzinę - potwierdzimy go SMS-em lub telefonicznie."
+   },
+   {
+    "q": "Czy przewozicie seniorów i dzieci?",
+    "a": "Tak. Napisz w uwagach do zamówienia, czego potrzebujesz (np. pomoc przy wsiadaniu, więcej miejsca), a dopasujemy auto."
+   },
+   {
+    "q": "Ile kosztuje postój, gdy kierowca czeka?",
+    "a": "Postój na życzenie klienta kosztuje 55 zł za godzinę. Przy odbiorze z lotniska czas oczekiwania jest bezpłatny."
+   }
   ]
  },
  {
@@ -284,6 +444,26 @@
      "kursy nocne i weekendowe"
     ]
    }
+  ],
+  "title": "Taxi Biała Rzeszów 24h | Wojtyły, Sikorskiego",
+  "desc": "Taxi w Białej (Rzeszów) całą dobę: Wojtyły, Rodzinna, Sikorskiego, Źródlana. Kursy do centrum, na dworzec PKP i lotnisko Jasionka. Tel. 536 805 851.",
+  "h1": "Taxi Biała Rzeszów 24h",
+  "lead": "Podjeżdżamy na Wojtyły, Rodzinną, Sikorskiego i Źródlaną - o każdej porze. Zadzwoń, napisz na WhatsApp albo zamów online.",
+  "akapit_h": "Z Białej na lotnisko Rzeszów-Jasionka",
+  "akapit": "Biała to rozwijająca się, południowa część Rzeszowa z domami jednorodzinnymi. Na lotnisko najlepiej zamówić kurs z wyprzedzeniem - przy przylocie podaj numer lotu, a kierowca dostosuje się do opóźnienia, bez dopłaty za czekanie. Jeździmy w nocy i w weekendy, pomagamy przy bagażu, przyjmujemy kartę, BLIK i gotówkę.",
+  "faq": [
+   {
+    "q": "Czy dopłacę, jeśli mój samolot się spóźni?",
+    "a": "Nie. Lot monitorujemy pod kątem opóźnień, a czas oczekiwania na Ciebie przy odbiorze z lotniska jest bezpłatny."
+   },
+   {
+    "q": "Czy jeździcie z Białej w niedziele i święta?",
+    "a": "Tak, całą dobę, 7 dni w tygodniu. W niedziele i święta obowiązuje taryfa 2 (6 zł/km)."
+   },
+   {
+    "q": "Jak zapłacić za kurs?",
+    "a": "Kartą, BLIK-iem albo gotówką. Firmom wystawiamy fakturę VAT."
+   }
   ]
  },
  {
@@ -313,6 +493,26 @@
    "Komfortowe i klimatyzowane auta",
    "Terminal płatniczy w aucie",
    "Doświadczeni kierowcy"
+  ],
+  "title": "Taxi Budziwój Rzeszów 24h | Budziwojska, Podleśna",
+  "desc": "Taxi w Budziwoju całą dobę: odbiór z Budziwojskiej, Jana Pawła II, Podleśnej. Kursy do centrum Rzeszowa, na dworzec i lotnisko. Tel. 536 805 851.",
+  "h1": "Taxi Budziwój Rzeszów 24h",
+  "lead": "Odbieramy z Budziwojskiej, Jana Pawła II, Podleśnej, Herbowej i Miejskiej - całą dobę. Zadzwoń, napisz na WhatsApp albo zamów online.",
+  "akapit_h": "Taxi z Budziwoja do centrum i w stronę Tyczyna",
+  "akapit": "Budziwój leży na południowym skraju Rzeszowa, w stronę Tyczyna. Wozimy stąd do centrum, na dworzec, do szpitali i urzędów, a także do Tyczyna, Kielnarowej czy Boguchwały. Jeśli potrzebujesz, żeby kierowca poczekał (np. pod przychodnią), liczymy postój 55 zł za godzinę.",
+  "faq": [
+   {
+    "q": "Czy kierowca może poczekać, aż załatwię sprawę?",
+    "a": "Tak, postój na życzenie klienta kosztuje 55 zł za godzinę."
+   },
+   {
+    "q": "Czy z Budziwoja pojedziecie do Tyczyna lub Boguchwały?",
+    "a": "Tak, jeździmy po całej okolicy Rzeszowa. Przy kursie poza miasto bez powrotu obowiązuje taryfa 3 (8 zł/km), w nocy taryfa 4 (11 zł/km)."
+   },
+   {
+    "q": "Jak szybko przyjedzie taxi?",
+    "a": "Zależy od pory i ruchu - przy zamówieniu podamy przewidywany czas dojazdu. Kurs na konkretną godzinę możesz zarezerwować wcześniej."
+   }
   ]
  },
  {
@@ -342,6 +542,26 @@
    "Klimatyzowane i zadbane auta",
    "Terminal płatniczy w aucie",
    "Doświadczeni kierowcy"
+  ],
+  "title": "Taxi Krakowska-Południe Rzeszów 24h | Krakowska",
+  "desc": "Taxi na osiedlu Krakowska-Południe całą dobę: Krakowska, Rataja, Solarza. Kursy do centrum, na dworzec i lotnisko Jasionka. Karta, BLIK. Tel. 536 805 851.",
+  "h1": "Taxi Krakowska-Południe Rzeszów 24h",
+  "lead": "Podjeżdżamy na Krakowską, Rataja, Solarza, Lewakowskiego i Zbyszewskiego - o każdej porze. Zadzwoń, napisz na WhatsApp albo zamów online.",
+  "akapit_h": "Z Krakowskiej-Południe w dłuższe trasy",
+  "akapit": "Osiedle leży przy ulicy Krakowskiej, czyli przy wylocie z Rzeszowa na zachód. Poza kursami po mieście i na lotnisko Jasionka wozimy stąd <a href=\"../../taxi-rzeszow-krakow-katowice/\">na lotniska w Krakowie i Katowicach</a> oraz do innych miast. Dłuższe trasy wyceniamy indywidualnie - cenę podajemy przy potwierdzeniu, a na kurs warto umówić się z wyprzedzeniem.",
+  "faq": [
+   {
+    "q": "Czy pojedziecie z Rzeszowa na lotnisko w Krakowie?",
+    "a": "Tak, jeździmy na lotniska Kraków-Balice i Katowice-Pyrzowice. Cenę podajemy przy potwierdzeniu zamówienia."
+   },
+   {
+    "q": "Ile kosztuje kurs po mieście z Krakowskiej-Południe?",
+    "a": "Opłata początkowa 10 zł plus 4 zł/km w dni powszednie 6:00-22:00 albo 6 zł/km w nocy, w niedziele i święta."
+   },
+   {
+    "q": "Czy wystawiacie fakturę za przejazd służbowy?",
+    "a": "Tak, firmom wystawiamy fakturę VAT."
+   }
   ]
  },
  {
@@ -370,6 +590,26 @@
    "Komfortowe i zadbane samochody",
    "Płatność kartą lub BLIK",
    "Profesjonalni kierowcy"
+  ],
+  "title": "Taxi Załęże Rzeszów 24h | Załęska, Potockiego",
+  "desc": "Taxi na Załężu w Rzeszowie o każdej porze: Załęska, Potockiego, Rzecha. Kursy do centrum, na dworzec i lotnisko Jasionka. Karta, BLIK. Tel. 536 805 851.",
+  "h1": "Taxi Załęże Rzeszów 24h",
+  "lead": "Odbieramy z Załęskiej, Potockiego, Rzecha, ks. Stączka i okolic - całą dobę. Zadzwoń, napisz na WhatsApp albo zamów online.",
+  "akapit_h": "Z Załęża na lotnisko Jasionka i do Łańcuta",
+  "akapit": "Załęże leży we wschodniej części Rzeszowa, przy drogach w stronę lotniska i Łańcuta. Wozimy stąd do centrum i na dworzec, na Port Lotniczy Rzeszów-Jasionka oraz do <a href=\"../../oferta/\">miejscowości na wschód od miasta</a>. Kurs zamówisz telefonicznie, przez WhatsApp lub formularzem - potwierdzamy go SMS-em albo telefonicznie.",
+  "faq": [
+   {
+    "q": "Czy z Załęża pojedziecie do Łańcuta?",
+    "a": "Tak. Kurs poza miasto bez powrotu liczymy w taryfie 3 (8 zł/km), w nocy w taryfie 4 (11 zł/km); dłuższe trasy można też wycenić indywidualnie."
+   },
+   {
+    "q": "Czy jeździcie z Załęża na lotnisko w nocy?",
+    "a": "Tak, transfery na lotnisko Rzeszów-Jasionka realizujemy całą dobę."
+   },
+   {
+    "q": "Jak potwierdzacie zamówienie?",
+    "a": "SMS-em lub telefonicznie, po przyjęciu zamówienia z formularza, WhatsApp albo rozmowy."
+   }
   ]
  }
 ]

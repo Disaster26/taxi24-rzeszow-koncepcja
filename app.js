@@ -266,8 +266,10 @@
   /* panel "zamowienie przyjete": krotkie podsumowanie tego, co wyslano (bez ponownej wysylki przez WA/SMS) */
   function rysujOk(el, st) {
     var lista = st.pary.filter(function (p) { return p[1]; }).map(function (p) { return '<dt>' + esc(p[0]) + '</dt><dd>' + esc(p[1]) + '</dd>'; }).join('');
-    el.innerHTML = '<div class="ok-gora"><span class="ok-ikona"><svg class="ic"><use href="#i-check"/></svg></span><h3 class="ok-h">' + esc(t('ok.h')) + '</h3></div>'
-      + '<p class="ok-p">' + esc(t('ok.p2')) + ' <a href="tel:+48536805851">536&nbsp;805&nbsp;851</a>.</p>'
+    el.innerHTML = '<div class="ok-gora"><span class="ok-ikona"><svg class="ic"><use href="#i-check"/></svg></span><h3 class="ok-h">' + esc(t('ok.h3')) + '</h3></div>'
+      + '<p class="ok-disp"><span class="ok-kropka" aria-hidden="true"></span>' + esc(t('ok.disp')) + '</p>'
+      + '<p class="ok-p">' + esc(t('ok.p3')) + '</p>'
+      + '<p class="ok-pilne">' + esc(t('ok.pilne3')) + ' <a href="tel:+48536805851">+48&nbsp;536&nbsp;805&nbsp;851</a></p>'
       + '<p class="ok-sum">' + esc(t('ok.sum')) + '</p><dl class="ok-lista">' + lista + '</dl>'
       + (st.spam ? '<p class="ok-spam">' + esc(t('ok.spam')) + '</p>' : '')
       + (st.demo && T['ok.demo'] ? '<p class="ok-demo">' + esc(t('ok.demo')) + '</p>' : '')

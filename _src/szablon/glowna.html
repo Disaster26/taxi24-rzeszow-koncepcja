@@ -9,7 +9,7 @@
   </div>
   <div class="hero-srodek"><div class="hero-in wrap">
     <h1 data-i18n-html="h1">Taxi Rzeszów&nbsp;24h i&nbsp;transfery na&nbsp;lotnisko Jasionka</h1>
-    <p class="lead" data-i18n-html="hero.lead">Kursy po mieście, odbiór z samolotu i dłuższe trasy. Zamówisz w minutę, potwierdzimy SMS&#8209;em lub telefonicznie.</p>
+    <p class="lead" data-i18n-html="hero.lead">Kursy po mieście, odbiór z samolotu i dłuższe trasy. Zamówisz w minutę, potwierdzimy <span class="nw">SMS-em</span> lub telefonicznie.</p>
     <div class="hero-cta" id="heroCta">
       <a class="cta-tel" href="tel:+48536805851"><span class="cta-kolo"><svg class="ic"><use href="#i-tel"/></svg></span><span class="cta-txt"><small data-i18n="cta.tel">Zadzwoń teraz</small><b>536&nbsp;805&nbsp;851</b></span></a>
       <a class="cta-wa" href="https://wa.me/48536805851" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg><span data-i18n="cta.wa">Zamów przez WhatsApp</span></a>
@@ -50,7 +50,7 @@
         <div class="karta-foto"><img src="{{R}}img/taxi-rzeszow-centrum.webp" alt="Centrum Rzeszowa z pomnikiem Czynu Rewolucyjnego" data-i18n-alt="alt.rzeszow" loading="lazy" decoding="async" width="700" height="500"><span class="karta-ic"><svg class="ic"><use href="#i-car"/></svg></span></div>
         <div class="karta-txt">
           <h3 data-i18n="k2.h">Taxi w Rzeszowie</h3>
-          <p data-i18n="k2.p">Kursy po mieście i okolicy przez całą dobę: na dworzec, do lekarza, nocny powrót do domu.</p>
+          <p data-i18n="k2.p">Taksówka po mieście i okolicy przez całą dobę: na dworzec, do lekarza, nocny powrót do domu.</p>
           <button class="karta-btn" type="button" data-typ="miasto"><span data-i18n="k2.b">Zamów taxi</span> <svg class="ic"><use href="#i-arrow"/></svg></button>
         </div>
       </article>
@@ -83,12 +83,14 @@
       <li><button type="button" data-usluga="Obsługa imprezy lub wydarzenia"><svg class="ic"><use href="#i-party"/></svg><b data-i18n="m5.b">Imprezy i wydarzenia</b><span data-i18n="m5.s">Goście weselni, komunie, konferencje</span></button></li>
       <li><button type="button" data-usluga="Przewóz drobnych rzeczy"><svg class="ic"><use href="#i-pack"/></svg><b data-i18n="m8.b">Przewóz drobnych rzeczy</b><span data-i18n="m8.s">Gdy coś trzeba szybko przewieźć</span></button></li>
     </ul>
+    <p class="sek-link" data-jezyki="pl en" data-i18n-html="usl.linki">Dla firm: <a href="{{U:firmy}}">taxi dla firm i hoteli</a> - odbiór gości z lotniska, przejazdy służbowe, faktura VAT.</p>
     <button class="male-wiecej" type="button" id="maleWiecej" hidden><span data-i18n="male.wiecej">Pokaż wszystkie usługi (4)</span><svg class="ic"><use href="#i-chev"/></svg></button>
 
     <div class="trasy" id="przemysl-medyka">
       <div class="trasy-txt">
         <h2 data-i18n="tr.h2">Taxi Rzeszów - Przemyśl i przejście graniczne w Medyce</h2>
         <p data-i18n="tr.p">Nie tylko lotniska: wozimy z Rzeszowa do Przemyśla i na przejście graniczne z Ukrainą w Medyce. Kurs na zamówienie, o każdej porze, także w nocy, w obie strony. Cenę podamy przy potwierdzeniu zamówienia.</p>
+        <a class="lot-wiecej" href="{{U:przemysl}}" data-jezyki="pl en uk"><span data-i18n="tr.wiecej">Taxi z Rzeszowa do Przemyśla i Medyki - szczegóły</span> <svg class="ic"><use href="#i-arrow"/></svg></a>
       </div>
       <ul class="trasy-lista">
         <li><button type="button" data-trasa="Przemyśl"><svg class="ic"><use href="#i-route"/></svg><span data-i18n="tr.b1">Rzeszów - Przemyśl</span><svg class="ic"><use href="#i-arrow"/></svg></button></li>
@@ -129,6 +131,7 @@
         <li><svg class="ic"><use href="#i-check"/></svg><span data-i18n="lot.c4">Karta, gotówka lub BLIK, faktura VAT</span></li>
       </ul>
     </div>
+    <p class="lot-dalej" data-jezyki="pl en" data-i18n-html="lot.dalej">Lecisz z innego lotniska? Zobacz <a href="{{U:trasy}}">taxi na lotniska w Krakowie, Katowicach i Warszawie</a>.</p>
     <div class="lot-akcje">
       <button class="btn btn-y" type="button" data-typ="lotnisko"><span data-i18n="lot.btn">Zarezerwuj transfer</span> <svg class="ic"><use href="#i-arrow"/></svg></button>
       <a class="lot-wiecej" href="{{LOT}}"><span data-i18n="lot.wiecej">Więcej o transferze na lotnisko</span> <svg class="ic"><use href="#i-arrow"/></svg></a>
@@ -150,6 +153,7 @@
       <h3 data-i18n="dz.h">Taxi w Twojej dzielnicy</h3>
       <p data-i18n="dz.p">Osobne strony dla dzielnic Rzeszowa: skąd odbieramy, dokąd najczęściej jeździmy.</p>
 {{DZIELNICE}}
+      <p class="sek-link" data-jezyki="pl"><a href="{{U:okolice}}">Wszystkie dzielnice i miejscowości wokół Rzeszowa</a></p>
     </nav>
   </div>
 </section>
@@ -175,7 +179,7 @@
   <div class="wrap">
     <div class="sek-head">
       <h2 data-i18n="zam.h2">Zamówienie kursu lub transferu</h2>
-      <p data-i18n-html="zam.p2">Podaj adres, termin i telefon, a zamówienie trafi prosto do nas. Potwierdzimy je SMS&#8209;em lub telefonicznie.</p>
+      <p data-i18n-html="zam.p2">Podaj adres, termin i telefon, a zamówienie trafi prosto do nas. Potwierdzimy je <span class="nw">SMS-em</span> lub telefonicznie.</p>
     </div>
     <div class="zam-grid">
       <form class="zam" id="zam" action="/wp-content/plugins/taxi24-zamowienia/wyslij.php" method="post" novalidate>
@@ -334,16 +338,7 @@
       <figure class="auto-mondeo"><img src="{{R}}img/flota-ford-mondeo-kombi-600.webp" srcset="{{R}}img/flota-ford-mondeo-kombi-600.webp 600w, {{R}}img/flota-ford-mondeo-kombi-1000.webp 1000w" sizes="(max-width:600px) 100vw, 400px" alt="Ford Mondeo kombi - zdjęcie poglądowe" data-i18n-alt="alt.mondeo" loading="lazy" decoding="async" width="600" height="308"><em class="pogl" data-i18n="au.pogl">zdjęcie poglądowe</em><figcaption><b data-i18n="au.mondeo.b">Ford Mondeo kombi</b><span data-i18n="au.mondeo">Duży bagażnik</span></figcaption></figure>
     </div>
     <p class="auta-zrodla"><span data-i18n="au.zr">Zdjęcia BMW, RAV4 i Mondeo są poglądowe, z Wikimedia Commons:</span> <a href="https://commons.wikimedia.org/wiki/File:BMW_520d_G30_Luxury_Alpine_White.jpg" target="_blank" rel="noopener">Ethan Llamas</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pl" target="_blank" rel="noopener license">CC BY-SA 4.0</a>), <a href="https://commons.wikimedia.org/wiki/File:2021_Toyota_RAV4_PHV.jpg" target="_blank" rel="noopener">TTTNIS</a> (<a href="https://creativecommons.org/publicdomain/zero/1.0/deed.pl" target="_blank" rel="noopener license">CC0</a>), <a href="https://commons.wikimedia.org/wiki/File:Ford_Mondeo_Turnier_(V)_%E2%80%93_f_08022026.jpg" target="_blank" rel="noopener">M 93</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/de/deed.pl" target="_blank" rel="noopener license">CC BY-SA 3.0 DE</a>); <span data-i18n="au.zm2">przycięte, zamazana twarz kierowcy w BMW. Zmienione zdjęcia udostępniamy na tych samych licencjach.</span></p>
-    <!-- Opinie skopiowane z obecnej strony taxi24-rzeszow.pl (sekcja "Opinie klientów") -->
-    <div class="opinie">
-      <h3 data-i18n="op.h">Opinie klientów</h3>
-      <div class="op-lista">
-        <figure><blockquote data-i18n="op.1">Zamówiłem taxi z wyprzedzeniem, o umówionej porze czekała na mnie pod domem. Miło i bezpiecznie.</blockquote><figcaption>Marcin</figcaption></figure>
-        <figure><blockquote data-i18n="op.2">Nie posiadam własnego samochodu, z Taxi Rzeszów korzystam regularnie. Świetny kontakt.</blockquote><figcaption>Kacper</figcaption></figure>
-        <figure><blockquote data-i18n="op.3">Wybieram taxi jako bezpieczną alternatywę dla kierowców, którzy nie mają licencji, a świadczą usługi transportowe.</blockquote><figcaption>Kasia</figcaption></figure>
-      </div>
-      <p class="op-wiecej"><a href="https://www.tripadvisor.com/Attraction_Review-g274785-d33097322-Reviews-Taxi_Rzeszow_24h-Rzeszow_Subcarpathian_Province_Southern_Poland.html" target="_blank" rel="noopener"><span data-i18n="op.ta">Opinie o nas na Tripadvisor</span> <svg class="ic"><use href="#i-arrow"/></svg></a>{{GOOGLE_OPINIE}}</p>
-    </div>
+{{OPINIE}}
   </div>
 </section>
 
@@ -353,13 +348,17 @@
     <h2 data-i18n="faq.h2">Pytania o taxi i transfer na Jasionkę</h2>
     <div class="faq-lista">
       <details open><summary data-i18n="q1">Czy Taxi Rzeszów 24H działa całą dobę?</summary><p data-i18n="a1">Tak, jeździmy po Rzeszowie i okolicy 24 godziny na dobę, również w weekendy i święta.</p></details>
-      <details><summary data-i18n="q2">Czy można zamówić taxi na lotnisko Rzeszów-Jasionka?</summary><p data-i18n="a2">Tak. Wozimy na Port Lotniczy Rzeszów-Jasionka i odbieramy z niego, a także jeździmy na lotniska w Krakowie, Katowicach, Lublinie i Warszawie. Kurs można zarezerwować wcześniej.</p></details>
-      <details><summary data-i18n="q8">Czy jeździcie do Przemyśla i na przejście graniczne w Medyce?</summary><p data-i18n="a8">Tak. Przejazdy z Rzeszowa do Przemyśla i na przejście graniczne z Ukrainą w Medyce realizujemy na zamówienie, o każdej porze, także w nocy. Cenę podajemy przy potwierdzaniu zamówienia.</p></details>
+      <details><summary data-i18n="q2">Czy można zamówić taxi na lotnisko Rzeszów-Jasionka?</summary><p data-i18n-html="a2">Tak. Wozimy na Port Lotniczy Rzeszów-Jasionka i odbieramy z niego, a także jeździmy na lotniska w Krakowie, Katowicach, Lublinie i Warszawie. Kurs można zarezerwować wcześniej.</p></details>
+      <details><summary data-i18n="q8">Czy jeździcie do Przemyśla i na przejście graniczne w Medyce?</summary><p data-i18n-html="a8">Tak. Przejazdy z Rzeszowa do Przemyśla i na przejście graniczne z Ukrainą w Medyce realizujemy na zamówienie, o każdej porze, także w nocy. Cenę podajemy przy potwierdzaniu zamówienia. Więcej: <a href="{{U:przemysl}}">taxi Rzeszów - Przemyśl i Medyka</a>.</p></details>
       <details><summary data-i18n="q3">Co jeśli mój samolot się spóźni?</summary><p data-i18n="a3b">Lot zawsze monitorujemy pod kątem opóźnień, więc kierowca przyjedzie na właściwą godzinę. Czas oczekiwania na Ciebie jest bezpłatny. Wystarczy podać numer lotu w zamówieniu.</p></details>
       <details><summary data-i18n="q9">Gdzie czeka kierowca na lotnisku Jasionka?</summary><p data-i18n="a9">Samochód zawsze stoi zaparkowany na wprost wyjścia z terminala. Na życzenie kierowca czeka w terminalu z tabliczką z Twoim nazwiskiem - dopisz to w uwagach do zamówienia.</p></details>
       <details><summary data-i18n="q4">Ile kosztuje taxi na lotnisko Jasionka?</summary><p data-i18n="a4b">Transfery lotniskowe wyceniamy indywidualnie: cenę podajemy przy potwierdzaniu zamówienia, SMS-em lub telefonicznie. Stawki za kilometr w czterech taryfach znajdziesz w cenniku.</p></details>
-      <details><summary data-i18n="q5">Jak zamówić taxi w Rzeszowie?</summary><p data-i18n="a5">Telefonicznie pod numerem +48 536 805 851, przez WhatsApp albo formularzem zamówienia na tej stronie. Zamówienie potwierdzamy SMS-em lub telefonicznie.</p></details>
+      <details><summary data-i18n="q10">Ile kosztuje taxi w Rzeszowie?</summary><p data-i18n-html="a10">Opłata początkowa to 10 zł, a kilometr w dni powszednie 6:00-22:00 kosztuje 4 zł. W nocy, w niedziele i święta 6 zł/km, poza miastem 8-11 zł/km. Szczegóły i przykład wyliczenia w <a href="{{U:cennik}}">cenniku</a>.</p></details>
+      <details><summary data-i18n="q5">Jak zamówić taksówkę w Rzeszowie?</summary><p data-i18n="a5">Zadzwoń pod +48 536 805 851, napisz na WhatsApp albo wypełnij formularz na stronie. Zamówienie potwierdzamy SMS-em lub telefonicznie, całą dobę.</p></details>
+      <details><summary data-i18n="q11">Czy odbierzecie mnie z dworca PKP w Rzeszowie?</summary><p data-i18n="a11">Tak. Podaj godzinę przyjazdu pociągu lub autobusu, a kierowca podjedzie pod dworzec i pomoże z bagażem.</p></details>
+      <details><summary data-i18n="q12">Czy mogę zapłacić kartą lub BLIK-iem?</summary><p data-i18n="a12">Tak, w każdym aucie zapłacisz kartą, BLIK-iem lub gotówką. Firmom wystawiamy fakturę VAT.</p></details>
       <details><summary data-i18n="q6">Czy wystawiacie faktury dla firm?</summary><p data-i18n="a6">Tak, realizujemy transport biznesowy i wystawiamy faktury klientom firmowym.</p></details>
+      <details><summary data-i18n="q13">Jakimi samochodami jeździcie?</summary><p data-i18n="a13">Audi A7, Toyota Camry, BMW serii 5, Toyota RAV4 i Ford Mondeo kombi. Przy dużym bagażu napisz o tym w zamówieniu - przyjedziemy autem z większym bagażnikiem.</p></details>
       <details><summary data-i18n="q7">W jakich językach można się z Wami porozumieć?</summary><p data-i18n="a7">Zamówienie przyjmiemy po polsku, angielsku, niemiecku i ukraińsku. Najprościej napisać na WhatsApp.</p></details>
     </div>
   </div>

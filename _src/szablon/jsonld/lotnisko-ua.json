@@ -1,0 +1,150 @@
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://taxi24-rzeszow.pl/ua/taksi-aeroport-zheshuv-yasonka/#strona",
+   "url": "https://taxi24-rzeszow.pl/ua/taksi-aeroport-zheshuv-yasonka/",
+   "name": "Таксі аеропорт Жешув-Ясьонка 24/7 - трансфер, зустріч",
+   "inLanguage": "uk",
+   "isPartOf": {
+    "@id": "https://taxi24-rzeszow.pl/#www"
+   },
+   "about": {
+    "@id": "https://taxi24-rzeszow.pl/#firma"
+   },
+   "breadcrumb": {
+    "@id": "https://taxi24-rzeszow.pl/ua/taksi-aeroport-zheshuv-yasonka/#okruszki"
+   },
+   "mainEntity": {
+    "@id": "https://taxi24-rzeszow.pl/ua/taksi-aeroport-zheshuv-yasonka/#usluga"
+   }
+  },
+  {
+   "@type": "TaxiService",
+   "@id": "https://taxi24-rzeszow.pl/ua/taksi-aeroport-zheshuv-yasonka/#usluga",
+   "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://taxi24-rzeszow.pl/#firma",
+    "name": "Taxi Rzeszów 24H",
+    "telephone": "+48536805851",
+    "url": "https://taxi24-rzeszow.pl/"
+   },
+   "availableChannel": {
+    "@type": "ServiceChannel",
+    "servicePhone": {
+     "@type": "ContactPoint",
+     "telephone": "+48536805851",
+     "contactType": "reservations",
+     "availableLanguage": [
+      "pl",
+      "en",
+      "de",
+      "uk"
+     ]
+    }
+   },
+   "hoursAvailable": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Friday",
+     "Saturday",
+     "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+   },
+   "name": "Таксі в аеропорт Жешув-Ясьонка 24/7",
+   "serviceType": "Трансфер в аеропорт",
+   "description": "Трансфер у аеропорт Жешув-Ясьонка і зустріч після прильоту цілодобово: відстеження рейсу, безкоштовне очікування, табличка з ім'ям.",
+   "areaServed": [
+    {
+     "@type": "City",
+     "name": "Жешув"
+    },
+    {
+     "@type": "Airport",
+     "name": "Port Lotniczy Rzeszów-Jasionka",
+     "iataCode": "RZE"
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://taxi24-rzeszow.pl/ua/taksi-aeroport-zheshuv-yasonka/#okruszki",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Taxi Rzeszów 24H",
+     "item": "https://taxi24-rzeszow.pl/ua/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Аеропорт Жешув-Ясьонка",
+     "item": "https://taxi24-rzeszow.pl/ua/taksi-aeroport-zheshuv-yasonka/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://taxi24-rzeszow.pl/ua/taksi-aeroport-zheshuv-yasonka/#faq",
+   "inLanguage": "uk",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Чи працюєте ви вночі?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Так, трансфери в аеропорт Жешув-Ясьонка і з аеропорту - цілодобово, також у вихідні та свята."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Що буде, якщо мій рейс затримується?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ми відстежуємо рейс, тому водій приїде вчасно. Очікування безкоштовне - достатньо вказати номер рейсу."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Де чекає водій в аеропорту Ясьонка?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Автомобіль стоїть навпроти виходу з терміналу. На прохання водій чекає в терміналі з табличкою з вашим ім'ям."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Скільки коштує таксі з аеропорту Жешув до центру?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ціну трансферу повідомляємо під час підтвердження замовлення, SMS або телефоном."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Чи можна заплатити карткою?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Так - карткою, готівкою або BLIK. Компаніям виставляємо рахунок-фактуру."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Чи довезете з аеропорту до Медики?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Так, в будь-який час. Ціну повідомляємо заздалегідь."
+     }
+    }
+   ]
+  }
+ ]
+}

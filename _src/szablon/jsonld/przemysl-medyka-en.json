@@ -1,0 +1,150 @@
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://taxi24-rzeszow.pl/en/taxi-rzeszow-przemysl-medyka/#strona",
+   "url": "https://taxi24-rzeszow.pl/en/taxi-rzeszow-przemysl-medyka/",
+   "name": "Taxi Rzeszów Airport to Przemyśl & Medyka border 24/7",
+   "inLanguage": "en",
+   "isPartOf": {
+    "@id": "https://taxi24-rzeszow.pl/#www"
+   },
+   "about": {
+    "@id": "https://taxi24-rzeszow.pl/#firma"
+   },
+   "breadcrumb": {
+    "@id": "https://taxi24-rzeszow.pl/en/taxi-rzeszow-przemysl-medyka/#okruszki"
+   },
+   "mainEntity": {
+    "@id": "https://taxi24-rzeszow.pl/en/taxi-rzeszow-przemysl-medyka/#usluga"
+   }
+  },
+  {
+   "@type": "TaxiService",
+   "@id": "https://taxi24-rzeszow.pl/en/taxi-rzeszow-przemysl-medyka/#usluga",
+   "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://taxi24-rzeszow.pl/#firma",
+    "name": "Taxi Rzeszów 24H",
+    "telephone": "+48536805851",
+    "url": "https://taxi24-rzeszow.pl/"
+   },
+   "availableChannel": {
+    "@type": "ServiceChannel",
+    "servicePhone": {
+     "@type": "ContactPoint",
+     "telephone": "+48536805851",
+     "contactType": "reservations",
+     "availableLanguage": [
+      "pl",
+      "en",
+      "de",
+      "uk"
+     ]
+    }
+   },
+   "hoursAvailable": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Friday",
+     "Saturday",
+     "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+   },
+   "name": "Taxi from Rzeszów Airport to Przemyśl and the Medyka border crossing",
+   "serviceType": "Intercity taxi",
+   "description": "Taxi from Rzeszów-Jasionka Airport (RZE) and Rzeszów to Przemyśl and the Medyka-Shehyni border crossing, both ways, 24/7. Price confirmed before the ride.",
+   "areaServed": [
+    {
+     "@type": "City",
+     "name": "Rzeszów"
+    },
+    {
+     "@type": "Airport",
+     "name": "Port Lotniczy Rzeszów-Jasionka",
+     "iataCode": "RZE"
+    },
+    {
+     "@type": "City",
+     "name": "Przemyśl"
+    },
+    {
+     "@type": "Place",
+     "name": "Medyka-Shehyni border crossing"
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://taxi24-rzeszow.pl/en/taxi-rzeszow-przemysl-medyka/#okruszki",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Taxi Rzeszów 24H",
+     "item": "https://taxi24-rzeszow.pl/en/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Przemyśl and Medyka",
+     "item": "https://taxi24-rzeszow.pl/en/taxi-rzeszow-przemysl-medyka/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://taxi24-rzeszow.pl/en/taxi-rzeszow-przemysl-medyka/#faq",
+   "inLanguage": "en",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do you drive from Rzeszów Airport to Przemyśl at night?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, 24 hours a day, 7 days a week, holidays included."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much is a taxi from Rzeszów Airport to Medyka?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The route is priced individually; we confirm the price by text or phone before the ride."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What if my flight is delayed?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We track your flight, so the driver arrives at the right time. Waiting time at the airport is free."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can you pick me up at the Medyka border?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Call or message us on WhatsApp when you are on the Polish side and the driver will come to the agreed place."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I pay by card?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes - card, cash or BLIK. Companies receive a VAT invoice."
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,173 @@
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://taxi24-rzeszow.pl/taxi-rzeszow-krakow-katowice/#strona",
+   "url": "https://taxi24-rzeszow.pl/taxi-rzeszow-krakow-katowice/",
+   "name": "Taxi Rzeszów - Kraków, Katowice, Warszawa | lotniska 24h",
+   "inLanguage": "pl",
+   "isPartOf": {
+    "@id": "https://taxi24-rzeszow.pl/#www"
+   },
+   "about": {
+    "@id": "https://taxi24-rzeszow.pl/#firma"
+   },
+   "breadcrumb": {
+    "@id": "https://taxi24-rzeszow.pl/taxi-rzeszow-krakow-katowice/#okruszki"
+   },
+   "mainEntity": {
+    "@id": "https://taxi24-rzeszow.pl/taxi-rzeszow-krakow-katowice/#usluga"
+   }
+  },
+  {
+   "@type": "TaxiService",
+   "@id": "https://taxi24-rzeszow.pl/taxi-rzeszow-krakow-katowice/#usluga",
+   "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://taxi24-rzeszow.pl/#firma",
+    "name": "Taxi Rzeszów 24H",
+    "telephone": "+48536805851",
+    "url": "https://taxi24-rzeszow.pl/"
+   },
+   "availableChannel": {
+    "@type": "ServiceChannel",
+    "servicePhone": {
+     "@type": "ContactPoint",
+     "telephone": "+48536805851",
+     "contactType": "reservations",
+     "availableLanguage": [
+      "pl",
+      "en",
+      "de",
+      "uk"
+     ]
+    }
+   },
+   "hoursAvailable": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Friday",
+     "Saturday",
+     "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+   },
+   "name": "Taxi z Rzeszowa do Krakowa, Katowic, Lublina i Warszawy oraz na lotniska",
+   "serviceType": "Taxi międzymiastowe i transfery lotniskowe",
+   "description": "Przejazdy spod drzwi pod drzwi z Rzeszowa do Krakowa, Katowic, Lublina, Warszawy i na lotniska KRK, KTW, LUZ, WAW, w obie strony, 24/7. Cena przy potwierdzeniu.",
+   "areaServed": [
+    {
+     "@type": "City",
+     "name": "Rzeszów"
+    },
+    {
+     "@type": "City",
+     "name": "Kraków"
+    },
+    {
+     "@type": "City",
+     "name": "Katowice"
+    },
+    {
+     "@type": "City",
+     "name": "Lublin"
+    },
+    {
+     "@type": "City",
+     "name": "Warszawa"
+    },
+    {
+     "@type": "Airport",
+     "name": "Kraków-Balice",
+     "iataCode": "KRK"
+    },
+    {
+     "@type": "Airport",
+     "name": "Katowice-Pyrzowice",
+     "iataCode": "KTW"
+    },
+    {
+     "@type": "Airport",
+     "name": "Port Lotniczy Lublin",
+     "iataCode": "LUZ"
+    },
+    {
+     "@type": "Airport",
+     "name": "Lotnisko Chopina w Warszawie",
+     "iataCode": "WAW"
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://taxi24-rzeszow.pl/taxi-rzeszow-krakow-katowice/#okruszki",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Taxi Rzeszów 24H",
+     "item": "https://taxi24-rzeszow.pl/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Dłuższe trasy",
+     "item": "https://taxi24-rzeszow.pl/taxi-rzeszow-krakow-katowice/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://taxi24-rzeszow.pl/taxi-rzeszow-krakow-katowice/#faq",
+   "inLanguage": "pl",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Czy jeździcie z Rzeszowa na lotnisko w Krakowie?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tak, na lotnisko Kraków-Balice (KRK) jeździmy całą dobę. Cenę podajemy przy potwierdzeniu zamówienia."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Ile kosztuje taxi z Rzeszowa do Krakowa?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Trasę wyceniamy indywidualnie i podajemy cenę przed kursem, SMS-em lub telefonicznie. Przy dłuższych trasach cenę można negocjować."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Czy odbierzecie mnie z lotniska w Katowicach lub w Warszawie?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tak. Podaj numer lotu - monitorujemy lot pod kątem opóźnień, a kierowca będzie czekał przy wyjściu z terminala."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Jak wcześnie zarezerwować dłuższy kurs?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Im wcześniej, tym łatwiej dopasować auto i godzinę - szczególnie na wyloty w nocy i o świcie. Kurs na krótszy termin też przyjmiemy, jeśli mamy wolne auto."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Czy w dłuższej trasie zmieści się duży bagaż?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tak, napisz o bagażu w zamówieniu - przyjedziemy Fordem Mondeo kombi lub Toyotą RAV4."
+     }
+    }
+   ]
+  }
+ ]
+}
