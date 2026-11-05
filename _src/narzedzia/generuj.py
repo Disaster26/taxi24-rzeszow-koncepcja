@@ -33,6 +33,40 @@ GSC = ['fh4C235At3ijNSuYKbXmWwbyzVD2CjiC5RFuvlmtBic', '6lmRLaqhv76ITL5QcqPoo5-Wk
 LOT_PL = 'taxi-rzeszow-lotnisko-jasionka-24h/'
 LOT_EN = 'en/taxi-rzeszow-jasionka-airport/'
 CEN = {'pl': 'cennik/', 'en': 'en/cennik/', 'de': 'de/cennik/', 'uk': 'ua/cennik/'}
+LOT_UA = 'ua/taksi-aeroport-zheshuv-yasonka/'
+# grupy stron w wersjach jezykowych (hreflang, przelacznik jezyka, linki {{U:grupa}} w szablonach i tlumaczeniach)
+GRUPY = {
+    'dom': {'pl': '', 'en': 'en/', 'de': 'de/', 'uk': 'ua/'},
+    'cennik': CEN,
+    'lotnisko': {'pl': LOT_PL, 'en': LOT_EN, 'uk': LOT_UA},
+    'przemysl': {'pl': 'taxi-rzeszow-przemysl-medyka/', 'en': 'en/taxi-rzeszow-przemysl-medyka/', 'uk': 'ua/taksi-zheshuv-medyka-peremyshl/'},
+    'trasy': {'pl': 'taxi-rzeszow-krakow-katowice/', 'en': 'en/taxi-rzeszow-krakow-katowice/'},
+    'firmy': {'pl': 'taxi-dla-firm-rzeszow/', 'en': 'en/business-taxi-rzeszow/'},
+    'okolice': {'pl': 'oferta/'},
+    'poradnik': {'pl': 'poradnik/'},
+}
+CRUMB0 = {'pl': 'Taxi Rzeszów 24H', 'en': 'Taxi Rzeszów 24H', 'de': 'Taxi Rzeszów 24H', 'uk': 'Таксі Жешув 24/7'}
+# Opinie z wizytowki Google - zwykly tekst na stronie (BEZ aggregateRating w JSON-LD). Aktualizowac recznie (stan 05.11.2026).
+G_OCENA, G_OCENA_EN, G_LICZBA = '4,9', '4.9', '464'
+
+
+def url_g(g, lang, R):
+    """Adres wzgledny strony z grupy g w jezyku lang (brak wersji -> wersja PL)."""
+    d = GRUPY[g]
+    return (R + d.get(lang, d['pl'])) or './'
+
+
+def hreflang_g(g):
+    d = GRUPY[g]
+    if len(d) < 2:
+        return None
+    return [(l, DOM + '/' + d[l]) for l in LANGS if l in d] + [('x-default', DOM + '/' + d['pl'])]
+
+
+def alt_g(g, R):
+    """Przelacznik jezyka: odpowiednik strony albo strona glowna danego jezyka."""
+    d = GRUPY[g]
+    return {l: ((R + d[l]) if l in d else (R + LDIR[l])) or './' for l in LANGS}
 # Link do wizytowki Google (Profil Firmy). Wpisac PEWNY adres od klienta, np. https://maps.app.goo.gl/... albo https://www.google.com/maps?cid=...
 # Pusty = link "Opinie w Google" i wpis w sameAs (JSON-LD) nie sa wstawiane.
 GOOGLE_WIZYTOWKA = 'https://maps.app.goo.gl/rkokLmM8mSPbVqgc9'   # link od klienta (05.11)
@@ -89,6 +123,11 @@ def zbierz_pl(fragment, slownik):
 def tlumacz(fragment, lang, brak):
     """Podmienia teksty wg slownika i usuwa atrybuty data-i18n*. brak: zbior kluczy bez tlumaczenia."""
     s = BeautifulSoup(fragment, 'html.parser')
+    for el in s.select('[data-jezyki]'):
+        if lang in el['data-jezyki'].split():
+            del el['data-jezyki']
+        else:
+            el.decompose()
     d = I18N.get(lang, {}) if lang != 'pl' else {}
     for atr, cel in (('data-i18n', 'text'), ('data-i18n-html', 'html'), ('data-i18n-ph', 'placeholder'),
                      ('data-i18n-aria', 'aria-label'), ('data-i18n-alt', 'alt')):
@@ -198,16 +237,19 @@ def naglowek(lang, R, H, alt, cta_href):
         return f'<a href="{alt[l]}" hreflang="{"uk" if l == "uk" else l}" lang="{l}" title="{NAZWA[l]}"{cur}>{KOD[l]}</a>'
     lista = ''.join(lnk(l) for l in LANGS)
     logo = '#start' if H == '' else H
+    m_lot = url_g('lotnisko', lang, R) if lang in GRUPY['lotnisko'] else H + '#lotnisko'
+    m_pm = url_g('przemysl', lang, R) if lang in GRUPY['przemysl'] else H + '#przemysl-medyka'
+    m_ok = url_g('okolice', lang, R) if lang in GRUPY['okolice'] else H + '#taxi'
     return f'''<a class="skip" href="#tresc" data-i18n="a.skip">Przejdź do treści</a>
 <header class="top" id="top">
   <div class="top-in">
     <a class="logo" href="{logo}"><img src="{R}img/logo-kogut.webp" alt="" width="240" height="103"><span class="logo-txt"><b>TAXI RZESZÓW</b><i>24H</i></span></a>
     <nav class="menu" id="menu" aria-label="Menu" data-i18n-aria="a.menu">
       <a href="{H}#uslugi" data-i18n="nav.uslugi">Usługi</a>
-      <a href="{H}#lotnisko" data-i18n="nav.lotnisko">Lotnisko</a>
+      <a href="{m_lot}" data-i18n="nav.lotnisko">Lotnisko</a>
+      <a href="{m_pm}" data-i18n="nav.pm">Przemyśl i Medyka</a>
       <a href="{{{{CEN}}}}" data-i18n="nav.cennik">Cennik</a>
-      <a href="{H}#taxi" data-i18n="nav.taxi2">Rzeszów i okolice</a>
-      <a href="{H}#flota" data-i18n="nav.flota">Samochody</a>
+      <a href="{m_ok}" data-i18n="nav.taxi2">Rzeszów i okolice</a>
       <a href="{H}#faq" data-i18n="nav.faq">Pytania</a>
       <a href="#kontakt" data-i18n="nav.kontakt">Kontakt</a>
       <a class="menu-tel" href="tel:+48536805851"><svg class="ic"><use href="#i-tel"/></svg><span><b>536 805 851</b><small data-i18n="top.dobe">całą dobę</small></span></a>
@@ -222,6 +264,28 @@ def naglowek(lang, R, H, alt, cta_href):
   </div>
 </header>
 <div class="menu-tlo" id="menuTlo" hidden></div>'''
+
+
+STOPKA_USLUGI = {
+    'pl': [('dom', 'Taxi Rzeszów 24h'), ('lotnisko', 'Taxi na lotnisko Jasionka'), ('przemysl', 'Taxi Rzeszów - Przemyśl, Medyka'),
+           ('trasy', 'Kraków, Katowice, Warszawa'), ('firmy', 'Taxi dla firm i hoteli'), ('okolice', 'Dzielnice i okolice Rzeszowa'), ('cennik', 'Cennik taxi'),
+           ('poradnik', 'Poradnik pasażera')],
+    'en': [('dom', 'Taxi Rzeszów 24/7'), ('lotnisko', 'Rzeszów Airport taxi'), ('przemysl', 'Przemyśl & Medyka'), ('trasy', 'Kraków & Katowice'),
+           ('firmy', 'Business & hotel taxi'), ('cennik', 'Prices')],
+    'uk': [('dom', 'Таксі Жешув 24/7'), ('lotnisko', 'Аеропорт Жешув-Ясьонка'), ('przemysl', 'Медика і Перемишль'), ('cennik', 'Ціни')],
+}
+
+
+def stopka_uslugi(lang, R, H, lot_url):
+    if lang in STOPKA_USLUGI:
+        return ''.join(f'<a href="{url_g(g, lang, R)}">{t}</a>' for g, t in STOPKA_USLUGI[lang]) + \
+            f'<a href="{H}#zamow" data-i18n="st.u8">Zamówienie online</a>'
+    return f'''<a href="{lot_url}" data-i18n="st.u1">Lotnisko Jasionka</a>
+      <a href="{H}#taxi" data-i18n="st.u2">Taxi Rzeszów 24h</a>
+      <a href="{H}#przemysl-medyka" data-i18n="st.u6">Przemyśl i Medyka</a>
+      <a href="{H}#uslugi" data-i18n="st.u7">Obsługa hoteli i firm</a>
+      <a href="{{{{CEN}}}}" data-i18n="nav.cennik">Cennik</a>
+      <a href="{H}#zamow" data-i18n="st.u8">Zamówienie online</a>'''
 
 
 def stopka(lang, R, H, lot_url):
@@ -240,12 +304,7 @@ def stopka(lang, R, H, lot_url):
     </div>
     <div class="st-uslugi">
       <h2 class="st-h" data-i18n="st.uslugi">Usługi</h2>
-      <a href="{lot_url}" data-i18n="st.u1">Lotnisko Jasionka</a>
-      <a href="{H}#taxi" data-i18n="st.u2">Taxi Rzeszów 24h</a>
-      <a href="{H}#przemysl-medyka" data-i18n="st.u6">Przemyśl i Medyka</a>
-      <a href="{H}#uslugi" data-i18n="st.u7">Obsługa hoteli i firm</a>
-      <a href="{{{{CEN}}}}" data-i18n="nav.cennik">Cennik</a>
-      <a href="{H}#zamow" data-i18n="st.u8">Zamówienie online</a>
+      {stopka_uslugi(lang, R, H, lot_url)}
     </div>
     <div class="st-social">
       <h2 class="st-h" data-i18n="st.social">Znajdziesz nas</h2>
@@ -327,12 +386,17 @@ def strona(*, lang, rel, R, H, title, desc, main, alt=None, hreflang=None, typ='
         lot_url = R + LOT_PL if lang == 'pl' else R + LOT_EN if lang == 'en' else (H or '') + '#lotnisko'
     tpl = tpl or {}
     tresc = (naglowek(lang, R, H, alt, cta) + '\n<main id="tresc">\n' + main + '\n</main>\n' + stopka(lang, R, H, lot_url))
+    tokeny = lambda t: re.sub(r'\{\{U:(\w+)\}\}', lambda m: url_g(m.group(1), lang, R), t)
+    tresc = tokeny(tresc)
     for k, v in {'{{R}}': R, '{{H}}': H, '{{LANG}}': lang, '{{LOT}}': lot_url, '{{CEN}}': R + CEN[lang], '{{CENNIK_TABELA}}': cennik_tabela(),
                  '{{GOOGLE_OPINIE}}': google_opinie(), **tpl}.items():
         tresc = tresc.replace(k, v)
     tresc = tlumacz(tresc, lang, brak if brak is not None else set())
-    for k, v in {'{{R}}': R, '{{H}}': H, '{{LANG}}': lang}.items():   # placeholdery z tlumaczen
+    tresc = tokeny(tresc)
+    for k, v in {'{{R}}': R, '{{H}}': H, '{{LANG}}': lang, '{{G_OCENA}}': G_OCENA, '{{G_OCENA_EN}}': G_OCENA_EN, '{{G_LICZBA}}': G_LICZBA,
+                 '{{G_URL}}': html.escape(GOOGLE_WIZYTOWKA or GOOGLE_WIZYTOWKA_PELNY)}.items():   # placeholdery z tlumaczen
         tresc = tresc.replace(k, v)
+    assert '{{' not in tresc, (rel, re.findall(r'\{\{[^}]*\}\}', tresc)[:5])
     hl = ''
     if hreflang:
         hl = ''.join(f'<link rel="alternate" hreflang="{h}" href="{u}">' for h, u in hreflang)
@@ -401,12 +465,58 @@ def przygotuj_slowniki():
 
 
 # ------------------------------------------------------------------ strony
+# ------------------------------------------------------------------ opinie z Google (cytaty dosłowne z wizytówki, skracane tylko wielokropkiem; stan 05.11.2026)
+G_PONAD = '460'
+OPINIE = [
+    ('Karolin G.', 'lot', 'Taxi miała być za ok 25 minut na lotnisku. Była szybciej bo po ok 20 minutach Pan taksówkarz podjechał pod przyloty. (…) Przejazd bezpieczny.'),
+    ('Paweł W.', 'lot', 'Przejazd z dworca autobusowego na Lotnisko Jasionka szybko i bezpiecznie, był jeszcze czas na kawę przed lotem!'),
+    ('Łukasz B.', 'noc', 'Zamawiałem w nocy, kierowca przyjechał w kilka minut. Bardzo miła atmosfera, auto zadbane.'),
+    ('Magda S.', '', 'Samochód przyjechał szybko, był czysty i komfortowy, a kierowca bardzo miły, kulturalny i profesjonalny.'),
+    ('Dominik B.', 'lot', 'Taxi punktualne, na czas na lotnisku gorąco polecam!!'),
+    ('Piotr T.', '', 'Kierowca punktualny i pomocny - pomógł mi nawet z bagażem.'),
+    ('Łukasz W.', 'noc', 'Duży plus za możliwość zamówienia o każdej porze - nawet w nocy nie było problemu z szybkim dojazdem.'),
+    ('Rafał W.', 'noc', 'Zawsze dostępni, niezależnie od pory dnia czy nocy. (…) zawsze punktualnie, szybko i bezpiecznie.'),
+]
+OP_TXT = {
+    'pl': {'h': 'Opinie klientów w Google', 'ocena': 'ponad {n} opinii w Google', 'podpis': 'opinia w Google', 'orig': '',
+           'wszystkie': 'Zobacz wszystkie opinie w Google', 'wystaw': 'Wystaw opinię', 'ta': 'Opinie na Tripadvisor', 'lot_h': 'Co piszą pasażerowie po kursie na lotnisko'},
+    'en': {'h': 'Customer reviews on Google', 'ocena': 'over {n} Google reviews', 'podpis': 'Google review', 'orig': 'Reviews quoted in the original Polish.',
+           'wszystkie': 'See all reviews on Google', 'wystaw': 'Write a review', 'ta': 'Reviews on Tripadvisor', 'lot_h': 'What passengers say about our airport rides'},
+    'de': {'h': 'Kundenbewertungen bei Google', 'ocena': 'über {n} Bewertungen bei Google', 'podpis': 'Bewertung bei Google', 'orig': 'Bewertungen im polnischen Original.',
+           'wszystkie': 'Alle Bewertungen bei Google ansehen', 'wystaw': 'Bewertung schreiben', 'ta': 'Bewertungen bei Tripadvisor', 'lot_h': 'Was Fahrgäste über Flughafenfahrten schreiben'},
+    'uk': {'h': 'Відгуки клієнтів у Google', 'ocena': 'понад {n} відгуків у Google', 'podpis': 'відгук у Google', 'orig': 'Відгуки наведено мовою оригіналу (польською).',
+           'wszystkie': 'Усі відгуки в Google', 'wystaw': 'Залишити відгук', 'ta': 'Відгуки на Tripadvisor', 'lot_h': 'Що пишуть пасажири після поїздки в аеропорт'},
+}
+TRIPADVISOR = 'https://www.tripadvisor.com/Attraction_Review-g274785-d33097322-Reviews-Taxi_Rzeszow_24h-Rzeszow_Subcarpathian_Province_Southern_Poland.html'
+
+
+def opinie_html(lang, lotnisko=False):
+    t = OP_TXT[lang]
+    g = html.escape(GOOGLE_WIZYTOWKA or GOOGLE_WIZYTOWKA_PELNY)
+    ocena = G_OCENA_EN if lang == 'en' else G_OCENA
+    wybor = [o for o in OPINIE if o[1] == 'lot'] if lotnisko else OPINIE
+    karty = ''.join(f'<figure class="op-karta"><span class="op-gw" aria-hidden="true">★★★★★</span><blockquote lang="pl">„{q}”</blockquote>'
+                    f'<figcaption><b>{n}</b><small>{t["podpis"]}</small></figcaption></figure>' for n, _, q in wybor)
+    orig = f'<p class="op-orig">{t["orig"]}</p>' if t['orig'] else ''
+    glowa = (f'<div class="op-glowa"><h{"2" if lotnisko else "3"} class="op-h">{t["lot_h"] if lotnisko else t["h"]}</h{"2" if lotnisko else "3"}>'
+             f'<p class="op-wynik"><span class="op-liczba">{ocena}<small> / 5</small></span><span class="op-gw" aria-hidden="true">★★★★★</span>'
+             f'<a href="{g}" target="_blank" rel="noopener">{t["ocena"].format(n=G_PONAD)}</a></p></div>')
+    przyciski = (f'<div class="op-akcje"><a class="btn btn-y" href="{g}" target="_blank" rel="noopener">{t["wszystkie"]} <svg class="ic"><use href="#i-arrow"/></svg></a>'
+                 f'<a class="op-wystaw" href="{g}" target="_blank" rel="noopener">{t["wystaw"]}</a>'
+                 + ('' if lotnisko else f'<a class="op-wystaw" href="{TRIPADVISOR}" target="_blank" rel="noopener">{t["ta"]}</a>') + '</div>')
+    blok = f'<div class="opinie{" opinie-lot" if lotnisko else ""}">{glowa}<div class="op-karty">{karty}</div>{orig}{przyciski}</div>'
+    if lotnisko:
+        return f'<section class="sek op-sek"><div class="wrap">{blok}</div></section>'
+    return blok
+
+
 def glowna():
     src = czytaj(os.path.join(SZ, 'glowna.html'))
     pl = dict(I18N['pl'])
     zbierz_pl(src, pl)
     hreflang = [('pl', DOM + '/'), ('en', DOM + '/en/'), ('de', DOM + '/de/'), ('uk', DOM + '/ua/'), ('x-default', DOM + '/')]
-    faq_kol = [('q1', 'a1'), ('q2', 'a2'), ('q8', 'a8'), ('q3', 'a3b'), ('q9', 'a9'), ('q4', 'a4b'), ('q5', 'a5'), ('q6', 'a6'), ('q7', 'a7')]
+    faq_kol = [('q1', 'a1'), ('q2', 'a2'), ('q8', 'a8'), ('q3', 'a3b'), ('q9', 'a9'), ('q4', 'a4b'), ('q10', 'a10'), ('q5', 'a5'), ('q11', 'a11'),
+               ('q12', 'a12'), ('q6', 'a6'), ('q13', 'a13'), ('q7', 'a7')]
     brak_all = {}
     for lang in LANGS:
         R = '' if lang == 'pl' else '../'
@@ -425,7 +535,7 @@ def glowna():
         brak = set()
         sz = szybki('lotnisko', R)
         main = src.replace('{{SZYBKI}}', sz).replace('{{DZIELNICE}}', dzielnice_linki(R))
-        tpl = {'{{LOT}}': R + (LOT_PL if lang == 'pl' else LOT_EN)}
+        tpl = {'{{LOT}}': R + (LOT_PL if lang == 'pl' else LOT_EN), '{{OPINIE}}': opinie_html(lang)}
         strona(lang=lang, rel=rel, R=R, H='', title=d['meta.title2'], desc=d['meta.desc2'], main=main, alt=alt,
                hreflang=hreflang, typ='glowna', cta='#zamow', jsonld=ld(graf), brak=brak, tpl=tpl,
                og_title=d.get('og.title', None), og_desc=d.get('og.desc', None),
@@ -485,12 +595,12 @@ def lotnisko():
                  "availableChannel": {"@type": "ServiceChannel", "servicePhone": {"@type": "ContactPoint", "telephone": "+48536805851", "contactType": "reservations"}}},
                 dict(okruszki_ld([(meta['crumb0'], DOM + '/' + ('en/' if lang == 'en' else '')), (meta['crumb1'], url)]), **{"@id": url + "#okruszki"}),
                 faq_ld(faq, url)]
-        alt = {'pl': (R + LOT_PL), 'en': (R + LOT_EN), 'de': R + 'de/', 'uk': R + 'ua/'}
-        hreflang = [('pl', DOM + '/' + LOT_PL), ('en', DOM + '/' + LOT_EN), ('x-default', DOM + '/' + LOT_PL)]
+        alt = alt_g('lotnisko', R)
+        hreflang = hreflang_g('lotnisko')
         brak = set()
         strona(lang=lang, rel=rel + 'index.html', R=R, H=H, title=meta['title'], desc=meta['desc'], main=main, alt=alt,
                hreflang=hreflang, typ='lotnisko', cta='#szybki', jsonld=ld(graf), brak=brak, lot_url='#start',
-               tpl={'{{DZIELNICE}}': dzielnice_linki(R, klasa='dz-lista dz-lista-jasna')},
+               tpl={'{{DZIELNICE}}': dzielnice_linki(R, klasa='dz-lista dz-lista-jasna'), '{{OPINIE_LOT}}': opinie_html(lang, True)},
                preload_img=(f'{R}img/taxi-toyota-camry-jasionka-640.webp 640w, {R}img/taxi-toyota-camry-jasionka-960.webp 960w, {R}img/taxi-toyota-camry-jasionka-1196.webp 1196w', '(max-width:900px) 100vw, 60vw'))
         if brak:
             print('BRAK tlumaczen', lang, sorted(brak))
@@ -511,28 +621,35 @@ def dzielnice():
                 extra += f'<ul class="lista-ok">{lista(blok["li"])}</ul>'
             if blok.get('p'):
                 extra += f'<p>{blok["p"]}</p>'
-        h1 = f'Taxi {d["nazwa"]} Rzeszów&nbsp;24h'
-        lead = (f'Odbierzemy Cię {d["loc"]} o każdej porze dnia i nocy: kursy po mieście, na dworzec i na lotnisko Jasionka. '
-                f'Zadzwoń, napisz na WhatsApp albo zamów online.')
-        hero = hero_pod(R, 'taxi-toyota-camry-jasionka', 'Toyota Camry Taxi Rzeszów 24H', h1, lead, 'miasto')
+        h1 = d.get('h1', f'Taxi {d["nazwa"]} Rzeszów 24h').replace(' 24h', '&nbsp;24h')
+        lead = d.get('lead') or (f'Odbierzemy Cię {d["loc"]} o każdej porze dnia i nocy: kursy po mieście, na dworzec i na lotnisko Jasionka. '
+                                 f'Zadzwoń, napisz na WhatsApp albo zamów online.')
+        hero = hero_pod(R, 'taxi-toyota-camry-jasionka', f'Taxi Rzeszów 24H - kurs {d["gen"]}', h1, lead, 'miasto')
+        akapit = f'<h2>{d["akapit_h"]}</h2><p>{d["akapit"]}</p>' if d.get('akapit') else ''
+        faq = [(x['q'], x['a']) for x in d.get('faq', [])]
+        faq_html = ''
+        if faq:
+            faq_html = ('<section class="sek faq" id="faq">\n  <div class="wrap faq-grid">\n    <h2>Pytania o taxi ' + d['loc'] + '</h2>\n    <div class="faq-lista">\n'
+                        + ''.join(f'      <details{" open" if i == 0 else ""}><summary>{q}</summary>\n        <p>{a}</p></details>\n' for i, (q, a) in enumerate(faq))
+                        + '    </div>\n  </div>\n</section>\n')
         rep = {'{{HERO}}': hero, '{{NAZWA}}': d['nazwa'], '{{LOC}}': d['loc'], '{{GEN}}': d['gen'], '{{OPIS}}': d['opis'],
                '{{ULICE}}': lista(d['ulice']), '{{KURSY}}': d['kursy'], '{{CELE}}': lista(d['cele']), '{{ZALETY}}': lista(d['zalety']),
-               '{{EXTRA}}': extra, '{{INNE}}': dzielnice_linki(R, bez=d['slug'])}
+               '{{EXTRA}}': extra, '{{AKAPIT}}': akapit, '{{FAQ}}': faq_html, '{{INNE}}': dzielnice_linki(R, bez=d['slug'])}
         main = wz
         for k, v in rep.items():
             main = main.replace(k, v)
-        title = f'Taxi {d["nazwa"]} Rzeszów 24h | Taxi Rzeszów 24H'
+        title = d.get('title') or f'Taxi {d["nazwa"]} Rzeszów 24h | Taxi Rzeszów 24H'
         u = d['ulice']
-        desc = (f'Taxi {d["loc"]} w Rzeszowie całą dobę. Odbiór m.in. z ulic {u[0]}, {u[1]} i {u[2]}. '
-                f'Kursy do centrum, na dworzec i lotnisko Jasionka. Tel. 536 805 851.')
-        if len(desc) > 160:
-            desc = f'Taxi {d["loc"]} w Rzeszowie całą dobę: odbiór m.in. z ulic {u[0]} i {u[1]}, kursy do centrum, na dworzec i lotnisko. Tel. 536 805 851.'
+        desc = d.get('desc') or (f'Taxi {d["loc"]} w Rzeszowie całą dobę. Odbiór m.in. z ulic {u[0]}, {u[1]} i {u[2]}. '
+                                 f'Kursy do centrum, na dworzec i lotnisko Jasionka. Tel. 536 805 851.')
         graf = [{"@type": "WebPage", "@id": url + "#strona", "url": url, "name": title, "inLanguage": "pl",
-                 "isPartOf": {"@id": DOM + "/#www"}, "about": {"@id": FIRMA_ID}, "breadcrumb": {"@id": url + "#okruszki"}},
+                 "isPartOf": {"@id": DOM + "/#www"}, "about": {"@id": FIRMA_ID}, "breadcrumb": {"@id": url + "#okruszki"}, "mainEntity": {"@id": url + "#usluga"}},
                 {"@type": "TaxiService", "@id": url + "#usluga", "name": f'Taxi {d["nazwa"]} Rzeszów 24h',
                  "provider": {"@type": "LocalBusiness", "@id": FIRMA_ID, "name": "Taxi Rzeszów 24H", "telephone": "+48536805851", "url": DOM + "/"},
-                 "areaServed": {"@type": "Place", "name": f'{d["nazwa"]}, Rzeszów'}},
-                dict(okruszki_ld([('Taxi Rzeszów 24H', DOM + '/'), ('Taxi w dzielnicach Rzeszowa', DOM + '/#taxi'), (d['nazwa'], url)]), **{"@id": url + "#okruszki"})]
+                 "areaServed": {"@type": "Place", "name": f'{d["nazwa"]}, Rzeszów', "containedInPlace": {"@type": "City", "name": "Rzeszów"}}},
+                dict(okruszki_ld([('Taxi Rzeszów 24H', DOM + '/'), ('Dzielnice i okolice', DOM + '/oferta/'), (d['nazwa'], url)]), **{"@id": url + "#okruszki"})]
+        if faq:
+            graf.append(faq_ld([(BeautifulSoup(q, 'html.parser').get_text(), BeautifulSoup(a, 'html.parser').get_text()) for q, a in faq], url))
         alt = {'pl': './', 'en': R + 'en/', 'de': R + 'de/', 'uk': R + 'ua/'}
         brak = set()
         strona(lang='pl', rel=rel + 'index.html', R=R, H=R, title=title, desc=desc, main=main, alt=alt, typ='dzielnica',
@@ -542,6 +659,168 @@ def dzielnice():
         if len(desc) > 160 or len(title) > 62:
             print('UWAGA dlugosc', d['slug'], len(title), len(desc))
     return urls
+
+
+FOTO_POD = 'taxi-toyota-camry-jasionka'
+PRELOAD_POD = lambda R: (f'{R}img/{FOTO_POD}-640.webp 640w, {R}img/{FOTO_POD}-960.webp 960w, {R}img/{FOTO_POD}-1196.webp 1196w', '(max-width:900px) 100vw, 60vw')
+
+
+def czytaj_meta(plik):
+    src = czytaj(plik)
+    meta = json.loads(re.search(r'<!--META(.*?)-->', src, re.S).group(1))
+    return meta, re.sub(r'<!--META.*?-->\s*', '', src, flags=re.S)
+
+
+def faq_z_html(main):
+    faq = re.findall(r'<details[^>]*><summary>(.*?)</summary>\s*<p>(.*?)</p></details>', main, re.S)
+    return [(BeautifulSoup(q, 'html.parser').get_text(), BeautifulSoup(a, 'html.parser').get_text()) for q, a in faq]
+
+
+def podstrony():
+    """Nowe podstrony z _src/szablon/podstrony/*.html (META w komentarzu, JSON-LD uslugi z _src/szablon/jsonld/)."""
+    urls = []
+    for f in sorted(os.listdir(os.path.join(SZ, 'podstrony'))):
+        meta, src = czytaj_meta(os.path.join(SZ, 'podstrony', f))
+        g, lang = meta['grupa'], meta['lang']
+        rel = GRUPY[g][lang]
+        R = '../' * rel.count('/')
+        H = R + LDIR[lang] or './'
+        url = DOM + '/' + rel
+        hero = hero_pod(R, FOTO_POD, meta['alt'], meta['h1'], meta['lead'], meta.get('szybki', 'miasto'))
+        hub = ''
+        if '{{DZIELNICE_HUB}}' in src:
+            hub = '<ul class="dz-lista dz-lista-hub">' + ''.join(
+                f'<li><a href="{R}oferta/taxi-rzeszow-{d["slug"]}/">Taxi {d["nazwa"]}</a></li>' for d in DZ) + '</ul>'
+        main = src.replace('{{HERO}}', hero).replace('{{DZIELNICE_HUB}}', hub)
+        faq = faq_z_html(main)
+        wzor = json.loads(czytaj(os.path.join(SZ, 'jsonld', meta['jsonld'])))['@graph']
+        usl = dict(next(n for n in wzor if n['@id'].endswith('#usluga')))
+        usl['@id'] = url + '#usluga'
+        usl.update(meta.get('usluga_ld', {}))
+        extra = [n for n in wzor if n['@type'] not in ('WebPage', 'BreadcrumbList', 'FAQPage') and not n['@id'].endswith('#usluga')]
+        graf = [{"@type": "WebPage", "@id": url + "#strona", "url": url, "name": meta['title'], "description": meta['desc'], "inLanguage": lang,
+                 "isPartOf": {"@id": DOM + "/#www"}, "about": {"@id": FIRMA_ID}, "breadcrumb": {"@id": url + "#okruszki"}, "mainEntity": {"@id": url + "#usluga"}},
+                usl,
+                dict(okruszki_ld([(CRUMB0[lang], DOM + '/' + LDIR[lang]), (meta['crumb'], url)]), **{"@id": url + "#okruszki"})]
+        if faq:
+            graf.append(dict(faq_ld(faq, url), inLanguage=lang))
+        graf += extra
+        brak = set()
+        strona(lang=lang, rel=rel + 'index.html', R=R, H=H, title=meta['title'], desc=meta['desc'], main=main, alt=alt_g(g, R),
+               hreflang=hreflang_g(g), typ='podstrona', cta='#szybki', jsonld=ld(graf), brak=brak,
+               lot_url=url_g('lotnisko', lang, R) if lang in GRUPY['lotnisko'] else H + '#lotnisko',
+               tpl={'{{DZIELNICE}}': dzielnice_linki(R), '{{OPINIE_LOT}}': opinie_html(lang, True)}, preload_img=PRELOAD_POD(R))
+        if brak:
+            print('BRAK tlumaczen', f, sorted(brak))
+        if len(meta['title']) > 62 or len(meta['desc']) > 160:
+            print('UWAGA dlugosc', f, len(meta['title']), len(meta['desc']))
+        urls.append(url)
+    return urls
+
+
+# ------------------------------------------------------------------ poradnik (blog)
+PORADNIK = 'poradnik/'
+
+
+def art_cta(R, H):
+    return (f'<div class="hero-cta art-cta"><a class="cta-tel" href="tel:+48536805851"><span class="cta-kolo"><svg class="ic"><use href="#i-tel"/></svg></span>'
+            f'<span class="cta-txt"><small>Zadzwoń teraz</small><b>536&nbsp;805&nbsp;851</b></span></a>'
+            f'<a class="cta-wa" href="https://wa.me/48536805851" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg><span>Zamów przez WhatsApp</span></a></div>')
+
+
+def poradnik():
+    katalog = os.path.join(SZ, 'poradnik')
+    arty = []
+    for f in sorted(os.listdir(katalog)):
+        meta, src = czytaj_meta(os.path.join(katalog, f))
+        arty.append((meta, src))
+    arty.sort(key=lambda x: x[0]['kolejnosc'])
+    urls = []
+    R = '../../'
+    H = R
+    for meta, src in arty:
+        rel = PORADNIK + meta['slug'] + '/'
+        url = DOM + '/' + rel
+        inne = ''.join(f'<li><a href="{R}{PORADNIK}{m["slug"]}/">{m["krotko"]}</a></li>' for m, _ in arty if m['slug'] != meta['slug'])
+        main = f"""<section class="art-head">
+  <div class="wrap">
+    <nav class="okruszki okruszki-jasne" aria-label="Ścieżka"><a href="{H}">Taxi Rzeszów 24H</a><span aria-hidden="true">/</span><a href="{R}{PORADNIK}">Poradnik</a><span aria-hidden="true">/</span><span aria-current="page">{meta['krotko']}</span></nav>
+    <h1>{meta['h1']}</h1>
+    <p class="lead">{meta['lead']}</p>
+    {art_cta(R, H)}
+  </div>
+</section>
+<section class="sek art">
+  <div class="wrap pod-grid">
+    <article class="pod-txt art-txt">
+{src.split('<!--FAQ-->')[0].strip()}
+      <p class="art-data">Aktualizacja: <time datetime="{meta['data']}">{meta['data_txt']}</time> · Taxi Rzeszów 24H</p>
+    </article>
+    <aside class="pod-bok">
+      <div class="pod-karta">
+        <h3>Zamów taxi w Rzeszowie</h3>
+        <ul class="lista-ok"><li>Całą dobę, także w święta</li><li>Potwierdzenie SMS-em lub telefonicznie</li><li>Karta, BLIK, gotówka, faktura VAT</li></ul>
+        <a class="btn btn-y pod-btn" href="tel:+48536805851"><svg class="ic"><use href="#i-tel"/></svg><span>Zadzwoń 536&nbsp;805&nbsp;851</span></a>
+        <a class="pod-link" href="{H}#zamow"><span>Formularz zamówienia</span> <svg class="ic"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="pod-karta pod-karta-jasna">
+        <h3>Przydatne strony</h3>
+        <ul class="lista-linki"><li><a href="{{{{U:cennik}}}}">Cennik taxi Rzeszów</a></li><li><a href="{{{{U:lotnisko}}}}">Taxi na lotnisko Jasionka</a></li><li><a href="{R}{PORADNIK}">Wszystkie poradniki</a></li></ul>
+      </div>
+    </aside>
+  </div>
+</section>
+{src.split('<!--FAQ-->')[1].strip() if '<!--FAQ-->' in src else ''}
+<section class="sek pod-dz">
+  <div class="wrap">
+    <h2>Inne poradniki</h2>
+    <ul class="lista-linki lista-linki-kol">{inne}</ul>
+  </div>
+</section>"""
+        faq = faq_z_html(main)
+        graf = [{"@type": "Article", "@id": url + "#artykul", "headline": meta['h1'].replace('&nbsp;', ' '), "description": meta['desc'], "inLanguage": "pl",
+                 "datePublished": meta['data'], "dateModified": meta['data'], "mainEntityOfPage": {"@id": url + "#strona"},
+                 "image": DOM + "/img/og-taxi-rzeszow-24h.jpg", "author": {"@id": FIRMA_ID}, "publisher": {"@id": FIRMA_ID}},
+                {"@type": "WebPage", "@id": url + "#strona", "url": url, "name": meta['title'], "inLanguage": "pl", "isPartOf": {"@id": DOM + "/#www"},
+                 "breadcrumb": {"@id": url + "#okruszki"}},
+                dict(okruszki_ld([('Taxi Rzeszów 24H', DOM + '/'), ('Poradnik', DOM + '/' + PORADNIK), (meta['krotko'], url)]), **{"@id": url + "#okruszki"})]
+        if faq:
+            graf.append(faq_ld(faq, url))
+        assert 3 <= len(faq) <= 5, (meta['slug'], len(faq))
+        strona(lang='pl', rel=rel + 'index.html', R=R, H=H, title=meta['title'], desc=meta['desc'], main=main,
+               alt={'pl': './', 'en': R + 'en/', 'de': R + 'de/', 'uk': R + 'ua/'}, typ='poradnik', cta=H + '#zamow', jsonld=ld(graf),
+               og_title=meta['h1'].replace('&nbsp;', ' '), lot_url=R + LOT_PL)
+        if len(meta['title']) > 62 or len(meta['desc']) > 160:
+            print('UWAGA dlugosc', meta['slug'], len(meta['title']), len(meta['desc']))
+        slowa = len(BeautifulSoup(src.split('<!--FAQ-->')[0], 'html.parser').get_text().split())
+        print('poradnik', meta['slug'], slowa, 'slow')
+        urls.append(url)
+    # strona zbiorcza
+    R = '../'
+    url = DOM + '/' + PORADNIK
+    karty = ''.join(f"""<li class="por-karta"><a href="{m["slug"]}/"><h2>{m["h1"]}</h2><p>{m["desc"]}</p><span class="por-dalej">Czytaj <svg class="ic"><use href="#i-arrow"/></svg></span></a></li>""" for m, _ in arty)
+    main = f"""<section class="art-head">
+  <div class="wrap">
+    <nav class="okruszki okruszki-jasne" aria-label="Ścieżka"><a href="{R}">Taxi Rzeszów 24H</a><span aria-hidden="true">/</span><span aria-current="page">Poradnik</span></nav>
+    <h1>Poradnik pasażera taxi w&nbsp;Rzeszowie</h1>
+    <p class="lead">Lotnisko Jasionka, kursy nocne, dworzec, dziecko w aucie, zwierzę na pokładzie i przejazdy służbowe. Krótko i konkretnie, tak jak tłumaczymy to przez telefon.</p>
+    {art_cta(R, R)}
+  </div>
+</section>
+<section class="sek por-lista-sek">
+  <div class="wrap">
+    <ul class="por-lista">{karty}</ul>
+  </div>
+</section>"""
+    graf = [{"@type": "CollectionPage", "@id": url + "#strona", "url": url, "name": "Poradnik pasażera taxi w Rzeszowie", "inLanguage": "pl",
+             "isPartOf": {"@id": DOM + "/#www"}, "breadcrumb": {"@id": url + "#okruszki"}},
+            {"@type": "ItemList", "@id": url + "#lista", "itemListElement": [
+                {"@type": "ListItem", "position": i + 1, "url": DOM + '/' + PORADNIK + m['slug'] + '/', "name": m['h1'].replace('&nbsp;', ' ')} for i, (m, _) in enumerate(arty)]},
+            dict(okruszki_ld([('Taxi Rzeszów 24H', DOM + '/'), ('Poradnik', url)]), **{"@id": url + "#okruszki"})]
+    strona(lang='pl', rel=PORADNIK + 'index.html', R=R, H=R, title='Poradnik taxi Rzeszów - lotnisko, noc, dzieci, firmy',
+           desc='Poradnik pasażera Taxi Rzeszów 24H: dojazd z lotniska Jasionka, kursy nocne, ceny, fotelik dla dziecka, przewóz zwierząt, taxi dla firm i dworzec.',
+           main=main, alt={'pl': './', 'en': R + 'en/', 'de': R + 'de/', 'uk': R + 'ua/'}, typ='poradnik', cta=R + '#zamow', jsonld=ld(graf), lot_url=R + LOT_PL)
+    return [url] + urls
 
 
 def cennik():
@@ -565,7 +844,7 @@ def cennik():
             ps = ({"@type": "UnitPriceSpecification", "price": cena, "priceCurrency": "PLN", "unitCode": jedn} if jedn
                   else {"@type": "PriceSpecification", "price": cena, "priceCurrency": "PLN"})
             oferty.append({"@type": "Offer", "name": nazwa, "priceSpecification": ps, "offeredBy": {"@id": FIRMA_ID}})
-        faq = [(BeautifulSoup(d['cq' + i], 'html.parser').get_text(), BeautifulSoup(d['ca' + i], 'html.parser').get_text()) for i in '1234']
+        faq = [(BeautifulSoup(d['cq' + i], 'html.parser').get_text(), BeautifulSoup(d['ca' + i], 'html.parser').get_text()) for i in '12356784']
         graf = [{"@type": "WebPage", "@id": url + "#strona", "url": url, "name": d['cen.title'], "inLanguage": lang, "isPartOf": {"@id": DOM + "/#www"},
                  "about": {"@id": FIRMA_ID}, "breadcrumb": {"@id": url + "#okruszki"}, "mainEntity": {"@id": url + "#cennik"}},
                 {"@type": "OfferCatalog", "@id": url + "#cennik", "name": d['cen.cap'], "itemListElement": oferty},
@@ -596,21 +875,17 @@ def strona404():
            robots_prod='noindex, follow')
 
 
-def pliki_pomocnicze(dz_urls):
-    # sitemap z hreflang
+def pliki_pomocnicze(dz_urls, por_urls):
+    # sitemap z hreflang (grupy jezykowe z GRUPY)
     def blok(loc, alts):
-        x = ''.join(f'\n    <xhtml:link rel="alternate" hreflang="{h}" href="{u}"/>' for h, u in alts)
+        x = ''.join(f'\n    <xhtml:link rel="alternate" hreflang="{h}" href="{u}"/>' for h, u in (alts or []))
         return f'  <url><loc>{loc}</loc><lastmod>{LASTMOD}</lastmod>{x}</url>\n'
-    home_alts = [('pl', DOM + '/'), ('en', DOM + '/en/'), ('de', DOM + '/de/'), ('uk', DOM + '/ua/'), ('x-default', DOM + '/')]
-    lot_alts = [('pl', DOM + '/' + LOT_PL), ('en', DOM + '/' + LOT_EN), ('x-default', DOM + '/' + LOT_PL)]
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
-    for l in LANGS:
-        sm += blok(DOM + '/' + LDIR[l], home_alts)
-    sm += blok(DOM + '/' + LOT_PL, lot_alts) + blok(DOM + '/' + LOT_EN, lot_alts)
-    cen_alts = [('pl', DOM + '/' + CEN['pl']), ('en', DOM + '/' + CEN['en']), ('de', DOM + '/' + CEN['de']), ('uk', DOM + '/' + CEN['uk']), ('x-default', DOM + '/' + CEN['pl'])]
-    for l in LANGS:
-        sm += blok(DOM + '/' + CEN[l], cen_alts)
-    for u in dz_urls:
+    for g in ('dom', 'lotnisko', 'cennik', 'przemysl', 'trasy', 'firmy', 'okolice'):
+        for l in LANGS:
+            if l in GRUPY[g]:
+                sm += blok(DOM + '/' + GRUPY[g][l], hreflang_g(g))
+    for u in dz_urls + por_urls:
         sm += blok(u, [])
     sm += '</urlset>\n'
     zapisz('sitemap.xml', sm)
@@ -648,9 +923,11 @@ def main():
     lotnisko()
     cennik()
     dz = dzielnice()
+    podstrony()
+    por = poradnik()
     polityka()
     strona404()
-    pliki_pomocnicze(dz)
+    pliki_pomocnicze(dz, por)
     print('OK: strony wygenerowane')
 
 

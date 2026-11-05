@@ -1,0 +1,248 @@
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://taxi24-rzeszow.pl/oferta/#strona",
+   "url": "https://taxi24-rzeszow.pl/oferta/",
+   "name": "Taxi Rzeszów i okolice - Tyczyn, Boguchwała, Łańcut 24h",
+   "inLanguage": "pl",
+   "isPartOf": {
+    "@id": "https://taxi24-rzeszow.pl/#www"
+   },
+   "about": {
+    "@id": "https://taxi24-rzeszow.pl/#firma"
+   },
+   "breadcrumb": {
+    "@id": "https://taxi24-rzeszow.pl/oferta/#okruszki"
+   },
+   "mainEntity": {
+    "@id": "https://taxi24-rzeszow.pl/oferta/#usluga"
+   }
+  },
+  {
+   "@type": "TaxiService",
+   "@id": "https://taxi24-rzeszow.pl/oferta/#usluga",
+   "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://taxi24-rzeszow.pl/#firma",
+    "name": "Taxi Rzeszów 24H",
+    "telephone": "+48536805851",
+    "url": "https://taxi24-rzeszow.pl/"
+   },
+   "availableChannel": {
+    "@type": "ServiceChannel",
+    "servicePhone": {
+     "@type": "ContactPoint",
+     "telephone": "+48536805851",
+     "contactType": "reservations",
+     "availableLanguage": [
+      "pl",
+      "en",
+      "de",
+      "uk"
+     ]
+    }
+   },
+   "hoursAvailable": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday",
+     "Friday",
+     "Saturday",
+     "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+   },
+   "name": "Taxi w Rzeszowie i okolicy",
+   "serviceType": "Taxi",
+   "description": "Kursy taxi we wszystkich dzielnicach Rzeszowa i w miejscowościach wokół miasta, 24/7.",
+   "areaServed": [
+    {
+     "@type": "City",
+     "name": "Rzeszów"
+    },
+    {
+     "@type": "City",
+     "name": "Tyczyn"
+    },
+    {
+     "@type": "City",
+     "name": "Boguchwała"
+    },
+    {
+     "@type": "City",
+     "name": "Głogów Małopolski"
+    },
+    {
+     "@type": "City",
+     "name": "Łańcut"
+    },
+    {
+     "@type": "City",
+     "name": "Krasne"
+    },
+    {
+     "@type": "City",
+     "name": "Świlcza"
+    },
+    {
+     "@type": "City",
+     "name": "Trzebownisko"
+    },
+    {
+     "@type": "City",
+     "name": "Jasionka"
+    },
+    {
+     "@type": "City",
+     "name": "Strzyżów"
+    },
+    {
+     "@type": "City",
+     "name": "Czudec"
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://taxi24-rzeszow.pl/oferta/#okruszki",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Taxi Rzeszów 24H",
+     "item": "https://taxi24-rzeszow.pl/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Dzielnice i okolice",
+     "item": "https://taxi24-rzeszow.pl/oferta/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://taxi24-rzeszow.pl/oferta/#faq",
+   "inLanguage": "pl",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Czy jeździcie z Rzeszowa do Tyczyna, Boguchwały i Łańcuta?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tak, całą dobę. Kursy poza miasto bez powrotu liczymy w taryfie 3 (8 zł/km) lub nocą w taryfie 4 (11 zł/km), plus opłata początkowa 10 zł."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Czy odbierzecie mnie z miejscowości pod Rzeszowem na lotnisko Jasionka?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tak. Podaj adres i godzinę odbioru, przy przylocie numer lotu - lot monitorujemy, a czas oczekiwania jest bezpłatny."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Czy kurs z okolicy można wycenić z góry?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tak, przy dłuższych kursach zapytaj o indywidualną wycenę - podamy cenę przy potwierdzeniu zamówienia."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Czy jeździcie na Słocinę i inne osiedla, których nie ma na liście?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tak, jeździmy po całym Rzeszowie - wystarczy podać adres."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "ItemList",
+   "@id": "https://taxi24-rzeszow.pl/oferta/#dzielnice",
+   "name": "Taxi w dzielnicach Rzeszowa",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Taxi Śródmieście",
+     "url": "https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-srodmiescie/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Taxi Staromieście",
+     "url": "https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-staromiescie/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Taxi Nowe Miasto",
+     "url": "https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-nowe-miasto/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Taxi Baranówka",
+     "url": "https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-baranowka/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "Taxi Drabinianka",
+     "url": "https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-drabinianka/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "Taxi Wilkowyja",
+     "url": "https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-wilkowyja-2/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "Taxi Pobitno",
+     "url": "https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-pobitno/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "name": "Taxi Zalesie",
+     "url": "https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-zalesie/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "name": "Taxi Biała",
+     "url": "https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-biala/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "name": "Taxi Budziwój",
+     "url": "https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-budziwoj/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "name": "Taxi Krakowska-Południe",
+     "url": "https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-krakowska-poludnie/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "name": "Taxi Załęże",
+     "url": "https://taxi24-rzeszow.pl/oferta/taxi-rzeszow-zaleze/"
+    }
+   ]
+  }
+ ]
+}
