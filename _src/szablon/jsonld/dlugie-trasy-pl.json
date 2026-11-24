@@ -60,7 +60,7 @@
    },
    "name": "Taxi z Rzeszowa do Krakowa, Katowic, Lublina i Warszawy oraz na lotniska",
    "serviceType": "Taxi międzymiastowe i transfery lotniskowe",
-   "description": "Przejazdy spod drzwi pod drzwi z Rzeszowa do Krakowa, Katowic, Lublina, Warszawy i na lotniska KRK, KTW, LUZ, WAW, w obie strony, 24/7. Cena przy potwierdzeniu.",
+   "description": "Przejazdy spod drzwi pod drzwi z Rzeszowa do Krakowa, Katowic, Lublina, Warszawy i na lotniska KRK, KTW, LUZ, WAW, w obie strony, 24/7.",
    "areaServed": [
     {
      "@type": "City",
@@ -132,7 +132,7 @@
      "name": "Czy jeździcie z Rzeszowa na lotnisko w Krakowie?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Tak, na lotnisko Kraków-Balice (KRK) jeździmy całą dobę. Cenę podajemy przy potwierdzeniu zamówienia."
+      "text": "Tak, na lotnisko Kraków-Balice (KRK) jeździmy całą dobę."
      }
     },
     {
@@ -140,7 +140,7 @@
      "name": "Ile kosztuje taxi z Rzeszowa do Krakowa?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Trasę wyceniamy indywidualnie i podajemy cenę przed kursem, SMS-em lub telefonicznie. Przy dłuższych trasach cenę można negocjować."
+      "text": "Trasę wyceniamy indywidualnie. Przy dłuższych trasach cenę można negocjować."
      }
     },
     {

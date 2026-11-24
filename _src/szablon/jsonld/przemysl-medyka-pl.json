@@ -60,7 +60,7 @@
    },
    "name": "Taxi Rzeszów - Przemyśl i przejście graniczne w Medyce",
    "serviceType": "Taxi międzymiastowe",
-   "description": "Kursy taxi z Rzeszowa i z lotniska Rzeszów-Jasionka do Przemyśla i na przejście graniczne Medyka-Szeginie, w obie strony, 24/7. Cena podawana przy potwierdzeniu zamówienia.",
+   "description": "Kursy taxi z Rzeszowa i z lotniska Rzeszów-Jasionka do Przemyśla i na przejście graniczne Medyka-Szeginie, w obie strony, 24/7.",
    "areaServed": [
     {
      "@type": "City",
@@ -117,7 +117,7 @@
      "name": "Ile kosztuje taxi z Rzeszowa do Przemyśla?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Trasę wyceniamy indywidualnie i podajemy cenę przy potwierdzeniu zamówienia, SMS-em lub telefonicznie. Taryfa dla kursów poza miasto bez powrotu to 8 zł/km w dzień i 11 zł/km w nocy, plus 10 zł opłaty początkowej, ale przy dłuższych trasach cenę można negocjować."
+      "text": "Trasę wyceniamy indywidualnie. Taryfa dla kursów poza miasto bez powrotu to 8 zł/km w dzień i 11 zł/km w nocy, plus 10 zł opłaty początkowej, ale przy dłuższych trasach cenę można negocjować."
      }
     },
     {

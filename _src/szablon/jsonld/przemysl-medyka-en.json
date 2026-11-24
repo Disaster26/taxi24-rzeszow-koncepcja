@@ -60,7 +60,7 @@
    },
    "name": "Taxi from Rzeszów Airport to Przemyśl and the Medyka border crossing",
    "serviceType": "Intercity taxi",
-   "description": "Taxi from Rzeszów-Jasionka Airport (RZE) and Rzeszów to Przemyśl and the Medyka-Shehyni border crossing, both ways, 24/7. Price confirmed before the ride.",
+   "description": "Taxi from Rzeszów-Jasionka Airport (RZE) and Rzeszów to Przemyśl and the Medyka-Shehyni border crossing, both ways, 24/7.",
    "areaServed": [
     {
      "@type": "City",
@@ -117,7 +117,7 @@
      "name": "How much is a taxi from Rzeszów Airport to Medyka?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "The route is priced individually; we confirm the price by text or phone before the ride."
+      "text": "The route is priced individually."
      }
     },
     {

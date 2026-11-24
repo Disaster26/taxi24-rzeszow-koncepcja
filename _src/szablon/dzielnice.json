@@ -295,11 +295,11 @@
   "h1": "Taxi Wilkowyja Rzeszów 24h",
   "lead": "Odbieramy z Lwowskiej, Leszka Czarnego, Olbrachta, Witolda i Litewskiej - całą dobę. Zadzwoń, napisz na WhatsApp albo zamów online.",
   "akapit_h": "Z Wilkowyi do centrum i w stronę Przemyśla",
-  "akapit": "Wilkowyja leży przy ulicy Lwowskiej, czyli przy wylocie z Rzeszowa w kierunku wschodnim. Poza kursami po mieście, na dworzec i na lotnisko wozimy stąd także dalej: do Łańcuta, <a href=\"../../taxi-rzeszow-przemysl-medyka/\">Przemyśla i do przejścia granicznego w Medyce</a>. Dłuższe trasy wyceniamy indywidualnie, a cenę podajemy przy potwierdzeniu zamówienia.",
+  "akapit": "Wilkowyja leży przy ulicy Lwowskiej, czyli przy wylocie z Rzeszowa w kierunku wschodnim. Poza kursami po mieście, na dworzec i na lotnisko wozimy stąd także dalej: do Łańcuta, <a href=\"../../taxi-rzeszow-przemysl-medyka/\">Przemyśla i do przejścia granicznego w Medyce</a>. Dłuższe trasy wyceniamy indywidualnie.",
   "faq": [
    {
     "q": "Czy z Wilkowyi pojedziecie do Przemyśla albo do Medyki?",
-    "a": "Tak, o każdej porze. Trasę wyceniamy indywidualnie i podajemy cenę przy potwierdzeniu zamówienia."
+    "a": "Tak, o każdej porze. Trasę wyceniamy indywidualnie."
    },
    {
     "q": "Ile kosztuje kurs po Rzeszowie z Wilkowyi?",
@@ -548,11 +548,11 @@
   "h1": "Taxi Krakowska-Południe Rzeszów 24h",
   "lead": "Podjeżdżamy na Krakowską, Rataja, Solarza, Lewakowskiego i Zbyszewskiego - o każdej porze. Zadzwoń, napisz na WhatsApp albo zamów online.",
   "akapit_h": "Z Krakowskiej-Południe w dłuższe trasy",
-  "akapit": "Osiedle leży przy ulicy Krakowskiej, czyli przy wylocie z Rzeszowa na zachód. Poza kursami po mieście i na lotnisko Jasionka wozimy stąd <a href=\"../../taxi-rzeszow-krakow-katowice/\">na lotniska w Krakowie i Katowicach</a> oraz do innych miast. Dłuższe trasy wyceniamy indywidualnie - cenę podajemy przy potwierdzeniu, a na kurs warto umówić się z wyprzedzeniem.",
+  "akapit": "Osiedle leży przy ulicy Krakowskiej, czyli przy wylocie z Rzeszowa na zachód. Poza kursami po mieście i na lotnisko Jasionka wozimy stąd <a href=\"../../taxi-rzeszow-krakow-katowice/\">na lotniska w Krakowie i Katowicach</a> oraz do innych miast. Dłuższe trasy wyceniamy indywidualnie, a na kurs warto umówić się z wyprzedzeniem.",
   "faq": [
    {
     "q": "Czy pojedziecie z Rzeszowa na lotnisko w Krakowie?",
-    "a": "Tak, jeździmy na lotniska Kraków-Balice i Katowice-Pyrzowice. Cenę podajemy przy potwierdzeniu zamówienia."
+    "a": "Tak, jeździmy na lotniska Kraków-Balice i Katowice-Pyrzowice."
    },
    {
     "q": "Ile kosztuje kurs po mieście z Krakowskiej-Południe?",
